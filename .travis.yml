@@ -13,12 +13,13 @@ before_install:
   - mv travis_rsa ~/.ssh/id_rsa
 
 
+script: cd client && npm test && cd ../
+
 install:
   - cd client
   - npm i
   - cd ../
-  - cd server
-  - npm i
+  - ls -la
 
 after_success:
   - chmod +x ./deploy.sh && bash ./deploy.sh
