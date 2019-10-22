@@ -1,0 +1,6 @@
+html {
+  --white-color: white;
+  --black-color: black;
+}
+.separator-common{width:100%;height:4px;background:var(--black-color);display:block}.portfolio-block a{color:var(--white-color);text-decoration:underline}.portfolio-block .separator-common{margin-bottom:15px}
+

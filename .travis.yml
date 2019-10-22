@@ -5,21 +5,27 @@ node_js:
 
 addons:
   ssh_known_hosts: kletskovg.tech
+  apt:
+    packages:
+      - libgconf-2-4
 
+
+cache:
+  npm: true
+  yarn: true
+  directories:
+    - ~/.cache
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_3df2abd2657e_key -iv $encrypted_3df2abd2657e_iv -in travis_rsa.enc -out travis_rsa -d
   - chmod 600 travis_rsa
   - mv travis_rsa ~/.ssh/id_rsa
 
-
-script: cd client && npm test && cd ../
-
 install:
   - cd client
-  - npm i
-  - cd ../
-  - ls -la
+  - npm i --save-dev
+
+script: cd client && npm  test && cd ../
 
 after_success:
   - chmod +x ./deploy.sh && bash ./deploy.sh

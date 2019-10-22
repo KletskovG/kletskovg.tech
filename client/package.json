@@ -1,15 +1,45 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo Hello world from Client Folder"
+    "dev": "webpack-dev-server",
+    "test": "start-server-and-test dev http-get://localhost:3030 cy:run",
+    "cy:run": "cypress run",
+    "build": "webpack",
+    "import:Images": "tsc ./utility/importImages.ts && node ./utility/importImages.js && rm -rf ./utility/importImages.js",
+    "import:Styles": "tsc ./utility/importStyle.ts && node ./utility/importStyles.js && rm -rf ./utility/importStyles.js",
+    "import:SVG": "tsc ./utility/importSVG.ts && node ./utility/importSVG.js && rm -rf ./utility/importSVG.js",
+    "import:Scripts": "tsc ./utility/importSctipts.ts && node ./utility/importScripts.js && rm -rf ./utility/importScripts.js",
+    "import:OneSVG": "tsc ./utility/importOneSVG.ts && node ./utility/importOneSVG.js && rm -rf ./utility/importOneSVG.js",
+    "add:Todo": "tsc ./utility/addTodo.ts && node ./utility/addTodo.js && rm -rf ./utility/addTodo.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@types/node": "^12.11.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "bluebird": "^3.7.1",
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^4.2.0",
+    "line-reader": "^0.4.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "sass-loader": "^8.0.0",
+    "start-server-and-test": "^1.10.6",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "cypress": "^3.4.1",
+    "node-sass": "^4.12.0"
   }
 }
