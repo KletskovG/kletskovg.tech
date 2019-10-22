@@ -25,7 +25,11 @@ install:
   - cd client
   - npm i --save-dev
 
-script: cd client && npm  test && cd ../
+script:
+  - ls -la
+  - cd client
+  - npm  test
+  - cd ../
 
 after_success:
   - chmod +x ./deploy.sh && bash ./deploy.sh
