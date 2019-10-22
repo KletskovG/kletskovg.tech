@@ -24,6 +24,7 @@ before_install:
 install:
   - cd client
   - npm i --save-dev
+  - cd ${TRAVIS_BUILD_DIR}
 
 script:
   - ls -la
