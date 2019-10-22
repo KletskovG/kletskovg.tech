@@ -13,8 +13,8 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
   git status
 
-  git add -- client ':!client/src'
-  git add -- server ':!server/src'
+  git add -- client/ ':!client/src'
+  git add -- server/ ':!server/src'
   git commit -m "Deploy"
   git push --force deploy master
 else
