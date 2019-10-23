@@ -1,0 +1,9 @@
+.gradient {
+    background: var(--main-gradient);
+}
+
+.separator-common {
+    height: 2px;
+    width: 100%;
+    background: var(--black-color);
+}

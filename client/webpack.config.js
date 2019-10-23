@@ -68,7 +68,7 @@ module.exports = {
   devServer: {
     stats: 'errors-only',
     overlay: true,
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'dist/pages/'),
     compress: false,
     port: 3030,
     open: true,
