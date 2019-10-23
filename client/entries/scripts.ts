@@ -1,1 +1,1 @@
-import '../src/scripts/sendEmail';
+import '../src/scripts/sendEmail.ts'; 

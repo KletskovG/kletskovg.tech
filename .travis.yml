@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - 10
+  - 12
 
 addons:
   ssh_known_hosts: kletskovg.tech
@@ -9,6 +9,9 @@ addons:
     packages:
       - libgconf-2-4
 
+branches:
+  only:
+    - master
 
 cache:
   npm: true

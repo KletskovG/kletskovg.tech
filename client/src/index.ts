@@ -1,6 +1,6 @@
 import '../entries/icons';
 import '../entries/pages';
-import '../entries/scripts';
-import '../entries/image';
+import '../entries/scipts';
+import '../entries/images';
 // import './assets/scss/main.scss';
-import '../entries/css';
+import '../entries/styles';
