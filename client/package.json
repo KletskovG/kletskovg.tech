@@ -4,15 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev:server": "webpack-dev-server",
     "test": "start-server-and-test dev http-get://localhost:3030 cy:run",
     "cy:run": "cypress run",
-    "build": "webpack",
+    "dev:build": "webpack",
     "import:Images": "tsc ./utility/importImages.ts && node ./utility/importImages.js && rm -rf ./utility/importImages.js",
     "import:Styles": "tsc ./utility/importStyle.ts && node ./utility/importStyles.js && rm -rf ./utility/importStyles.js",
     "import:SVG": "tsc ./utility/importSVG.ts && node ./utility/importSVG.js && rm -rf ./utility/importSVG.js",
     "import:Scripts": "tsc ./utility/importSctipts.ts && node ./utility/importScripts.js && rm -rf ./utility/importScripts.js",
-    "import:OneSVG": "tsc ./utility/importOneSVG.ts && node ./utility/importOneSVG.js && rm -rf ./utility/importOneSVG.js",
+    "import:one": "tsc ./utility/universal_Import.ts && node ./utility/universal_Import.js && rm ./utility/universal_Import.js",
     "add:Todo": "tsc ./utility/addTodo.ts && node ./utility/addTodo.js && rm -rf ./utility/addTodo.js"
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "file-loader": "^4.2.0",
     "line-reader": "^0.4.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.0",
     "start-server-and-test": "^1.10.6",
     "style-loader": "^1.0.0",

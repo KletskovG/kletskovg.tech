@@ -1,0 +1,15 @@
+{
+  "keys": [
+    "svg",
+    "css",
+    "ts",
+    "image",
+    "html"
+  ],
+  "paths": [
+    {"svg":  ""},
+    {"css":  ""},
+    {"ts":  ""},
+    {"image":  ""}
+  ]
+}

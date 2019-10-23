@@ -23,9 +23,9 @@ module.exports = {
         },
       },
        {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
-          {
+            {
             loader: MiniCssExtractPlugin.loader,
             options: {
               // you can specify a publicPath here
@@ -35,7 +35,6 @@ module.exports = {
             },
           },
           'css-loader',
-          'sass-loader',
         ],
       },
       {
@@ -67,8 +66,12 @@ module.exports = {
     }),
   ],
   devServer: {
+    stats: 'errors-only',
+    overlay: true,
     contentBase: path.join(__dirname, 'dist'),
     compress: false,
     port: 3030,
+    open: true,
+
   }
 };
