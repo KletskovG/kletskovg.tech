@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev:server": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "test": "start-server-and-test dev http-get://localhost:3030 cy:run",
     "cy:run": "cypress run",
     "dev:build": "webpack",
