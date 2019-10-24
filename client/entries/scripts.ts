@@ -1,1 +1,1 @@
-import '../src/scripts/sendEmail.ts'; 
+import '../src/scripts/setImages.js';
