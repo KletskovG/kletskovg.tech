@@ -43,7 +43,7 @@ a:hover {
 
 }
 
-.header__navigation a {
+.header__navigation a{
     color: var(--white-color);
     margin-right: 15px;
 }
@@ -55,9 +55,15 @@ a:hover {
 /*HEADER END*/
 
 /*GREETINGS START*/
-.greetings h1 {
-    font-weight: normal;
+.greetings {
+    margin-top: 10vh;
+    margin-bottom: 25vh;
+}
+
+.greetings p {
+    font-weight: lighter;
     text-align: center;
+    font-size: 15px;
 }
 /*GREETINGS END*/
 
@@ -144,12 +150,70 @@ a:hover {
 }
 
 /* PORTFOLIO END */
+
+/*FOOTER START*/
+.footer {
+    width: 100vw;
+    margin-top: 10vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer__navigation {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__navigation .nav__link:hover {
+    text-decoration: underline;
+    color: var(--black-color);
+}
+
+.footer__social {
+    width: 20%;
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: -15px;
+}
+
+.footer__social img {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    transition: .3s all ease;
+    fill: var(--svg-fill);
+}
+
+.social-icon:hover  .icon {
+    transition: .3s all ease;
+    fill: var(--svg-fillHover);
+}
+
+
+/*FOOTER END*/
 html {
     /*COLORS*/
     --white-color: white;
     --black-color: black;
     --main-gradient: linear-gradient(120deg,#7f70f5,#0ea0ff);
     --project-bg: rgba(0,0,0, 0.4);
+    --svg-fill: #D3D7DE;
+    --svg-fillHover: #C5C9D2;
 
     /*   Z-INDEXES */
     --portfolio-imageIndex: -1;

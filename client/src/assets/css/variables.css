@@ -4,6 +4,8 @@ html {
     --black-color: black;
     --main-gradient: linear-gradient(120deg,#7f70f5,#0ea0ff);
     --project-bg: rgba(0,0,0, 0.4);
+    --svg-fill: #D3D7DE;
+    --svg-fillHover: #C5C9D2;
 
     /*   Z-INDEXES */
     --portfolio-imageIndex: -1;
