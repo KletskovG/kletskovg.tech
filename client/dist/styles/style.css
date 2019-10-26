@@ -72,6 +72,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 10vw;
 }
 
 .portfolio > h2 {
@@ -86,6 +87,7 @@ a:hover {
     position: relative;
     height: 25vh;
     transition: .3s all ease;
+    margin: 0;
 }
 
 .portfolio__project:hover {
@@ -182,6 +184,7 @@ a:hover {
     width: 20%;
     display: flex;
     margin-top: 20px;
+    margin-bottom: 20px;
     justify-content: space-around;
     align-items: center;
     padding-left: -15px;

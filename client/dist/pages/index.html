@@ -5,14 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kletskov Gleb</title>
+    <title>Kletskov Gleb | Home</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet">
-<!--    <link rel="stylesheet" href="../styles/fonts/ionicons.min.css">-->
     <link rel="stylesheet" href="../styles/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-<svg width="0" height="0" class="hidden">
+<svg width="0" height="0" class="hidden sprite">
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" id="address-book">
         <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z"></path>
     </symbol>
@@ -47,15 +46,23 @@
 
 <!--Header start-->
     <header class="header gradient">
-        <div class="container header__wrapper">
-            <a href="#" class="logo">Kletskov Gleb  </a>
+        <div class="container header__wrapper header__desktop">
+            <a href="/" class="logo">
+                <svg height="30" width="200">
+                    <text x="0" y="20" fill="white">Kletskov Gleb</text>
+                </svg>
+            </a>
             <nav class="header__navigation">
-                <a href="#" class="nav__link">Home</a>
-                <a href="#" class="nav__link">Projects</a>
-                <a href="#" class="nav__link">About</a>
-                <a href="#" class="nav__link">Blog</a>
-                <a href="#" class="nav__link">Contact</a>
+                <a href="/" class="nav__link">Home</a>
+                <a href="/projects" class="nav__link">Projects</a>
+                <a href="/about-me" class="nav__link">About</a>
+                <a href="/blog" class="nav__link">Blog</a>
+                <a href="/contact" class="nav__link">Contact</a>
             </nav>
+        </div>
+
+        <div class="container hader__wrapper header__mobile">
+
         </div>
     </header>
 <!--  Header end  -->
@@ -80,13 +87,6 @@
                          alt="Telegram Coding Constest">
                 </a>
             </div>
-            <div class="portfolio__project rounded col-lg-4 offset-1 col-sm-10">
-                <a href="https://github.com/kletskovg/faceRecog" target="_blank"
-                   class="portfolio__project-link rounded">
-                    <div> Face Recognition </div>
-                    <img src="../images/FaceRecog.jpg" alt="Face Recognition">
-                </a>
-            </div>
         </section>
         <section class="info row">
 
@@ -94,30 +94,31 @@
     </main>
     <!--FOOTER START-->
     <footer class="row footer">
-        <div class="footer__navigation w-50">
-            <a href="#" class="nav__link">Home</a>
-            <a href="#" class="nav__link">Projects</a>
-            <a href="#" class="nav__link">About</a>
-            <a href="#" class="nav__link">Blog</a>
-            <a href="#" class="nav__link">Contact</a>
+        <div class="footer__navigation w-75">
+            <a href="/" class="nav__link">Home</a>
+            <a href="/projects" class="nav__link">Projects</a>
+            <a href="/about-me" class="nav__link">About</a>
+            <a href="/blog" class="nav__link">Blog</a>
+            <a href="/contact" class="nav__link">Contact</a>
         </div>
         <div class="footer__social">
-            <a href="#" class="social-icon">
-               <svg class="icon">
-                   <use xlink:href="#medium-m"></use>
-               </svg>
+            <a href="https://medium.com/@gfgfddgleb"  target="_blank" class="social-icon">
+                <svg class="icon">
+                    <use xlink:href="#medium-m"></use>
+                </svg>
             </a>
-            <a href="#" class="social-icon">
+            <a href="https://github.com/KletskovG"  target="_blank" class="social-icon">
                 <svg class="icon">
                     <use xlink:href="#github"></use>
                 </svg>
             </a>
-            <a href="#" class="social-icon">
+            <a href="https://www.linkedin.com/in/gleb-kletskov-798445194/" target="_blank"
+               class="social-icon">
                 <svg class="icon">
                     <use xlink:href="#linkedin-in"></use>
                 </svg>
             </a>
-            <a href="#" class="social-icon">
+            <a href="https://www.instagram.com/mb_42/"  target="_blank" class="social-icon">
                 <svg class="icon">
                     <use xlink:href="#instagram"></use>
                 </svg>
@@ -130,6 +131,6 @@
     </footer>
     <!--FOOTER END-->
 
-    <script src="../main.js"></script>
+<script src="../main.js"></script>
 </body>
 </html>
