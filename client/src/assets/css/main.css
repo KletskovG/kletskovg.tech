@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     padding: 0;
@@ -26,6 +27,36 @@ a:hover {
     padding: 2%;
     width: 100vw;
 }
+
+.header__mobile {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__mobile-button {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header__mobile-button .block {
+    width: 20px;
+    height: 4px;
+    background: var(--white-color);
+    margin-top: 5px;
+}
+
+/*.header__mobile-button span {*/
+/*    position: relative;*/
+/*    width: 20px;*/
+/*    height: 2px;*/
+/*    background: var(--white-color);*/
+/*}*/
+
 
 .header .logo {
     color: var(--white-color);
@@ -207,13 +238,18 @@ a:hover {
     transition: .3s all ease;
     fill: var(--svg-fillHover);
 }
-/*FOOTER END*/
+ /*FOOTER END*/
 
 /* MEDIA QUERIES START*/
-@media screen and (max-width: 780px) {
-        body {
-            background: green;
-        }
+@media screen and (max-width: 760px) {
+
+    .header__desktop {
+        display: none;
+    }
+
+    .header__mobile {
+        display: flex;
+    }
 }
 /* MEDIA QUERIES END*/
 
