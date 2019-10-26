@@ -207,6 +207,29 @@ a:hover {
     transition: .3s all ease;
     fill: var(--svg-fillHover);
 }
-
-
 /*FOOTER END*/
+
+/* MEDIA QUERIES START*/
+@media screen and (max-width: 780px) {
+        body {
+            background: green;
+        }
+}
+/* MEDIA QUERIES END*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
