@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+const PORT = process.env.port || 4200;
+
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 
@@ -26,6 +28,6 @@ app.get('/contact', (req, res) => {
 });
 
 
-app.listen(8080, () => {
-    console.log('Now you are listening to port number 8080');
+app.listen(PORT, () => {
+    console.log(`Now you are listening to port number ${PORT}`);
 });
