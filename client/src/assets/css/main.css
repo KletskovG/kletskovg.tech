@@ -123,13 +123,14 @@ a:hover {
 
 .portfolio__project-link  div {
     color: var(--white-color);
-    display: none;
+    display: flex;
+    opacity: 0;
     transition: .3s all ease;
 }
 
 .portfolio__project-link:hover div {
     color: var(--white-color);
-    display: flex;
+    opacity: 1;
 }
 
 
