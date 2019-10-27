@@ -28,6 +28,7 @@ install:
   - cd client
   - npm i --save-dev
   - cd ${TRAVIS_BUILD_DIR}
+  - node ./server/src/app.js
 
 script:
   - ls -la
