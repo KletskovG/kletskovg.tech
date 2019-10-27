@@ -6,7 +6,7 @@
   "scripts": {
     "dev:server": "webpack-dev-server",
     "dev": "webpack-dev-server",
-    "test": "start-server-and-test dev http-get://localhost:3030 cy:run",
+    "test": "node ../server/src/app.js & start-server-and-test dev http-get://localhost:3030 cy:run",
     "cy:run": "cypress run",
     "dev:build": "webpack",
     "import:Images": "tsc ./utility/importImages.ts && node ./utility/importImages.js && rm -rf ./utility/importImages.js",
