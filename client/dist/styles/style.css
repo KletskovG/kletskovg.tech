@@ -22,6 +22,7 @@ a:hover {
 }
 
 /* HEADER START */
+
 .header {
     position: fixed;
     top: 0;
@@ -31,7 +32,7 @@ a:hover {
     padding: 2%;
     width: 100vw;
 
-    z-index: var(--header-index);
+    z-index: var(--header-Index);
 }
 
 .header__mobile {
@@ -100,6 +101,8 @@ a:hover {
 
     transition: .3s all ease;
     transform: translateX(500px);
+
+    box-shadow: -9px -1px 5px -5px rgba(0,0,0,0.75);
 }
 
 .menu_is-active {
@@ -139,6 +142,7 @@ a:hover {
 /*HEADER END*/
 
 /*GREETINGS START*/
+
 .greetings {
     margin-top: 10vh;
     margin-bottom: 25vh;
@@ -149,7 +153,33 @@ a:hover {
     text-align: center;
     font-size: 15px;
 }
+
 /*GREETINGS END*/
+
+.info {
+    color: var(--white-color);
+    margin-top: 20vh;
+    padding: 5% 0;
+}
+
+.info a {
+    text-decoration: underline;
+}
+
+.info .wallpaper  img{
+    width: 100%;
+    border-radius: 6px;
+}
+
+/*MAIN START*/
+
+main {
+    padding-top: 10vh;
+}
+
+
+
+/* MAIN END */
 
 /*PORTFOLIO START*/
 .portfolio {
@@ -239,11 +269,13 @@ a:hover {
 /* PORTFOLIO END */
 
 /*FOOTER START*/
+
 .footer {
     width: 100vw;
     margin-top: 10vh;
     padding-top: 5vh;
     padding-bottom: 5vh;
+    margin-left: 0;
     border-top: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -274,11 +306,6 @@ a:hover {
     padding-left: -15px;
 }
 
-.footer__social img {
-    width: 20px;
-    height: 20px;
-    margin-right: 15px;
-}
 
 .icon {
     width: 40px;
@@ -291,9 +318,11 @@ a:hover {
     transition: .3s all ease;
     fill: var(--svg-fillHover);
 }
+
  /*FOOTER END*/
 
 /* MEDIA QUERIES START*/
+
 @media screen and (max-width: 760px) {
 
     .header__desktop {
@@ -304,6 +333,7 @@ a:hover {
         display: flex;
     }
 }
+
 /* MEDIA QUERIES END*/
 
 
@@ -335,7 +365,7 @@ html {
     /*   Z-INDEXES */
     --portfolio-imageIndex: -1;
     --mobile-buttonIndex: 2;
-    --header-Index: 3;
+    --header-Index: 6;
 }
 .gradient {
     background: var(--main-gradient);
