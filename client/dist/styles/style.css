@@ -376,3 +376,51 @@ html {
     width: 100%;
     background: var(--black-color);
 }
+
+.button-common {
+    border-radius: 6px;
+    padding: 10px 40px;
+    color: var(--white-color);
+    background: var(--main-gradient);
+}
+
+.button-common:active {
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.email input {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.email textarea {
+    margin-bottom: 25px;
+}
+
+.about {
+
+}
+
+.about__info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.about__info {
+
+}
+
+.about__info-image img {
+    border-radius: 50%;
+    width: 50vw;
+}
+
+

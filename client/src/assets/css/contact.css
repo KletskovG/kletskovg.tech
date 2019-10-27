@@ -1,0 +1,15 @@
+.email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.email input {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.email textarea {
+    margin-bottom: 25px;
+}
