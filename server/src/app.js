@@ -10,9 +10,15 @@ const fs = require('fs');
 
 const nodemailer = require('nodemailer');
 
-const CONFIG = JSON.parse(fs.readFileSync(path.join(__dirname, '../serverconfig.json'), 'utf8'));
+let CONFIG;
 
-console.log(CONFIG.email)
+try {
+    CONFIG = JSON.parse(fs.readFileSync(path.join(__dirname, '../serverconfig.json'), 'utf8'));
+} catch (err) {
+    console.log(err);
+    CONFIG = null;
+}
+
 
 const PORT = process.env.port || 4200;
 
