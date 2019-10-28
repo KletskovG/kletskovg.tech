@@ -49,7 +49,7 @@ app.post('/email', (req, res) => {
 
     const subject = req.body.subject;
     const from = req.body.from;
-    const text = req.body.text;
+    const text = req.body.text + '\n\n Letter from kletskovg.tech';
 
     if (!subject || !from || !text) {
         console.log('One of the vields was not valid');
