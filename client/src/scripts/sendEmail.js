@@ -1,6 +1,6 @@
-function contactMe() {
-    alert('Contact me!')
+//TODO: refactor this file
 
+function contactMe() {
     const sendButton = document.querySelector('.email-send');
 
     if (!sendButton) {
@@ -16,25 +16,33 @@ function contactMe() {
 
 function sendEmail() {
     const subject = document.querySelector('.topic').value;
-    const name = document.querySelector('.name').value;
+    const from = document.querySelector('.name').value;
     const text = document.querySelector('.your-text').value;
 
-    if (!subject || !name || !text) {
-        console.log('SOme of fields was not send correctly');
+    if (!subject || !from || !text) {
+        alert('Some fields was not filled correctly');
         return;
     }
 
-    const body = JSON.stringify({ subject, name, text });
+    const body = JSON.stringify({ subject, from, text });
 
     console.log(body);
 
     fetch('http://localhost:4200/email', {
         method: 'post',
-        mode: 'no-cors',
+        headers: {
+            'Content-type': 'application/json',
+        },
         body,
     })
-        .then(res => res.json())
-        .then(res => console.log(res))
+        .then(res => {
+            if (res.status === 200) {
+                alert('Email was sent to me!');
+            }
+            else {
+                alert(res.json().message);
+            }
+        })
         .catch(err => console.log(err));
 }
 
