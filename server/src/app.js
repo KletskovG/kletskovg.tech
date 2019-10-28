@@ -57,7 +57,7 @@ app.post('/email', (req, res) => {
         res.status(400).send(JSON.stringify(message));
         return;
     }
-    
+
     //
     const transporter = nodemailer.createTransport({
         service: 'yandex',
