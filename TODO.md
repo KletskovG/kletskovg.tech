@@ -12,3 +12,5 @@
  - Update and refactor universalImport file  on line  1  in file  universalImport.ts 
  
  - Make several css file  on line  1  in file  main.css 
+ 
+ - inject base url  on line  1  in file  app.js 
