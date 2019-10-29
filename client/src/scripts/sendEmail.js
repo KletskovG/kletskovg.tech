@@ -30,8 +30,10 @@ function sendEmail() {
 
     fetch('http://kletskovg.tech/email', {
         method: 'post',
+        mode: 'cors',
         headers: {
             'Content-type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
         },
         body,
     })
