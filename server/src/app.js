@@ -10,6 +10,8 @@ const fs = require('fs');
 
 const nodemailer = require('nodemailer');
 
+const cors = require('cors');
+
 let CONFIG;
 
 try {
@@ -23,11 +25,9 @@ try {
 const PORT = process.env.port || 4200;
 
 
-
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 app.use(express.json());
-
-// const urlEncodedParser = bodyParser.urlencoded({ extended: false });
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/dist/pages/index.html'));
