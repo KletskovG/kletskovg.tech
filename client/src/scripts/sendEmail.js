@@ -28,6 +28,8 @@ function sendEmail() {
 
     console.log(body);
 
+    alert('The mail was send to me!');
+
     fetch('http://kletskovg.tech/email', {
         method: 'post',
         mode: 'no-cors',
