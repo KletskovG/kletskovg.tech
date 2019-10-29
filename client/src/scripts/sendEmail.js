@@ -38,11 +38,14 @@ function sendEmail() {
     })
         .then(res => res.json())
         .then(res => {
-            console.log(res.message)
-            alert('Email was sent to me!');
 
             if (res.status === 200) {
+                console.log(res.message)
+                alert('Email was sent to me!');
+            }
 
+            else {
+                alert('There was an error')
             }
         })
         .catch(err => console.log(err));

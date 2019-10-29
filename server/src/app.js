@@ -27,7 +27,9 @@ const PORT = process.env.port || 4200;
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 app.use(express.json());
-app.use(cors());
+app.use(express.json({
+    type: ['application/json', 'text/plain']
+}));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/dist/pages/index.html'));
@@ -52,7 +54,6 @@ app.get('/contact', (req, res) => {
 
 app.post('/email', (req, res) => {
     console.log(req.body)
-    fs.appendFileSync(path.join(__dirname, 'log.txt'), JSON.stringify(req.body), 'utf8');
 
     const subject = req.body.subject;
     const from = req.body.from;
