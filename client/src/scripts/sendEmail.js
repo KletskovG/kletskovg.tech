@@ -28,7 +28,7 @@ function sendEmail() {
 
     console.log(body);
 
-    fetch('http://localhost:4200/email', {
+    fetch('http://kletskovg.tech/email', {
         method: 'post',
         headers: {
             'Content-type': 'application/json',
