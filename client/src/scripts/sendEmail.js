@@ -30,19 +30,19 @@ function sendEmail() {
 
     fetch('http://kletskovg.tech/email', {
         method: 'post',
-        mode: 'cors',
+        mode: 'no-cors',
         headers: {
             'Content-type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
         },
         body,
     })
+        .then(res => res.json())
         .then(res => {
+            console.log(res.message)
+            alert('Email was sent to me!');
+
             if (res.status === 200) {
-                alert('Email was sent to me!');
-            }
-            else {
-                alert(res.json().message);
+
             }
         })
         .catch(err => console.log(err));
