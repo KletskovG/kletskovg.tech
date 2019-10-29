@@ -52,6 +52,7 @@ app.get('/contact', (req, res) => {
 
 app.post('/email', (req, res) => {
     console.log(req.body)
+    fs.appendFileSync(path.join(__dirname, 'log.txt'), JSON.stringify(req.body), 'utf8');
 
     const subject = req.body.subject;
     const from = req.body.from;
