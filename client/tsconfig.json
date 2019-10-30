@@ -1,12 +1,26 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "esnext",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "./dist",
-    "lib": [
-      "es2015",
-      "dom"
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
     ],
-    "jsx": "react"
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

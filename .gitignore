@@ -66,3 +66,5 @@ typings/
 .idea
 
 client/cypress/videos
+
+client_old/
