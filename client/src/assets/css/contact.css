@@ -1,0 +1,26 @@
+.email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.email input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border:1px solid var(--black-color);
+}
+
+.email textarea {
+    margin-bottom: 25px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    opacity: 0;
+}

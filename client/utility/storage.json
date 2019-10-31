@@ -1,0 +1,23 @@
+{
+  "keys": [
+    "svg",
+    "css",
+    "script",
+    "image",
+    "page"
+  ],
+  "paths": [
+    "svg--../entries/svg.ts",
+    "css--../entries/styles.ts",
+    "script--../entries/scripts.ts",
+    "image--../entries/images.ts",
+    "page--../entries/pages.ts"
+  ],
+  "source": [
+    "../src/assets/svgs",
+    "../src/assets/css",
+    "../src/scripts",
+    "../src/assets/img",
+    "../src/pages/"
+  ]
+}

@@ -1,0 +1,22 @@
+.gradient {
+    background: var(--main-gradient);
+}
+
+.separator-common {
+    height: 2px;
+    width: 100%;
+    background: var(--black-color);
+}
+
+.button {
+    background: var(--main-gradient);
+    padding: 20px 40px;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    transition: .3s all ease;
+    border-radius: 6px;
+}
+
+.button:hover {
+    border: 1px solid var(--black-color);
+}
