@@ -146,6 +146,11 @@ a:hover {
 .greetings {
     margin-top: 10vh;
     margin-bottom: 25vh;
+    position: relative;
+}
+
+#svgCnavas {
+    z-index: -1;
 }
 
 .greetings p {
@@ -381,16 +386,36 @@ html {
     background: var(--black-color);
 }
 
-.button-common {
-    border-radius: 6px;
-    padding: 10px 40px;
-    color: var(--white-color);
+.button {
     background: var(--main-gradient);
+    padding: 20px 40px;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    transition: .3s all ease;
+    border-radius: 6px;
 }
 
-.button-common:active {
+.button:hover {
+    border: 1px solid var(--black-color);
 }
 
+.svgcontainer {
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.icon-travel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 1s all ease;
+    z-index: -10;
+}
 .email {
     display: flex;
     flex-direction: column;
@@ -399,12 +424,23 @@ html {
 }
 
 .email input {
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border:1px solid var(--black-color);
 }
 
 .email textarea {
     margin-bottom: 25px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    opacity: 0;
 }
 
 .about {

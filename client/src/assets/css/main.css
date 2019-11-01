@@ -146,6 +146,11 @@ a:hover {
 .greetings {
     margin-top: 10vh;
     margin-bottom: 25vh;
+    position: relative;
+}
+
+#svgCnavas {
+    z-index: -1;
 }
 
 .greetings p {
