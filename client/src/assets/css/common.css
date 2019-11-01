@@ -35,6 +35,6 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: .5s all ease;
+    transition: 1s all ease;
     z-index: -10;
 }
