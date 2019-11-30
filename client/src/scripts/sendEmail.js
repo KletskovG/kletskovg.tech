@@ -34,17 +34,17 @@ function sendEmail() {
     const from = document.querySelector('.name').value;
     const text = document.querySelector('.your-text').value;
 
-    const isValid = validateEmail(subject, from, text);
+    // const isValid = validateEmail(subject, from, text);
 
-    if (isValid === false) {
-        const errors = document.querySelectorAll('.error');
-        const errorsLength = errors.length;
+    // if (isValid === false) {
+    //     const errors = document.querySelectorAll('.error');
+    //     const errorsLength = errors.length;
 
-        for (let i = 0; i < errorsLength; i++) {
-            errors[i].style.opacity = '1';
-        }
-        return;
-    }
+    //     for (let i = 0; i < errorsLength; i++) {
+    //         errors[i].style.opacity = '1';
+    //     }
+    //     return;
+    // }
 
 
     const errors = document.querySelectorAll('.error');
@@ -61,7 +61,7 @@ function sendEmail() {
 
     alert('The mail was send to me!');
 
-    fetch('http://kletskovg.tech/email', {
+    fetch('http://localhost:4200/email', {
         method: 'post',
         mode: 'no-cors',
         headers: {
