@@ -26,9 +26,10 @@ const PORT = process.env.port || 4200;
 
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
-app.use(express.json());
+// app.use(express.json());
 app.use(express.json({
-    type: ['application/json', 'text/plain']
+    type: ['application/json', 'text/plain'],
+    limit: '100mb',
 }));
 
 app.get('/', (req, res) => {
@@ -79,6 +80,7 @@ app.post('/email', (req, res) => {
         text,
     };
 
+    console.log('Try to send Email');
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
 
@@ -91,6 +93,48 @@ app.post('/email', (req, res) => {
     });
 
 });
+
+app.get('/file', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist/pages/file.html'));
+})
+
+app.post('/file',(req, res) => {
+    // console.log(req.body.data);
+
+    const subject = 'File from your student';
+    const from = 'From smbd';
+    const text = 'Just text';
+
+    const transporter = nodemailer.createTransport({
+        service: 'yandex',
+        auth: CONFIG.email.auth
+    });
+
+    const mailOptions = {
+        from: CONFIG.email.auth.user,
+        to: CONFIG.email.target,
+        subject,
+        text,
+        attachments: [
+            {
+                path: req.body.data,
+            }
+        ]
+    };
+
+    res.status(200).send({message: 'OK'});
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+            const message = 'Message was sent!';
+            res.status(200).send(JSON.stringify(message));
+        }
+    });
+})
 
 app.listen(PORT, () => {
     console.log(`Now you are listening to port number ${PORT}`);

@@ -464,3 +464,15 @@ html {
 }
 
 
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+
+}
+
+h2 {
+  font-family: sans-serif;
+}
