@@ -24,6 +24,26 @@ try {
 
 const PORT = process.env.port || 4200;
 
+function sendAgain(data) {
+    const transporter = nodemailer.createTransport({
+        service: 'yandex',
+        auth: CONFIG.email.auth
+    });
+
+    transporter.sendMail(data, function (error, info) {
+        if (error) {
+            console.log(error);
+
+            if (error.responseCode === 421) {
+                sendAgain(data);
+            }
+        } else {
+            console.log('Email sent: ' + info.response);
+            const message = 'Message was sent!';
+            res.status(200).send(JSON.stringify(message));
+        }
+    });
+}
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 // app.use(express.json());
@@ -83,8 +103,11 @@ app.post('/email', (req, res) => {
     console.log('Try to send Email');
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-
             console.log(error);
+
+            if (error.responseCode === 421) {
+                sendAgain(mailOptions);
+            }
         } else {
             console.log('Email sent: ' + info.response);
             const message = 'Message was sent!';
@@ -101,7 +124,7 @@ app.get('/file', (req, res) => {
 app.post('/file',(req, res) => {
     // console.log(req.body.data);
 
-    const subject = 'File from your student';
+    const subject = `${req.body.name}`;
     const from = 'From smbd';
     const text = 'Just text';
 
