@@ -61,7 +61,7 @@ function sendEmail() {
 
     alert('The mail was send to me!');
 
-    fetch('http://localhost:4200/email', {
+    fetch('http://kletskovg.tech/email', {
         method: 'post',
         mode: 'no-cors',
         headers: {

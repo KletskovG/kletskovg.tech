@@ -22,7 +22,7 @@ window.onload = () => {
   
       console.log(body);
 
-      fetch('http://localhost:4200/file', {
+      fetch('http://kletskovg.tech/file', {
         method: 'post',
         mode: 'no-cors',
         headers: {
