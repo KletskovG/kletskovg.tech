@@ -24,8 +24,6 @@ try {
 
 const PORT = process.env.port || 4200;
 
-fs.writeFileSync(path.join(__dirname, 'text.txt'), 'Hello world', 'utf8'));
-
 function sendAgain(data) {
     const transporter = nodemailer.createTransport({
         service: 'yandex',
@@ -48,7 +46,6 @@ function sendAgain(data) {
 }
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
-// app.use(express.json());
 app.use(express.json({
     type: ['application/json', 'text/plain'],
     limit: '100mb',
@@ -89,7 +86,6 @@ app.post('/email', (req, res) => {
         return;
     }
 
-    //
     const transporter = nodemailer.createTransport({
         service: 'yandex',
         auth: CONFIG.email.auth
@@ -124,7 +120,6 @@ app.get('/file', (req, res) => {
 })
 
 app.post('/file',(req, res) => {
-    // console.log(req.body.data);
 
     const subject = `${req.body.name}`;
     const from = 'From smbd';
