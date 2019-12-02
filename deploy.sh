@@ -13,11 +13,10 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
   git status
 
-  git add -- client/ ':!client/src'
-  git add -- server/ ':!server/src'
+  git commit .
   git commit -m "Deploy"
   git push --force deploy master
-  
+
 else
   echo "Not deploying, since this branch isn't master."
 fi
