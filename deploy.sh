@@ -17,9 +17,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   git add -- server/ ':!server/src'
   git commit -m "Deploy"
   git push --force deploy master
-
-  cd "travis@kletskovg.tech:/var/www/kletskovg.tech"
-  ls -la
+  
 else
   echo "Not deploying, since this branch isn't master."
 fi
