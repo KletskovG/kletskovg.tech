@@ -35,7 +35,6 @@ install:
 script:
   - ls -la
   - cd client
-  - npm  test
   - cd ${TRAVIS_BUILD_DIR}
 
 after_success:
