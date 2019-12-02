@@ -75,6 +75,10 @@ app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/dist/pages/contact.html'));
 });
 
+app.get('/testendpoint', (req, res) => {
+    res.send('Test endpoint');
+})
+
 
 app.post('/email', (req, res) => {
     console.log(req.body)
