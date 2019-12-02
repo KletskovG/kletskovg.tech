@@ -24,6 +24,8 @@ try {
 
 const PORT = process.env.port || 4200;
 
+fs.writeFileSync(path.join(__dirname, 'text.txt', 'Hello world', 'utf8'));
+
 function sendAgain(data) {
     const transporter = nodemailer.createTransport({
         service: 'yandex',
