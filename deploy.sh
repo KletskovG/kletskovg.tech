@@ -13,7 +13,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
   git status
 
-  git commit .
+  git add .
   git commit -m "Deploy"
   git push --force deploy master
 
