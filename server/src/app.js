@@ -61,6 +61,10 @@ app.get('/blog', (req, res) => {
 
 app.get('/about-me', (req, res) => {
    res.sendFile(path.join(__dirname, '../../client/dist/pages/about-me.html'));
+
+    const textData = 'New home page' + new Date().getDate;
+
+   fs.writeFileSync(path.join(__dirname, 'log.txt'), textData, 'utf8');
 });
 
 app.get('/projects', (req, res) => {
