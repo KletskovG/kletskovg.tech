@@ -1,0 +1,2 @@
+// Imports
+import "./app.ts";

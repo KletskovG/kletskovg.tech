@@ -1,16 +1,14 @@
-const express = require('express');
-
-const bodyParser = require('body-parser');
+import express from 'express';
 
 const app = express();
 
-const path = require('path');
+import * as path from 'path';
 
-const fs = require('fs');
+import * as fs from 'fs';
 
-const nodemailer = require('nodemailer');
+import * as nodemailer from 'nodemailer';
 
-const cors = require('cors');
+import * as cors from 'cors';
 
 let CONFIG;
 
@@ -21,16 +19,15 @@ try {
     CONFIG = null;
 }
 
-
 const PORT = process.env.port || 4200;
 
 function sendAgain(data) {
     const transporter = nodemailer.createTransport({
+        auth: CONFIG.email.auth,
         service: 'yandex',
-        auth: CONFIG.email.auth
     });
 
-    transporter.sendMail(data, function (error, info) {
+    transporter.sendMail(data,  (error, info) => {
         if (error) {
             console.log(error);
 
@@ -40,7 +37,7 @@ function sendAgain(data) {
         } else {
             console.log('Email sent: ' + info.response);
             const message = 'Message was sent!';
-            res.status(200).send(JSON.stringify(message));
+            // res.status(200).send(JSON.stringify(message));
         }
     });
 }
@@ -77,7 +74,7 @@ app.get('/contact', (req, res) => {
 
 app.get('/testendpoint', (req, res) => {
     res.send('Test endpoint');
-})
+});
 
 
 app.post('/email', (req, res) => {
