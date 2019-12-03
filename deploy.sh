@@ -10,10 +10,8 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   git remote add deploy "travis@kletskovg.tech:/var/www/kletskovg.tech"
   git config user.name "Travis CI"
   git config user.email "gfgfddglebrtravis@gmail.com"
-
-  rm .gitignore
-  git add client/dist/
-  git add server/dist/
+  
+  git add .
 
   git status
 
