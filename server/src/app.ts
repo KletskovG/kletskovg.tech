@@ -49,7 +49,7 @@ app.use(express.json({
 }));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist/pages/index.html'));
+    res.sendFile(path.join(__dirname, '../../client/f/tepages/index.html'));
 });
 
 app.get('/blog', (req, res) => {
@@ -73,7 +73,7 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/testendpoint', (req, res) => {
-    res.send('Test endpoint');
+    res.send('Test New endpoint');
 });
 
 
