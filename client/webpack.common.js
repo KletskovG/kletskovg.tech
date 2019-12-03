@@ -2,15 +2,15 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: { 
+  entry: {
     main: './src/index.ts',
-   },
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js', '.json'],
   },
   watch: true,
   module: {
@@ -19,13 +19,13 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "ts-loader",
+          loader: 'ts-loader',
         },
       },
-       {
+      {
         test: /\.css$/,
         use: [
-            {
+          {
             loader: MiniCssExtractPlugin.loader,
             options: {
               // you can specify a publicPath here
@@ -41,7 +41,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
@@ -49,23 +49,23 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '/pages/[name].html',
-        }
+        },
       },
       {
         test: /\.png|jpe?g|gif$/,
         loader: 'file-loader',
         options: {
           name: '/images/[name].[ext]',
-        }
+        },
       },
       {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
           name: '/svg/[name].[ext]',
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -79,6 +79,5 @@ module.exports = {
     compress: false,
     port: 3030,
     open: true,
-
-  }
+  },
 };
