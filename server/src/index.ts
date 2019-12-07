@@ -1,2 +1,2 @@
 // Imports
-import "./app.ts";
+import "./app.js";

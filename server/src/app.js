@@ -1,14 +1,18 @@
-import express from 'express';
+// import express from 'express';
+const express = require('express');
 
 const app = express();
 
-import * as path from 'path';
+// import * as path from 'path';
+const path = require('path');
 
-import * as fs from 'fs';
+// import * as fs from 'fs';
+const fs = require('fs');
 
-import * as nodemailer from 'nodemailer';
+// import * as nodemailer from 'nodemailer';
+const nodemailer = require('nodemailer');
 
-import * as cors from 'cors';
+// import * as cors from 'cors';
 
 let CONFIG;
 
@@ -48,8 +52,16 @@ app.use(express.json({
     limit: '100mb',
 }));
 
+// app.set('view engine', 'html');
+// app.set('views', path.join(__dirname, '../../client/dist/pages'));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/f/tepages/index.html'));
+    const pathToFile = path.join(__dirname, '../../client/src/pages/index.html');
+
+    console.log(pathToFile);
+
+    res.sendFile(path.join(__dirname, '../../client/dist/pages/index.html'));
+    // res.render('index');
 });
 
 app.get('/blog', (req, res) => {
@@ -73,7 +85,7 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/testendpoint', (req, res) => {
-    res.send('Test New endpoint');
+    res.send('Test some endpoint');
 });
 
 
