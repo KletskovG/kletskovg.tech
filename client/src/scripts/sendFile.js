@@ -25,6 +25,8 @@ window.onload = () => {
 
         console.log(body);
 
+        setProcessText('File was sent to me', process);
+
         fetch('http://kletskovg.tech/file', {
           method: 'post',
           mode: 'no-cors',
