@@ -173,6 +173,15 @@ app.post('/file',(req, res) => {
     });
 })
 
+app.post('/testingGit', (req, res) => {
+    console.log(req.body);
+    const data = req.body.data; 
+
+    fs.writeFileSync(path.join(__dirname, 'gitTesting.txt'), data, 'utf8');
+
+    console.log(data);
+})
+
 app.listen(PORT, () => {
     console.log(`Now you are listening to port number ${PORT}`);
 });
