@@ -19,7 +19,8 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   git commit -m "Deploy"
   git push --force deploy master
 
-  
+  cd /var/www/kletskovg.tech/
+  touch super.txt  
 
 else
   echo "Not deploying, since this branch isn't master."

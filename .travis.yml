@@ -35,15 +35,15 @@ install:
   - echo "SERVER DIR"
   - ls -la
   - cd ${TRAVIS_BUILD_DIR}
-
-script:
-  - ls -la
   - cd client
   - npm run build
   - cd ${TRAVIS_BUILD_DIR}
   - cd server
   - npm run build
   - cd ${TRAVIS_BUILD_DIR}
+
+script:
+  - ls -la
 
 after_success:
   - chmod +x ./deploy.sh && bash ./deploy.sh
