@@ -8,7 +8,7 @@
     "cy:run": "cypress run",
     "import:one": "tsc ./utility/universal_Import.ts && node ./utility/universal_Import.js && rm ./utility/universal_Import.js",
     "start": "webpack --config webpack.dev.js",
-    "build": "webpack -p --config webpack.prod.js"
+    "build": "touch ./dist/HelloWorldtest.txt && webpack -p --config webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
