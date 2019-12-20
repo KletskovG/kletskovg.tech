@@ -5,8 +5,7 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     filename: 'index.js',
-    // path: path.resolve(__dirname, 'dist'),
-    path: path.resolve(__dirname, 'src'),
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.ts', '.js', '.json'],

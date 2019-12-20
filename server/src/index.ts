@@ -1,2 +1,2 @@
 // Imports
-import "./app.js";
+import './app';

@@ -24,6 +24,7 @@ coverage
 .grunt
 
 serverconfig.json
+src/types/serverconfig.ts
 
 # Bower dependency directory (https://bower.io/)
 bower_components
