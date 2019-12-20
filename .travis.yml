@@ -27,9 +27,13 @@ before_install:
 install:
   - cd client
   - npm i --save-dev
+  - echo "CLIENT DIR"
+  - ls -la
   - cd ${TRAVIS_BUILD_DIR}
   - cd server
   - npm i --save-dev
+  - echo "SERVER DIR"
+  - ls -la
   - cd ${TRAVIS_BUILD_DIR}
 
 script:
