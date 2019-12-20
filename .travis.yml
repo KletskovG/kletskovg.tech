@@ -31,7 +31,7 @@ install:
   - cd ${TRAVIS_BUILD_DIR}
   - cd server
   - npm i --save-dev
-  - npm run build
+  # - npm run build
   - cd ${TRAVIS_BUILD_DIR}
 
 script:
