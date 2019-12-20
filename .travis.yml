@@ -27,23 +27,17 @@ before_install:
 install:
   - cd client
   - npm i --save-dev
-  - echo "CLIENT DIR"
-  - ls -la
-  - cd ${TRAVIS_BUILD_DIR}
-  - cd server
-  - npm i --save-dev
-  - echo "SERVER DIR"
-  - ls -la
-  - cd ${TRAVIS_BUILD_DIR}
-  - cd client
   - npm run build
   - cd ${TRAVIS_BUILD_DIR}
   - cd server
+  - npm i --save-dev
   - npm run build
   - cd ${TRAVIS_BUILD_DIR}
 
 script:
   - ls -la
+  - cd client
+  - cd ${TRAVIS_BUILD_DIR}
 
 after_success:
   - chmod +x ./deploy.sh && bash ./deploy.sh
