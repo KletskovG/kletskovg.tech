@@ -7,7 +7,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
   git init
 
-  git remote add deploy "travis@kletskovg.tech:/var/www/kletskovg.tech"
+  git remote add deploy "c"
   git config user.name "Travis CI"
   git config user.email "gfgfddglebrtravis@gmail.com"
   
@@ -20,7 +20,8 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   git push --force deploy master
 
   cd /var/www/kletskovg.tech/
-  touch super.txt  
+  touch super.txt
+  ls -la
 
 else
   echo "Not deploying, since this branch isn't master."

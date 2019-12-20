@@ -34,6 +34,8 @@ install:
   - npm run build
   - cd ${TRAVIS_BUILD_DIR}
 
+
+
 script:
   - ls -la
   - cd client
