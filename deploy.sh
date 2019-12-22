@@ -5,7 +5,6 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
 
-  cd public
   git init
   git remote add deploy "travis@kletskovg.tech:/var/www/kletskovg.tech"
   git config user.name "Travis CI"
@@ -18,10 +17,6 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
   git commit -m "Deploy"
   git push --force deploy master
-
-  cd /var/www/kletskovg.tech/
-  touch super.txt 
-
 
 else
   echo "Not deploying, since this branch isn't master."
