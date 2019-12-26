@@ -1,17 +1,40 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    name: Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [12]
+    
+    env:
+      LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER: ${{ secrets.DOCKER_NAME }}
+    
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
+
+    - name: Build server
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        cd server
+        yarn install
+        yarn build
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: kletskovg/sitebackend
+        username: ${{secrets.DOCKER_LOGIN}}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: test Curl
+      run: |
+        curl https://google.com
