@@ -35,6 +35,7 @@ jobs:
         name: kletskovg/sitebackend
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        context: ./server
     - name: test Curl
       run: |
         curl https://google.com
