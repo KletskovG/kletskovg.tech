@@ -22,6 +22,9 @@ app.use(
 
 staticModule(app);
 
+app.get('/helloWorld', (req, res) => {
+  res.send('Hello from Docker compose');
+});
 // app.get('/', (req, res) => {
 //   res.sendFile(path.join(__dirname, '../../client/dist/pages/index.html'));
 // });
