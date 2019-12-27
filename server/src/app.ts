@@ -26,6 +26,10 @@ app.get('/helloWorld', (req, res) => {
   res.send('Hello from Docker compose updated');
 });
 
+app.get('/testendpoint', (req, res) => {
+  res.send('CD in actions');
+});
+
 app.listen(PORT, () => {
   console.log(`Now you are listening to port number ${PORT}`);
 });
