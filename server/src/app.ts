@@ -13,12 +13,6 @@ const nodemailer = require('nodemailer');
 const PORT = process.env.port || 4200;
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
-app.use(
-  express.json({
-    type: ['application/json', 'text/plain'],
-    limit: '100mb',
-  })
-);
 
 staticModule(app);
 
