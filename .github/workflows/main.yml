@@ -36,6 +36,6 @@ jobs:
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./server
-    - name: test Curl
+    - name: Pull backend image
       run: |
-        curl https://google.com
+        curl ${{ secrets.PULL_BACKEND }}

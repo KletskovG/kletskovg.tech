@@ -27,7 +27,7 @@ app.get('/helloWorld', (req, res) => {
 });
 
 app.get('/testendpoint', (req, res) => {
-  res.send('CD in actions');
+  res.send('CD in actions + auto pull');
 });
 
 app.listen(PORT, () => {
