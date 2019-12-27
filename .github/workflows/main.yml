@@ -46,4 +46,7 @@ jobs:
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./clientChange
+    - name: Pull frontend image
+      run: |
+        curl ${{ secrets.PULL_FRONTEND }}
       
