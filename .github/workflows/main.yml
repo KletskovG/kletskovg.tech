@@ -45,7 +45,7 @@ jobs:
         name: kletskovg/sitefrontend:prod
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        context: ./clientChange
+        context: ./client
     - name: Pull frontend image
       run: |
         curl ${{ secrets.PULL_FRONTEND }}
