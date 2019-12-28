@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   public githubLink: string;
 
   ngOnInit() {
-    this.http.get<gitLink>('http://localhost:8080/gitlink', {
+    this.http.get<gitLink>('http://0.0.0.0/:8080/gitlink', {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'mode': 'no-cors',
