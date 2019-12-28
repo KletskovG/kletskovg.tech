@@ -10,7 +10,7 @@ import fs from 'fs';
 
 const nodemailer = require('nodemailer');
 
-const PORT = process.env.port || 3200;
+const PORT = process.env.port || 8080;
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 app.use(cors());
