@@ -1,11 +1,16 @@
 You are welcome to submit corrections to this blog. In order to do that, you will need [Node](https://nodejs.org/en/).
 After that install packages:
 * In **client** folder
-`npm i`
+`npm i` or `yarn install`
+
 * And in **server** folder
-`npm`
+`npm i` or `yarn install`
+
 * Then in **server** folder run:
 `npm start`
+
+* Also you should serve Angular application in client folder:
+`ng serve`
 
 After some-time you can go to `http://localhost:4200/`
 
