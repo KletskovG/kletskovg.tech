@@ -4,24 +4,27 @@ const app = express();
 
 import path from 'path';
 
-import fs from 'fs';
+import cors from 'cors';
 
-import staticModule from './modules/static/static.module';
+import fs from 'fs';
 
 const nodemailer = require('nodemailer');
 
-const PORT = process.env.port || 4200;
+const PORT = process.env.port || 3200;
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
+app.use(cors());
 
-staticModule(app);
 
 app.get('/helloWorld', (req, res) => {
   res.send('Hello from Docker compose updated');
 });
 
-app.get('/testendpoint', (req, res) => {
-  res.send('CD in actions + auto pull');
+app.get('/gitlink', (req, res) => {
+  const data = {
+    message: 'https://github.com/kletskovg',
+  };
+  res.status(200).send(JSON.stringify(data));
 });
 
 app.listen(PORT, () => {
