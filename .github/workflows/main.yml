@@ -24,38 +24,19 @@ jobs:
       with:
         version: ${{ matrix.node_version }}
 
-    # - name: Build server
-    #   run: |
-    #     cd server
-    #     yarn install
-    #     yarn build
-    # - name: Publish Server to Registry
-    #   uses: elgohr/Publish-Docker-Github-Action@master
-    #   with:
-    #     name: kletskovg/sitebackend:latest
-    #     username: ${{secrets.DOCKER_LOGIN}}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-    #     context: ./server
-    # - name: Pull backend image
-    #   run: |
-    #     curl ${{ secrets.PULL_BACKEND }}
     - name: Build Frontend
+      uses: docker
       run: |
         cd client
-        npm i
-        npm run ng build --prod
-        npm run ng serve --prod=true & npm run test
-        cd ../
-    # - name: Push frontend to registry
-    #   uses: elgohr/Publish-Docker-Github-Action@master
-    #   with:
-    #     name: kletskovg/sitefrontend:prod
-    #     username: ${{secrets.DOCKER_LOGIN}}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-    #     context: ./client
-    # - name: Pull frontend image
-    #   run: |
-    #     curl ${{ secrets.PULL_FRONTEND }}
+        docker build -t kletskovg/sitebackend:prod
+        docker run -d -p 80:80 kletskovg/sitefrontend:prod
+        npm run test
+
+      # npm i
+      # npm run ng build --prod
+      # npm run ng serve --prod=true & npm run test
+      # cd ../
+  ### Second Job
   deploy:
     needs: build
     name: Deploy
@@ -89,7 +70,7 @@ jobs:
     - name: Pull backend image
       run: |
         curl ${{ secrets.PULL_BACKEND }}
-    - name: Push frontend to registry
+    - name: Publish frontend to registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: kletskovg/sitefrontend:prod
