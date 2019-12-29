@@ -24,6 +24,37 @@ jobs:
       with:
         version: ${{ matrix.node_version }}
 
+    - name: Build Frontend
+      # uses: docker
+      run: |
+        cd client
+        docker build -t kletskovg/sitebackend:prod
+        docker run -d -p 80:80 kletskovg/sitefrontend:prod
+        npm run test
+
+      # npm i
+      # npm run ng build --prod
+      # npm run ng serve --prod=true & npm run test
+      # cd ../
+  ### Second Job
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [12]
+    
+    env:
+      LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER: ${{ secrets.DOCKER_NAME }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
     - name: Build server
       run: |
         cd server
