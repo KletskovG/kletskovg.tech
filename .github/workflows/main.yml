@@ -70,7 +70,7 @@ jobs:
     - name: Pull backend image
       run: |
         curl ${{ secrets.PULL_BACKEND }}
-    - name: Build Frontend
+    - name: Publish frontend to registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: kletskovg/sitefrontend:prod
@@ -80,4 +80,4 @@ jobs:
     - name: Pull frontend image
       run: |
         curl ${{ secrets.PULL_FRONTEND }}
-      
+    
