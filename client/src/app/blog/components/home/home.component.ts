@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from '../../../../environments/environment';
 interface gitLink {
   message: string;
 }
@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
   public title = 'kletskovg.tech';
   public latestCommitDate: string;
   public githubLink: string;
+  private BASE_URL = environment.BASE_URL;
 
   ngOnInit() {
-    console.log('Sending a request');
-    this.http.get<gitLink>('http://kletskovg.tech:8080/gitlink', {
+    this.http.get<gitLink>(`${this.BASE_URL}/gitlink`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
