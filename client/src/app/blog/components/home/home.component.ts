@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('Sending a request');
-    this.http.get<gitLink>('http://localhost:8080/gitlink', {
+    this.http.get<gitLink>('http://kletskovg.tech:8080/gitlink', {
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
