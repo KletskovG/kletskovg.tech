@@ -25,7 +25,7 @@ jobs:
         version: ${{ matrix.node_version }}
 
     - name: Build Frontend
-      uses: docker
+      # uses: docker
       runs: |
         cd client
         docker build -t kletskovg/sitebackend:prod
