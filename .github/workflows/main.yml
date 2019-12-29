@@ -26,7 +26,7 @@ jobs:
 
     - name: Build Frontend
       uses: docker
-      run: |
+      runs: |
         cd client
         docker build -t kletskovg/sitebackend:prod
         docker run -d -p 80:80 kletskovg/sitefrontend:prod
