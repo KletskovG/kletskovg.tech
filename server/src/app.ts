@@ -15,9 +15,12 @@ const PORT = process.env.port || 8080;
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 app.use(cors());
 
-
-app.get('/helloWorld', (req, res) => {
-  res.send('Hello from Docker compose updated');
+app.get('/check', (req, res) => {
+  const data = {
+    health: 'OK',
+    currentPort: PORT,
+  };
+  res.status(200).send(JSON.stringify(data));
 });
 
 app.get('/gitlink', (req, res) => {
