@@ -20,13 +20,17 @@ export class HomeComponent implements OnInit {
   public githubLink: string;
 
   ngOnInit() {
+    console.log('Sending a request');
     this.http.get<gitLink>('http://localhost:8080/gitlink', {
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
     })
       .subscribe(
-        value => this.githubLink = value.message,
+        value => {
+          console.log('Hello from server' + value.message);
+          this.githubLink = value.message;
+        },
         error => console.log(error),
       );
 

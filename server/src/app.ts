@@ -24,6 +24,7 @@ app.get('/check', (req, res) => {
 });
 
 app.get('/gitlink', (req, res) => {
+  console.log('Request to gitlinke');
   const data = {
     message: 'https://github.com/kletskovg',
   };
@@ -31,5 +32,6 @@ app.get('/gitlink', (req, res) => {
 });
 
 app.listen(PORT, () => {
+  console.log('CORS is enabled');
   console.log(`Now you are listening to port number ${PORT}`);
 });
