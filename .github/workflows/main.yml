@@ -40,11 +40,11 @@ jobs:
       run: |
         curl ${{ secrets.PULL_BACKEND }}
     - name: Build Frontend
-        run: |
-          cd client
-          npm i
-          npm run ng build --prod
-          npm run ng serve --prod=true & npm run test
+      run: |
+        cd client
+        npm i
+        npm run ng build --prod
+        npm run ng serve --prod=true & npm run test
     - name: Push frontend to registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
