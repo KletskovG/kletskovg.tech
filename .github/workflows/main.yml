@@ -69,6 +69,11 @@ jobs:
       DOCKER: ${{ secrets.DOCKER_NAME }}
 
     steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
     - name: Build server
       run: |
         cd server
