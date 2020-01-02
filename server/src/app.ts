@@ -6,10 +6,6 @@ import path from 'path';
 
 import cors from 'cors';
 
-import fs from 'fs';
-
-const nodemailer = require('nodemailer');
-
 const PORT = process.env.port || 8080;
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
@@ -35,3 +31,5 @@ app.listen(PORT, () => {
   console.log('CORS is enabled');
   console.log(`Now you are listening to port number ${PORT}`);
 });
+
+module.exports = app;
