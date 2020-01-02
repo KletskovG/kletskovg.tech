@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+    types:
+      [opened]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [12]
+    env:
+      LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER: ${{ secrets.DOCKER_NAME }}
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: develop
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
+  # test:
+  #   name: test
+  #   needs: build
+  # push:
+  #   needs: test
+   
