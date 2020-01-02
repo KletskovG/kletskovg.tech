@@ -29,7 +29,7 @@ jobs:
       run: |
         cd client
         npm i
-        docker build -t kletskovg/sitebackend:prod .
+        docker build -t kletskovg/sitefrontend:prod .
         docker run -d -p 80:80 kletskovg/sitefrontend:prod
         npm run test
 
