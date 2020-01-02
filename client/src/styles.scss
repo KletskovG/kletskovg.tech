@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+html {
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --blue-color: #3D72A4;
+  --main-bg: #DBDCDE;
+  font-family: 'Roboto', sans-serif;
+
+  background: var(--main-bg);
+}

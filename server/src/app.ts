@@ -6,21 +6,21 @@ import path from 'path';
 
 import cors from 'cors';
 
-import fs from 'fs';
-
-const nodemailer = require('nodemailer');
-
-const PORT = process.env.port || 3200;
+const PORT = process.env.port || 8080;
 
 app.use(express.static(path.join(__dirname, '../../client/dist/')));
 app.use(cors());
 
-
-app.get('/helloWorld', (req, res) => {
-  res.send('Hello from Docker compose updated');
+app.get('/check', (req, res) => {
+  const data = {
+    health: 'OK',
+    currentPort: PORT,
+  };
+  res.status(200).send(JSON.stringify(data));
 });
 
 app.get('/gitlink', (req, res) => {
+  console.log('Request to gitlinke');
   const data = {
     message: 'https://github.com/kletskovg',
   };
@@ -28,5 +28,8 @@ app.get('/gitlink', (req, res) => {
 });
 
 app.listen(PORT, () => {
+  console.log('CORS is enabled');
   console.log(`Now you are listening to port number ${PORT}`);
 });
+
+module.exports = app;
