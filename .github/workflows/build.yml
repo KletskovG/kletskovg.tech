@@ -27,9 +27,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         version: ${{ matrix.node_version }}
-      run: |
-        cd server
-        ls -la
+    - name: check
+        run: |
+          cd server
+          ls -la
   # test:
   #   name: test
   #   needs: build
