@@ -28,9 +28,9 @@ jobs:
       with:
         version: ${{ matrix.node_version }}
     - name: check
-        run: |
-          cd server
-          ls -la
+      run: |
+        cd server
+        ls -la
   # test:
   #   name: test
   #   needs: build
