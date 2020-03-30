@@ -1,0 +1,23 @@
+.click {
+  cursor: pointer;
+}
+
+.main {
+  background: url('/assets/images/bg.jpg');
+  background-repeat: repeat;
+  width: 100vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  header {
+    background: black;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
