@@ -7,6 +7,8 @@ import { HttpClientModule, HttpClient, } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
 import { BlogModule } from './blog/blog.module';
+import { StudentHelperModule } from './student-helper/student-helper.module';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { BlogModule } from './blog/blog.module';
     HttpClientModule,
     SharedModule,
     BlogModule,
+    StudentHelperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

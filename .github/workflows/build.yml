@@ -82,4 +82,3 @@ jobs:
         docker build -t kletskovg/sitebackend:latest .
         docker run -d -p 8080:8080 kletskovg/sitebackend:latest
         npm run test
-   
