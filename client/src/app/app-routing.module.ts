@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { BlogPageComponent } from './blog/components/blog-page/blog-page.component';
 import { HomeComponent } from './blog/components/home/home.component';
 import { Page404Component } from './shared/components/page404/page404.component';
-import { CyberPageComponent}  from './cybersecurity/components/cyber-page/cyber-page.component';
+import { StudentPageComponent } from './student-helper/components/student-page/student-page.component';
+import { StudentAuthComponent } from './student-helper/components/student-auth/student-auth.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'cybersecurity', component: CyberPageComponent },
   { path: 'blog', component: BlogPageComponent },
+  { path: 'student', component: StudentPageComponent },
+  { path: 'student/auth', component: StudentAuthComponent },
   { path: '**', component: Page404Component },
 ];
 
