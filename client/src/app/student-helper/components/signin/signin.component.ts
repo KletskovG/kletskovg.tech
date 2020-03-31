@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@app/core/studentHelper/auth.service';
+import IUser from '@app/models/IUser';
+import { UtilityService } from '@app/core/utility.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -13,26 +16,29 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private utility: UtilityService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
   }
 
   public signIn() {
-    // const authData: IAuthData = {
-    //   email: this.email,
-    //   password: this.password,
-    // };
-    // const isValid = this.authService.isValidAuthData(authData);
-    // console.log(isValid);
-    // if (this.authService.isValidAuthData(authData)) {
-    //   this.authService.signIn(authData);
-    // } else {
-    //   this.isErrorToggled = true;
-    //   return;
-    // }
+    this.authService.signIn(this.email, this.password)
+      .subscribe(
+        (value) => {
+          console.log(value);
+          window.localStorage.setItem('auth', 'true');
+          document.cookie = `token=${value.token}`;
+          document.cookie = `name=${value.name}`;
+          document.cookie = `id=${value.user_id}`;
 
-    
+          this.router.navigateByUrl('student');
+        },
+        (err) => console.log(err),
+      )
+    this.email = '';
+    this.password = '';
   }
 
 }
