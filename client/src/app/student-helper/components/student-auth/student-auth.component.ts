@@ -22,7 +22,11 @@ export class StudentAuthComponent implements OnInit {
     document.querySelector('header').remove();
     document.querySelector('footer').remove();
     document.title = 'Student Helper | Auth';
-    this.authService.signIn();
+    this.authService.getUserInfo()
+      .subscribe(
+        (value) => console.log(value),
+        (err) => console.log(err),
+      )
   }
 
 
