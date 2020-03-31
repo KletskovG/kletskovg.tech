@@ -2,7 +2,7 @@
   <div class="input">
     <p class="input-desc"> Email address* </p>
     <input [(ngModel)]="email" type="email" placeholder="Your email">
-    <p [class.error-active]="isErrorValid" class="error"> Email is invalid </p>
+    <p [class.error-active]="isValidError" class="error"> Email is invalid </p>
   </div>
   <div class="input">
     <p class="input-desc"> Password*</p>
