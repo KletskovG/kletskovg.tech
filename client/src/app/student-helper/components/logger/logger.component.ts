@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import ILogger from '@models/ILogger';
 
 @Component({
   selector: 'app-logger',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoggerComponent implements OnInit {
 
-  constructor() { }
+  logCards: [ILogger];
+
+  constructor() {
+    this.logCards = [
+      {id : 111, moduleName : 'Test', isWarning : false, information : 'OK', time : new Date()},
+    ];
+  }
 
   ngOnInit() {
+    document.querySelector('header').remove();
+    document.querySelector('footer').remove();
   }
 
 }

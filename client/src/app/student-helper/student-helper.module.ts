@@ -6,11 +6,13 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {FormsModule} from '@angular/forms';
 import { LoggerComponent } from './components/logger/logger.component';
+import { LogcardComponent } from './components/logcard/logcard.component';
+import { LogfilterComponent } from './components/logfilter/logfilter.component';
 
 
 
 @NgModule({
-  declarations: [StudentPageComponent, StudentAuthComponent, SigninComponent, SignupComponent, LoggerComponent],
+  declarations: [StudentPageComponent, StudentAuthComponent, SigninComponent, SignupComponent, LoggerComponent, LogcardComponent, LogfilterComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,7 +20,9 @@ import { LoggerComponent } from './components/logger/logger.component';
   exports: [
     StudentPageComponent,
     StudentAuthComponent,
-    LoggerComponent
+    LoggerComponent,
+    LogcardComponent,
+    LogfilterComponent
   ]
 })
 export class StudentHelperModule { }

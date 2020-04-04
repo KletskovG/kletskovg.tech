@@ -1,0 +1,10 @@
+<div class="card">
+  <ul [ngStyle]="{background:!card.isWarning?'var(--mainbrand-student)': 'red'}">
+    <li>Id: {{card.id}}</li>
+    <li>Module: {{card.moduleName}}</li>
+    <li>Warning: {{card.isWarning}}</li>
+    <li *ngIf="!card.isWarning">Information: {{card.information}}</li>
+    <li *ngIf="card.isWarning">Exception: {{card.warning}}</li>
+    <li>Time: {{card.time| date:'dd.MM.yyyy HH.mm.s'}}</li>
+  </ul>
+</div>

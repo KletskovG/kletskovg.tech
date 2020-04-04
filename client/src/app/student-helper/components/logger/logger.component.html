@@ -1,1 +1,7 @@
-<p>logger works!</p>
+<div class="authpage">
+  <app-logfilter></app-logfilter>
+  <div *ngFor="let card of logCards">
+    <app-logcard [card] = "card"></app-logcard>
+  </div>
+</div>
+
