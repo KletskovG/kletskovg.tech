@@ -5,11 +5,12 @@ import { StudentAuthComponent } from './components/student-auth/student-auth.com
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {FormsModule} from '@angular/forms';
+import { LoggerComponent } from './components/logger/logger.component';
 
 
 
 @NgModule({
-  declarations: [StudentPageComponent, StudentAuthComponent, SigninComponent, SignupComponent],
+  declarations: [StudentPageComponent, StudentAuthComponent, SigninComponent, SignupComponent, LoggerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +18,7 @@ import {FormsModule} from '@angular/forms';
   exports: [
     StudentPageComponent,
     StudentAuthComponent,
+    LoggerComponent
   ]
 })
 export class StudentHelperModule { }
