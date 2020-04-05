@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoggerService} from '@core/studentHelper/logger.service';
+import {LoggerComponent} from '../logger/logger.component';
 
 @Component({
   selector: 'app-logfilter',
@@ -10,7 +11,7 @@ export class LogfilterComponent implements OnInit {
 
   flag: boolean;
 
-  constructor(private loggerService: LoggerService) {
+  constructor(private loggerService: LoggerService, private logger: LoggerComponent) {
     this.flag = true;
   }
 
@@ -20,10 +21,12 @@ export class LogfilterComponent implements OnInit {
   showAllLogs(event) {
     this.loggerService.getAllLogs()
       .subscribe(
-        (value) => console.log(value),
+        (value) => {
+          console.log(value);
+          this.logger.logCards = value;
+        },
         (err) => console.log(err)
-      )
-    return !this.flag;
+      );
   }
 
   sortByData(flag: boolean) {

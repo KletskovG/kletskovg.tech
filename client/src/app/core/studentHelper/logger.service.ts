@@ -14,4 +14,8 @@ export class LoggerService {
   public getAllLogs(): Observable<any> {
     return this.http.get(`${environment.STUDENT_HELPER_URL}/api/logger`);
   }
+
+  public sendLogs(log: ILogger): Observable<any> {
+    return this.http.post(`${environment.STUDENT_HELPER_URL}/api/logger`, log);
+  }
 }

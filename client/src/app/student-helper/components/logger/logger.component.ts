@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import ILogger from '@models/ILogger';
+import {LoggerService} from '@core/studentHelper/logger.service';
 
 @Component({
   selector: 'app-logger',
@@ -8,17 +9,28 @@ import ILogger from '@models/ILogger';
 })
 export class LoggerComponent implements OnInit {
 
-  logCards: [ILogger];
+  logMessage: ILogger;
 
-  constructor() {
-    this.logCards = [
-      {id : 111, moduleName : 'Test', isWarning : false, information : 'OK', time : new Date()},
-    ];
+  public logCards: [ILogger];
+
+  constructor(private loggerService: LoggerService) {
   }
 
   ngOnInit() {
     document.querySelector('header').remove();
     document.querySelector('footer').remove();
+    this.loggerService.getAllLogs()
+      .subscribe(
+        (value) => this.logCards = value,
+        (err) => {
+          this.logMessage = {
+            moduleName : 'Client',
+            isWarning : true,
+            warning: err
+          };
+          this.loggerService.sendLogs(this.logMessage);
+        }
+      );
   }
 
 }
