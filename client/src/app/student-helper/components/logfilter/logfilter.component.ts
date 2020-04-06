@@ -10,27 +10,55 @@ import {LoggerComponent} from '../logger/logger.component';
 export class LogfilterComponent implements OnInit {
 
   flag: boolean;
+  moduleNames: [string];
 
   constructor(private loggerService: LoggerService, private logger: LoggerComponent) {
-    this.flag = true;
+    this.flag = false;
   }
 
   ngOnInit() {
   }
 
-  showAllLogs(event) {
+  showAllLogs() {
     this.loggerService.getAllLogs()
       .subscribe(
         (value) => {
-          console.log(value);
+          this.logger.logCards = value;
+        },
+        (err) => console.log(err)
+      );
+
+    this.flag = false;
+  }
+
+  showOnlyWarnings() {
+    this.loggerService.getLogsWithWarning()
+      .subscribe(
+        (value) => {
+          this.logger.logCards = value;
+        },
+        (err) => console.log(err)
+      );
+
+    this.flag = false;
+  }
+
+  showLogsByName(moduleName: string) {
+    this.loggerService.getLogsByName(moduleName)
+      .subscribe(
+        (value) => {
           this.logger.logCards = value;
         },
         (err) => console.log(err)
       );
   }
 
-  sortByData(flag: boolean) {
-    this.flag = flag;
+  showModuleNames() {
+    this.loggerService.getModuleNames()
+      .subscribe(
+        (value) => this.moduleNames = value,
+        error => console.log(error)
+      );
+    this.flag = true;
   }
-
 }

@@ -28,3 +28,28 @@
     }
   }
 }
+
+.modules{
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+
+  .names{
+    width: 60vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .name{
+      background-color: var(--mainbrand-student);
+      color: var(--white-color);
+      border-radius: 7px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 20%;
+      height: 50%;
+      cursor: pointer;
+    }
+  }
+}

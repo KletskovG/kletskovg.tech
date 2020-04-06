@@ -1,5 +1,5 @@
 export default interface ILogger {
-  id: any;
+  id?: any;
   moduleName: string;
   isWarning: boolean;
   information?: string;

@@ -1,8 +1,13 @@
 <div class="filter">
   <ul>
-    <li (click)="showAllLogs($event)">Все</li>
+    <li (click)="showAllLogs()">Все</li>
     <li>Дата</li>
-    <li>Модуль</li>
-    <li>С ошибкой</li>
+    <li (click)="showModuleNames()">Модуль</li>
+    <li (click)="showOnlyWarnings()">С ошибкой</li>
   </ul>
+</div>
+<div class="modules"  *ngIf="flag">
+  <div class="names">
+    <div class="name" *ngFor="let name of moduleNames" (click)="showLogsByName(name)">{{name}}</div>
+  </div>
 </div>
