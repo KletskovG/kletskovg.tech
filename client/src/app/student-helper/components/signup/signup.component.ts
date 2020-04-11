@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@app/core/studentHelper/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,21 +16,27 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
   }
 
   public signUp() {
-    // const authData: IAuthData = {
-    //   email: this.email,
-    //   password: this.password,
-    //   repeatPassword: this.repeatPassword,
-    // };
-    // if (this.authService.isValidAuthData(authData)) {
-    //   this.authService.signUp(authData);
-    // } else {
-    //   this.isValidError = true;
-    // }
+    if (this.password === this.repeatPassword) {
+      this.authService.signUp(this.email, this.password)
+        .subscribe(
+          (value) => {
+            console.log(value);
+            window.localStorage.setItem('auth', 'true');
+            document.cookie = `token=${value.token}`;
+            document.cookie = `name=${value.name}`;
+            document.cookie = `id=${value.user_id}`;
+
+            this.router.navigateByUrl('student');
+          },
+          (err) => console.log(err),
+        )
+    }
   }
 }

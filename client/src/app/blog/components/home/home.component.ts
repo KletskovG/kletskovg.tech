@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   private BASE_URL = environment.BASE_URL;
 
   ngOnInit() {
+    document.querySelector('header').remove();
+
     this.http.get<gitLink>(`${this.BASE_URL}/gitlink`, {
       headers: {
         'Access-Control-Allow-Origin': '*',

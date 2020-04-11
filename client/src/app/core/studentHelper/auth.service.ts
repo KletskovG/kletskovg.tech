@@ -24,4 +24,8 @@ export class AuthService {
   public getUserInfo(): Observable<any> {
     return this.http.get(`${environment.STUDENT_HELPER_URL}/api/user`);
   }
+
+  public signUp(email: string, password: string): Observable<any> {
+    return this.http.get(`${environment.STUDENT_HELPER_URL}/api/reg?Username=${email}&Password=${password}`);
+  }
 }
