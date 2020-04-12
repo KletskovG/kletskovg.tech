@@ -19,10 +19,9 @@ export class HomeComponent implements OnInit {
   public latestCommitDate: string;
   public githubLink: string;
   private BASE_URL = environment.BASE_URL;
+  private isTitlesShowed = true;
 
   ngOnInit() {
-    document.querySelector('header').remove();
-
     this.http.get<gitLink>(`${this.BASE_URL}/gitlink`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -37,6 +36,7 @@ export class HomeComponent implements OnInit {
       );
 
     this.getLatestCommit();
+    this.deleteTitles();
   }
 
   private getLatestCommit() {
@@ -53,5 +53,10 @@ export class HomeComponent implements OnInit {
         error => console.log(error)
       )
   }
-
+  
+  private  deleteTitles():void {
+    setTimeout(() => {
+      this.isTitlesShowed = false;
+    }, 1700);
+  }
 }

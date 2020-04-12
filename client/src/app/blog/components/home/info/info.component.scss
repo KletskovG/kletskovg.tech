@@ -1,0 +1,17 @@
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: .3s all ease;
+
+  &-title {
+    text-align: center;
+  }
+
+  &-image {
+    display: block;
+    width: 300px;
+    height: 300px;
+  }
+}
