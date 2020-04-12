@@ -19,9 +19,16 @@ export class HomeComponent implements OnInit {
   public latestCommitDate: string;
   public githubLink: string;
   private BASE_URL = environment.BASE_URL;
-  private isTitlesShowed = true;
+  public isTitlesShowed = true;
+  public isMobile;
 
   ngOnInit() {
+    if (document.documentElement.offsetWidth <=500) {
+      this.isMobile = true;
+    } else {
+      this.isMobile = false;
+    }
+    
     this.http.get<gitLink>(`${this.BASE_URL}/gitlink`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
