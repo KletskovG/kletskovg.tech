@@ -1,12 +1,39 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<h2> Hello! Thank you for visiting my website </h2>
-<p> Now i am preparing huge update for new projects on this domain  </p>
-<p> Stay tuned on <a [href]="githubLink"> My github</a> </p>
+<ng-container *ngIf="isTitlesShowed">
+  <h2 class="big-title first">
+    WEL 
+  </h2>
+  <h2 class="big-title second"> COME </h2>
+</ng-container>
+<section class="home">
 
-<div style="text-align: center;">
-  <p> {{ latestCommitDate }} </p>
-</div>
+  <div class="rightside">
+    <div class="rightside-info">
+      <a href="/assets/images/avatar.jpeg" target="__blank">
+        <img src="/assets/images/avatar.jpeg" alt="My Photo" class="avatar">
+      </a>
+      <h1>Gleb Kletskov</h1>
+    </div>
+    
+    <app-info *ngIf="isMobile else title"></app-info>
+  </div>
+
+  <div class="leftside">
+    
+    <app-leftside-link [link]="'mailto:gfgfddgleb@gmail.com'" text="gfgfddgleb@gmail.com" iconSrc="mail.svg"></app-leftside-link>
+      
+      <app-leftside-link  [link]="'https://medium.com/@gfgfddgleb'" [text]="'Medium'" [description]="'My blog (no articles, just followers)'" iconSrc="medium.svg"></app-leftside-link>
+    
+      <app-leftside-link [link]="'https://github.com/KletskovG'"  [text]="'GitHub'" [description]="'I participated in Telegram Coding Contest and created some projects for University'" iconSrc="github.svg"></app-leftside-link>
+    
+      <app-leftside-link [link]="'https://bizzon.online/'" [text]="'BIZZON'" [description]="'I am working as a Front-end software engineer in BIZZON'" iconSrc="bull.svg"></app-leftside-link>
+    
+      <app-leftside-link [link]="'https://www.instagram.com/mb_42/'" [text]="'Instagram'" [description]="'Here you can see my reports from Raves ⚡️'" iconSrc="instagram.svg" ></app-leftside-link>
+
+      
+      <app-leftside-link [link]="'https://t.me/GlebKletskov'"  [text]="'Telegram'" [description]="'Feel free to text me'" iconSrc="telegram.svg" ></app-leftside-link>
+  </div>
+</section>
+
+<ng-template #title>
+  <h4 class="job-title">Front-end / DevOps / Raves</h4>
+</ng-template>
