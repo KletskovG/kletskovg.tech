@@ -82,3 +82,13 @@ jobs:
         docker build -t kletskovg/sitebackend:latest .
         docker run -d -p 8080:8080 kletskovg/sitebackend:latest
         npm run test
+  # Merge to master
+  automerge:
+    needs: [test_back, test_front]
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge
+        uses: "pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a"
+        env:
+          GITHUB_TOKEN: "${{ secrets.TOKEN }}"
+          MERGE_LABELS: "automerge"

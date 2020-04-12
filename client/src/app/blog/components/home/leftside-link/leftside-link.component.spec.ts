@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CyberPageComponent } from './cyber-page.component';
+import { LeftsideLinkComponent } from './leftside-link.component';
 
-describe('CyberPageComponent', () => {
-  let component: CyberPageComponent;
-  let fixture: ComponentFixture<CyberPageComponent>;
+describe('LeftsideLinkComponent', () => {
+  let component: LeftsideLinkComponent;
+  let fixture: ComponentFixture<LeftsideLinkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CyberPageComponent ]
+      declarations: [ LeftsideLinkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CyberPageComponent);
+    fixture = TestBed.createComponent(LeftsideLinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
