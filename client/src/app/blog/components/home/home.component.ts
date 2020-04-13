@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   public isMobile;
 
   ngOnInit() {
-    if (document.documentElement.offsetWidth <=500) {
+    if (document.documentElement.offsetWidth > 500) {
       this.isMobile = true;
     } else {
       this.isMobile = false;

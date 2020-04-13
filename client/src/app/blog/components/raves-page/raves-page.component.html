@@ -1,0 +1,25 @@
+<ng-container *ngIf="isTitleShowed">
+  <h2 class="big-title first">
+    MY
+  </h2>
+  <h2 class="big-title second">
+    RAVES
+  </h2>
+</ng-container>
+
+<section class="raves">
+  <div class="rave-wrapper">
+    <img src="/assets/icons/arrow-left.svg" alt="Prev Rave" (click)="goBack()" class="next" *ngIf="currentSlide > -1">
+    <ul class="raves-list" 
+    [style.transform]="'translate(' + carouselTranslate + ')'">
+      <li *ngFor="let rave of raves" class="rave">
+        <video loop="loop" [src]="rave.src" #rave>
+        </video>
+        <h4 class="rave__title">
+          {{ rave.text }}
+        </h4>
+      </li>
+    </ul>
+    <img  (click)="goForward()"  src="/assets/icons/arrow-right.svg" alt="Next Rave" class="prev" *ngIf="currentSlide < raves.length - 2">
+  </div>
+</section>
