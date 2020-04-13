@@ -14,7 +14,7 @@
       <h1>Gleb Kletskov</h1>
     </div>
     
-    <app-info *ngIf="isMobile else title"></app-info>
+    <app-info *ngIf="isMobile"></app-info>
   </div>
 
   <div class="leftside">
@@ -32,8 +32,5 @@
       
       <app-leftside-link [link]="'https://t.me/GlebKletskov'"  [text]="'Telegram'" [description]="'Feel free to text me'" iconSrc="telegram.svg" ></app-leftside-link>
   </div>
+  <app-info *ngIf="isMobile === false"></app-info>
 </section>
-
-<ng-template #title>
-  <h4 class="job-title">Front-end / DevOps / Raves</h4>
-</ng-template>

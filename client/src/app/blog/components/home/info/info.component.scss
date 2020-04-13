@@ -3,15 +3,56 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: .3s all ease;
-
+  
   &-title {
     text-align: center;
-  }
+    font-size: 1.5rem;
+    margin-bottom: 10%;
+    margin-top: 5%;
 
+    &__link {
+      position: relative;
+      cursor: pointer;
+      transition: .3s all ease;
+      
+      a {
+        color: black;
+      }
+      &:hover {
+        a {
+          color: white;
+        }
+
+      &::before {
+        transform: none;
+      }
+    }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: -.25rem;
+        bottom: 0;
+        left: -.25rem;
+        z-index: -1;
+        content: "";
+        background: currentColor;
+        border-radius: .3em;
+        opacity: .2;
+        transition: all .2s;
+        transform: scaleY(.06);
+        transform-origin: 0 100% 0;
+    }
+    
+    }
+  }
+  
   &-image {
+    transition: .3s all ease;
     display: block;
     width: 300px;
     height: 300px;
+
+    // box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   }
 }

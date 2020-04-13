@@ -1,4 +1,15 @@
-<div class="info" [style.opacity]="isVisible">
-  <h4 class="info-title">{{ text }}</h4>
-  <img [src]="imageSrc" alt="" class="info-image">
+<div class="info" >
+  <!-- <h4 class="info-title">{{ text }}</h4> -->
+  <div class="info-title">
+    <span>Front-end / </span>
+    <span>DevOps / </span>
+    <span  class="info-title__link">
+      Raves
+      <!-- <a routerLink="/raves">
+        Raves
+      </a> -->
+    </span>
+    
+  </div>
+  <img [src]="imageSrc" alt="" class="info-image" [style.opacity]="isVisible">
 </div>
