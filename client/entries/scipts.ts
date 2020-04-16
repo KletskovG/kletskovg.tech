@@ -1,1 +1,0 @@
-import '../src/scripts/sendEmail';

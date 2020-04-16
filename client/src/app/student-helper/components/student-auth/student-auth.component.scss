@@ -1,0 +1,30 @@
+.authpage {
+  width: 100vw;
+  height: 100vh;
+  background: var(--mainbrand-student);
+  color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .form {
+    background: var(--white-color);
+    border-radius: 5px;
+    color: var(--black-color);
+    padding: 20px;
+    width: 50%;
+  }
+
+  &-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin-left: 10px;
+      text-decoration: underline;
+      cursor: pointer;
+      color: var(--mainbrand-student);
+    }
+  }
+}

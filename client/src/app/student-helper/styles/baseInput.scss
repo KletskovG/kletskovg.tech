@@ -1,0 +1,46 @@
+.input {
+    width: 100%;
+    
+    &-desc {
+
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid black;
+      transition: 0.3s all ease;
+      border-radius: 5px;
+      width: 94%;
+
+      &:hover {
+        border: 1px solid blue;
+      }
+    }
+    
+    .error {
+      display: none;
+      color: red;
+    }
+
+    .error-active {
+      display: inline-block;
+    }  
+  }
+
+  .submit-button {
+    padding: 10px 15px;
+    color: var(--white-color);
+    background: var(--green-student);
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+    font-size: 1em;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s all ease;
+
+    &:hover {
+      box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.75);
+    }
+  }

@@ -23,6 +23,9 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+serverconfig.json
+src/types/serverconfig.ts
+
 # Bower dependency directory (https://bower.io/)
 bower_components
 
@@ -62,3 +65,10 @@ typings/
 
 #idea files
 .idea
+
+client/cypress/videos
+
+client/cypress/screenshots
+client_old/
+deploy
+server/dist

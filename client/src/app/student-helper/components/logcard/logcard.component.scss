@@ -1,0 +1,25 @@
+.card{
+  display: flex;
+  justify-content: center;
+
+  ul{
+    width: 60vw;
+    height: 100%;
+    border-radius: 7px;
+    padding: 0;
+    background: var(--mainbrand-student);
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+
+    li{
+      border-radius: 7px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 1vw 0 1vw 2vh;
+    }
+  }
+}
