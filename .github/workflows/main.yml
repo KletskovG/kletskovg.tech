@@ -70,7 +70,7 @@ jobs:
         context: ./server
     - name: Pull backend image
       run: |
-        curl ${{ secrets.PULL_BACKEND }}
+        ${{ secrets.DEPLOY }}
     - name: Publish frontend to registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
@@ -80,5 +80,5 @@ jobs:
         context: ./client
     - name: Pull frontend image
       run: |
-        curl ${{ secrets.PULL_FRONTEND }}
+        ${{ secrets.DEPLOY }}
     
