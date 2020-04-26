@@ -1,4 +1,9 @@
 .leftside-block {
+  &__text{
+    color: var(--black-color);
+    transition: .3s all ease;
+  }
+
   &__link {
     font-size: 1.5rem;
     color: var(--black-color);
@@ -12,17 +17,13 @@
       transition: .3s all ease;
     }
     
-    a {
-      color: var(--black-color);
-      transition: .3s all ease;
-    }
-
+    
     &:hover {
       img {
         filter: invert(1);
       }
       
-      a {
+      .leftside-block__text {
         color: white;
       }
 
@@ -59,6 +60,7 @@
 
   &__description {
     font-size: 1rem;
+    color: black;
   }
 
 }

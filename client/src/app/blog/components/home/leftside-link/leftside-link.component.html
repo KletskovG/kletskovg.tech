@@ -1,7 +1,8 @@
-<div class="leftside-block">
+<a  [href]="link" target="__blank" class="leftside-block">
     <span class="leftside-block__link">
-      <img [src]="icon" alt="Some Logo">
-      <a [href]="link" target="__blank"> {{ text }} </a>
+      <img [src]="icon" alt="Some Logo"
+      [style.width]="_width" [style.height]="_height" >
+      <span class="leftside-block__text"> {{ text }} </span>
     </span>    
   <p class="leftside-block__description"> {{ description }} </p>
-</div>
+</a>
