@@ -68,9 +68,6 @@ jobs:
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./server
-    - name: Pull backend image
-      run: |
-        ${{ secrets.DEPLOY }}
     - name: Publish frontend to registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
@@ -78,7 +75,5 @@ jobs:
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./client
-    - name: Pull frontend image
-      run: |
-        ${{ secrets.DEPLOY }}
-    
+    - name: Update cluster
+      run: ${{ secrets.UPDATE_CLUSTER }}

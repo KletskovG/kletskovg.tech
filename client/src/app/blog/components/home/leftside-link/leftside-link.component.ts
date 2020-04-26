@@ -11,13 +11,25 @@ export class LeftsideLinkComponent implements OnInit {
   @Input() link: string;
   @Input() description: string;
   @Input() iconSrc: string;
+  @Input() width: number;
+  @Input() height: number;
 
   public icon;
+  public _width = '';
+  public _height = '';
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
     this.icon = `/assets/icons/${this.iconSrc}`;
+    if (this.width) {
+      this._width = `${this.width}px`;
+    }
+    if (this.height) {
+      this._height = `${this.height}px`;
+    }
   }
 
 }
