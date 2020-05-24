@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'blog/**'
+      - '.github/**'
 
 jobs:
   build:
