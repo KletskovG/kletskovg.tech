@@ -1,3 +1,5 @@
+// import { AuthState } from './Auth';
+
 export type InferValueTypes<T> = T extends { [key in string]: infer U } ? U : never;
 
 export function inferLiteral<U, T extends U>(arg: T): T {

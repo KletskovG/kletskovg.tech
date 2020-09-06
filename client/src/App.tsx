@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React, { useEffect } from 'react';
+import { Switch, Route } from 'wouter';
+import HomePage from './components/pages/Home/HomePage';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+function App() {
+  useEffect(() => {
+    console.log(`${process.env.REACT_APP_API}`)
+  }, [])
+  
+  // TODO: Think about routing here
+  return (
+    <>
+      <Switch>
+        <Route path="/" component={() => <HomePage isCreateModal={false}  />} >  </Route>
+        <Route path=":rest/*all"></Route>
+      </Switch>
+    </>
+  );
+}
 
 export default App;
