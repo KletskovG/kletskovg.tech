@@ -1,6 +1,6 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
-import { ThemeReducer, Theme } from './theme/theme_reducer';
+import { ThemeReducer, Theme } from './theme/themeReducer';
 
 export type RootState = {
   theme: Theme,
