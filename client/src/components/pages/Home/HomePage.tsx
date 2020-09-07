@@ -2,37 +2,33 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
 import { css } from '@emotion/core';
-import {  flexColumnCenter, page } from '../../../styles';
 import { useLocation } from 'wouter';
 import Page from '../../layout/Page';
+import Rightside from './Rightside';
+import Leftside from './Leftside';
 
-export interface HomePageProps {
-  isCreateModal?: boolean
-}
-
-const HomePage = ({
-  isCreateModal
-}: HomePageProps) => {
+const HomePage = () => {
   const [, setLocation] = useLocation();
   const theme = useSelector((state: RootState) => state.theme);
-  const homePageStyles = css`
-    padding-top: 20px;
-    ${flexColumnCenter};
-    ${page};
-  `;
-
-  const listStyles = css`
+  const homeStyles = css`
     display: flex;
-    width: 100%;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    position: relative;
+    padding-top: 3%;
+
+    .job-title {
+      width: 50%;
+      align-self: flex-start;
+    }
   `;
 
   return (
     <Page>
-      <div className="home-page" css={homePageStyles}>
-        Home page
+      <div className="home-page" css={homeStyles}>
+        <Rightside />
+        <Leftside />
       </div>
     </Page>
   )

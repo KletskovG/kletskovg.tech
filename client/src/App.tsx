@@ -7,11 +7,10 @@ function App() {
     console.log(`${process.env.REACT_APP_API}`)
   }, [])
   
-  // TODO: Think about routing here
   return (
     <>
       <Switch>
-        <Route path="/" component={() => <HomePage isCreateModal={false}  />} >  </Route>
+        <Route path="/" component={() => <HomePage />} >  </Route>
         <Route path=":rest/*all"></Route>
       </Switch>
     </>

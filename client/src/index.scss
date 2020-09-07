@@ -7,6 +7,10 @@ html {
   * {
     box-sizing: border-box;
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 
@@ -17,12 +21,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: var(--main-brand);
-  color: var(--white-color);
+  background: #FCEA00;
 }
 
 code {
