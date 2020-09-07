@@ -31,6 +31,12 @@ export default function Rightside() {
         <img className={'avatar'} src={avatar} alt="My photo"/>
         <h1> Gleb Kletskov </h1>
       </div>
+
+      <div className="rightside-interests">
+        Frontend <br />
+        DevOps <br />
+        Raves
+      </div>
     </div>
   )
 }

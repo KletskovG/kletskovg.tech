@@ -80,21 +80,24 @@ export default function Leftside() {
         align-items: center;
         position: relative;
         margin-top: 2rem;
+        z-index: 2;
 
         img {
           transition: ${theme.common.transition};
         }
 
         &:hover {
+          color: ${theme.colors.white};
+          
           img {
             filter: invert(1);
           }
 
-          .leftside-block__text {
-            color: white;
+          .leftside-item__text {
+            color: ${theme.colors.white};
           }
 
-          &::before {
+          &:before {
             transform: none;
           }
         }
@@ -112,9 +115,9 @@ export default function Leftside() {
           right: -.25rem;
           bottom: 0;
           left: -.25rem;
-          z-index: -1;
+          z-index: 1;
           content: "";
-          background: #CABC07;
+          background: rgba(0, 0, 0, 0.5);
           border-radius: .3em;
           opacity: .2;
           transition: all .2s;
