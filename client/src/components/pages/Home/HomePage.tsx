@@ -3,10 +3,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
 import { css } from '@emotion/core';
 import {  flexColumnCenter, page } from '../../../styles';
-import Button from '../../../UI/Button/Button'
 import { useLocation } from 'wouter';
-
-// TODO: Create component isVisible 
+import Page from '../../layout/Page';
 
 export interface HomePageProps {
   isCreateModal?: boolean
@@ -21,8 +19,6 @@ const HomePage = ({
     padding-top: 20px;
     ${flexColumnCenter};
     ${page};
-    background: ${theme.colors.bg};
-    color: ${theme.colors.black};
   `;
 
   const listStyles = css`
@@ -34,9 +30,11 @@ const HomePage = ({
   `;
 
   return (
-    <div className="home-page" css={homePageStyles}>
+    <Page>
+      <div className="home-page" css={homePageStyles}>
         Home page
-    </div>
+      </div>
+    </Page>
   )
 }
 

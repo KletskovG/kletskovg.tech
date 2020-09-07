@@ -26,7 +26,7 @@ export type Theme = {
 
 const initialState: Theme = {
   colors: {
-    brand: '#0069FF',
+    brand: '#FCEA00',
     brandDark: '#1633ff',
     green: '#14CD73',
     greenDark: '#0CB863',
