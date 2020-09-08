@@ -33,9 +33,15 @@ export default function Rightside() {
       </div>
 
       <div className="rightside-interests">
-        Frontend <br />
-        DevOps <br />
-        Raves
+        <div className="rightside-interests__item">
+          Frontend
+        </div>
+        <div className="rightside-interests__item">
+          DevOps
+        </div>
+        <div className="rightside-interests__item">
+          Raves
+        </div>
       </div>
     </div>
   )
