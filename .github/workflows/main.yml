@@ -1,4 +1,4 @@
-name: CI
+name: Main CI
 
 on:
   push:
@@ -34,7 +34,6 @@ jobs:
         npm i
         docker build -t kletskovg/sitefrontend:prod .
         docker run -d -p 80:80 kletskovg/sitefrontend:prod
-        npm run test
 
       # npm i
       # npm run ng build --prod
