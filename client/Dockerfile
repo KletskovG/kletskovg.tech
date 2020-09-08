@@ -1,13 +1,12 @@
-
-FROM node:10-alpine as build-stage
-WORKDIR /app
-COPY package*.json /app/
+FROM node:12-alpine as build-stage
+WORKDIR /
+COPY package*.json /
 RUN npm install
-COPY ./ /app/
+COPY ./ /
 ARG configuration=production
-RUN npm run build -- --output-path=./dist/out --configuration="production"
+RUN npm run build
 
 FROM nginx:1.15
-COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
-
+RUN ls -la
+COPY --from=build-stage /build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf

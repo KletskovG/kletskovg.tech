@@ -1,48 +1,58 @@
 {
-  "name": "client-change",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "cypress run",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
+  "name": "student_helper_client",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.1.1",
-    "@angular/common": "~9.1.1",
-    "@angular/compiler": "~9.1.1",
-    "@angular/core": "~9.1.1",
-    "@angular/forms": "~9.1.1",
-    "@angular/platform-browser": "~9.1.1",
-    "@angular/platform-browser-dynamic": "~9.1.1",
-    "@angular/router": "~9.1.1",
-    "rxjs": "~6.5.5",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.3"
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.7",
+    "@types/redux": "^3.6.0",
+    "@types/wouter": "^2.2.0",
+    "customize-cra": "^0.9.1",
+    "emotion-theming": "^10.0.27",
+    "formik": "^2.1.4",
+    "node-sass": "^4.14.0",
+    "react": "^16.13.1",
+    "react-app-rewired": "^2.1.6",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "typescript": "~3.7.2",
+    "wouter": "^2.4.0",
+    "yup": "^0.28.4"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.901.1",
-    "@angular/cli": "^9.1.1",
-    "@angular/compiler-cli": "~9.1.1",
-    "@angular/language-service": "~9.1.1",
-    "@types/jasmine": "~3.3.8",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
-    "codelyzer": "^5.0.0",
-    "cypress": "^3.8.1",
-    "jasmine-core": "~3.4.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.1.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.0",
-    "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.8.3"
+    "@types/node": "^12.12.37",
+    "@types/yup": "^0.28.0"
   }
 }
