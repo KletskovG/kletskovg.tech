@@ -9,7 +9,6 @@ import Leftside from './Leftside';
 import TitleLoader from './TitleLoader';
 
 const HomePage = () => {
-  const [, setLocation] = useLocation();
   const theme = useSelector((state: RootState) => state.theme);
 
   const [isTitle, setisTitle] = useState(true);
