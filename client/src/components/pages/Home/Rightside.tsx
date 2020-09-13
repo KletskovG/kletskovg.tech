@@ -4,26 +4,37 @@ import { css } from '@emotion/core';
 import { Link, useLocation } from 'wouter';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
-import reactLogo from '../../../assets/images/react.png';
-import reduxLogo from '../../../assets/images/redux.svg';
-import angularLogo from '../../../assets/images/angular.svg';
-import nginxLogo from '../../../assets/images/nginx.png';
+import reactIcon from '../../../assets/icons/react.svg';
+import angularIcon from '../../../assets/icons/angular.svg';
+import jsIcon from '../../../assets/icons/js-square.svg';
+import dockerIcon from '../../../assets/icons/docker.svg';
+import digitalOceanIcon from '../../../assets/icons/digital-ocean.svg';
+import ubuntuIcon from '../../../assets/icons/ubuntu.svg';
+import gravIcon from '../../../assets/icons/grav.svg';
+import radIcon from '../../../assets/icons/radiation-alt.svg';
+import ninjaIcon from '../../../assets/icons/user-ninja.svg';
 
 export default function Rightside() {
   const theme = useSelector((state: RootState) => state.theme);
   const [, setLocation] = useLocation();
 
   const frontEndImages = [
-    reactLogo,
-    reduxLogo,
-    angularLogo,
+    reactIcon,
+    angularIcon,
+    jsIcon
   ];
 
   const devOpsImages = [
-    nginxLogo
+    dockerIcon,
+    digitalOceanIcon,
+    ubuntuIcon,
   ];
 
-  const ravesImages = [];
+  const ravesImages = [
+    gravIcon,
+    radIcon,
+    ninjaIcon
+  ];
 
   const rightStyles = css`
     width: 50%;
@@ -47,15 +58,29 @@ export default function Rightside() {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      padding-left: 8vw;
 
       &__item {
         font-size: 1.5rem;
         transition: ${theme.common.transition};
-        display: inline-flex;
+        display: flex;
         align-items: center;
         position: relative;
         margin-top: 2rem;
         z-index: 2;
+        cursor: pointer;
+
+        .link {
+          margin-right: 25px;
+        }
+
+        .element {
+          img {
+            width: 25px;
+            height: 25px;
+            margin-left: 15px;
+          }
+        }
 
         a {
           text-decoration: none;
@@ -109,32 +134,42 @@ export default function Rightside() {
       </div>
 
       <div className="rightside-interests">
-        <div className="rightside-interests__item" >
-          <div className="link" onClick={() => setLocation('/frontend')}>
+        <div className="rightside-interests__item" onClick={() => setLocation('/frontend')}>
+          <div className="link" >
             FrontEnd
           </div>
           {
             frontEndImages.map(element => (
-              <div>
+              <div className={'element'}>
                 <img src={element} alt={'frontend skill logo'}></img>
               </div>
             ))
           }
         </div>
-        <div className="rightside-interests__item" >
-          <div className="link" onClick={() => setLocation('/devops')}>
+        <div className="rightside-interests__item" onClick={() => setLocation('/devops')}>
+          <div className="link" >
              DevOps
            </div>
+          {
+            devOpsImages.map(element => (
+              <div className={'element'}>
+                <img src={element} alt="DevOps skill logo" />
+              </div>
+            ))
+          }
         </div>
-        {
-          devOpsImages.map(element => (
-            <div>
-              <img src={element} alt="DevOps skill logo"/>  
-            </div>
-          ))
-        }
+        
         <div className="rightside-interests__item" onClick={() => setLocation('/raves')}>
-            Raves
+            <div className="link" onClick={() => setLocation('/raves')}>
+              Raves
+            </div>
+            {
+              ravesImages.map(element => (
+                <div className={'element'}>
+                  <img src={element} alt="Rave logo" />
+                </div>
+              ))
+            }
         </div>
       </div>
     </div>
