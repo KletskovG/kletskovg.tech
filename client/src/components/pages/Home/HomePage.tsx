@@ -9,7 +9,6 @@ import Leftside from './Leftside';
 import TitleLoader from './TitleLoader';
 
 const HomePage = () => {
-  const [, setLocation] = useLocation();
   const theme = useSelector((state: RootState) => state.theme);
 
   const [isTitle, setisTitle] = useState(true);
@@ -36,6 +35,10 @@ const HomePage = () => {
     position: relative;
     padding-top: 3%;
     animation: ${home} 1.7s ease 1 forwards;
+
+    @media (max-width: 400px) {
+      flex-direction: column;
+    }
 
     .job-title {
       width: 50%;
