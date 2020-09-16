@@ -40,6 +40,10 @@ export default function Rightside() {
     width: 50%;
     align-self: flex-start;
 
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+
     .rightside-info {
       width: 100%;
       display: flex;

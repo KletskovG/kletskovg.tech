@@ -36,6 +36,10 @@ const HomePage = () => {
     padding-top: 3%;
     animation: ${home} 1.7s ease 1 forwards;
 
+    @media (max-width: 400px) {
+      flex-direction: column;
+    }
+
     .job-title {
       width: 50%;
       align-self: flex-start;

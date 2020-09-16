@@ -62,6 +62,10 @@ export default function Leftside() {
   const leftsideStyles = css`
     width: 50%;
 
+    @media (max-width: 400px) {
+      width: 80%;
+    }
+
     .leftside-item {
 
       a {
