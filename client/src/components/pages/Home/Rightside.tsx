@@ -163,7 +163,7 @@ export default function Rightside() {
           }
         </div>
         
-        <div className="rightside-interests__item" onClick={() => setLocation('/raves')}>
+        <div className="rightside-interests__item" onClick={() => window.open('https://instagram.com/mb_42')}>
             <div className="link" onClick={() => setLocation('/raves')}>
               Raves
             </div>
