@@ -72,3 +72,4 @@ client/cypress/screenshots
 client_old/
 deploy
 server/dist
+.DS_Store

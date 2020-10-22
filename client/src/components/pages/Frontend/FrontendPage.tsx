@@ -120,6 +120,14 @@ export default function FrontendPage() {
               > 
                   Currenly I am working as frontend software engineer in Rambler Group (Present time)
               </li>
+              <li 
+                className="projects-list__item navigation"
+                onClick={() => {
+                  window.open('https://www.youtube.com/watch?v=u52QUw8ON04')
+                }}
+              >
+                Rambler Group IT-school speech
+              </li>
             </ul>
           </div>
         </div>
