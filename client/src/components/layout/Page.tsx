@@ -1,14 +1,22 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { useSelector } from 'react-redux';
-import { Theme } from '../../store/theme/theme_reducer';
 import { RootState } from '../../store/index';
+import { setCookie } from '../../utils/cookies';
+import { ANIMATED_PATHS } from '../../consts';
+import useLocation from 'wouter/use-location';
 
 export default function Page({
   children
 }: any) {
   const theme = useSelector((state: RootState) => state.theme);
-
+  const [location] = useLocation();
+  ANIMATED_PATHS.forEach(route =>  {
+    if (location.includes(route)) {
+      setCookie(route, 'true');
+    }
+  })
+  
 
   const pageStyles = css`
     background: ${theme.colors.brand};

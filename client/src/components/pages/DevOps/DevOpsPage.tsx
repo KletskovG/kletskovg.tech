@@ -1,13 +1,14 @@
 import { css, keyframes } from '@emotion/core';
 import React, { useState, useEffect } from 'react';
 import Page from '../../layout/Page';
-import DevOpsTitleLoader from './DevOpsTitleLoader';
 import { useLocation } from 'wouter';
 import arrowLeft from '../../../assets/icons/arrow-left.svg';
+import AnimatedTitle from '../../layout/AnimatedTitle';
+import { getCookie } from '../../../utils/cookies';
 
 export default function FrontendPage() {
   const [isTitle, setIsTitle] = useState(true);
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   const projects = [
     {
       name: 'Telegram Coding Contest',
@@ -74,8 +75,8 @@ export default function FrontendPage() {
   return (
     <Page>
       {
-        isTitle ?
-        <DevOpsTitleLoader />
+        isTitle && !!getCookie(location) === false ?
+        <AnimatedTitle titles={['DEV', 'OPS']} />
         :
         <div 
         css={frontStyles}
