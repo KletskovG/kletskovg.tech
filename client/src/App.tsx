@@ -6,9 +6,6 @@ import DevOpsPage from './components/pages/DevOps/DevOpsPage';
 import RavesPage from './components/pages/Raves/RavesPage';
 
 function App() {
-  useEffect(() => {
-    console.log(`${process.env.REACT_APP_API}`)
-  }, [])
   
   return (
     <>

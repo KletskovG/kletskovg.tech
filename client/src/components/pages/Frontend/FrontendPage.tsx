@@ -1,13 +1,14 @@
 import { css, keyframes } from '@emotion/core';
 import React, { useState, useEffect } from 'react';
 import Page from '../../layout/Page';
-import FrontTitleLoader from './FrontTitleLoader';
 import { useLocation } from 'wouter';
 import arrowLeft from '../../../assets/icons/arrow-left.svg';
+import AnimatedTitle  from '../../layout/AnimatedTitle';
+import { getCookie } from '../../../utils/cookies';
 
 export default function FrontendPage() {
   const [isTitle, setIsTitle] = useState(true);
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
 
   const projects = [
     {
@@ -52,6 +53,8 @@ export default function FrontendPage() {
     .projects {
 
       &-list {
+        display: flex;
+        flex-direction: column;
 
         .navigation {
           display: inline-flex !important;
@@ -62,6 +65,7 @@ export default function FrontendPage() {
         }
 
         &__item {
+          width: fit-content;
         }
       }
     }
@@ -75,8 +79,8 @@ export default function FrontendPage() {
   return (
     <Page>
       {
-        isTitle ?
-        <FrontTitleLoader />
+        isTitle && !!getCookie(location) === false ?
+        <AnimatedTitle titles={['FRONT', 'END']} />
         :
         <div 
           css={frontStyles}

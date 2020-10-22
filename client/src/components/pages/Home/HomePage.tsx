@@ -6,11 +6,12 @@ import { useLocation } from 'wouter';
 import Page from '../../layout/Page';
 import Rightside from './Rightside';
 import Leftside from './Leftside';
-import TitleLoader from './TitleLoader';
+import { getCookie } from '../../../utils/cookies';
+import AnimatedTitle from '../../layout/AnimatedTitle';
 
 const HomePage = () => {
   const theme = useSelector((state: RootState) => state.theme);
-
+  const [location] = useLocation();
   const [isTitle, setisTitle] = useState(true);
 
   const home = keyframes`
@@ -34,7 +35,6 @@ const HomePage = () => {
     width: 100vw;
     position: relative;
     padding-top: 3%;
-    animation: ${home} 1.7s ease 1 forwards;
 
     @media (max-width: 400px) {
       flex-direction: column;
@@ -55,8 +55,8 @@ const HomePage = () => {
   return (
     <Page>
         {
-          isTitle ?
-          <TitleLoader />
+          isTitle && !!getCookie(location) === false?
+          <AnimatedTitle titles={['WEL', 'COME']} />
           :
           <div className="home-page" css={homeStyles}>
             <Rightside />
