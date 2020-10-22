@@ -175,6 +175,22 @@ export default function Rightside() {
               ))
             }
         </div>
+
+        <div>
+          <h2 style={{
+            marginBottom: 0,
+          }}> Recent Activity </h2>
+
+          <div 
+            className="link rightside-interests__item"
+            onClick={() => window.open('https://www.youtube.com/watch?v=u52QUw8ON04')}
+            style={{
+              margin: 0,
+            }}
+          >
+            Rambler Group IT-school speech
+          </div>
+        </div>
       </div>
     </div>
   )
