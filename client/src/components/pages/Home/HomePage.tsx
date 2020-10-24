@@ -36,7 +36,7 @@ const HomePage = () => {
     position: relative;
     padding-top: 3%;
 
-    @media (max-width: 400px) {
+    @media (max-width: 560px) {
       flex-direction: column;
     }
 
