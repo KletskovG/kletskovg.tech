@@ -5,6 +5,7 @@ import githubIcon from '../../../assets/icons/github.svg';
 import ramblerIcon from '../../../assets/images/rambler.png';
 import instaIcon from '../../../assets/icons/instagram.svg';
 import telegramIcon from '../../../assets/icons/telegram.svg';
+import soundIcon from '../../../assets/icons/soundcloud.svg';
 import { css } from '@emotion/core';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
@@ -57,6 +58,13 @@ export default function Leftside() {
     text: 'Telegram',
     description: 'Feel free to text me',
     iconSrc: telegramIcon,
+  }
+
+  const soundcloud: ILeftsideItem = {
+    link: 'https://soundcloud.com/rz3vzum40rwr',
+    text: 'Soundcloud',
+    description: 'Check out my soundcloud account',
+    iconSrc: soundIcon,
   }
 
   const leftsideStyles = css`
@@ -195,7 +203,7 @@ export default function Leftside() {
         </p>
       </a>
 
-      <a
+      {/* <a
         className={'leftside-item'}
         target={'__blank'}
         href={instagram.link}>
@@ -218,6 +226,19 @@ export default function Leftside() {
         </span>
         <p className={'leftside-item__description'}>
           {telegram.description}
+        </p>
+      </a> */}
+
+      <a
+        className={'leftside-item'}
+        target={'__blank'}
+        href={soundcloud.link}>
+        <span className={'leftside-item__link'}>
+          <img src={soundcloud.iconSrc} alt="telegram icon" />
+          <span className={'leftside-item__text'}> {soundcloud.text} </span>
+        </span>
+        <p className={'leftside-item__description'}>
+          {soundcloud.description}
         </p>
       </a>
     </div>
