@@ -190,6 +190,17 @@ export default function Rightside() {
           >
             Rambler Group IT-school speech
           </div>
+
+          <div 
+            className="link rightside-interests__item"
+            onClick={() => window.open('https://soundcloud.com/rz3vzum40rwr/sets/coding_times')}
+            style={{
+              margin: 0,
+              marginTop: '15px',
+            }}
+          >
+            Playlist for coding on Soundcloud 
+          </div>
         </div>
       </div>
     </div>
