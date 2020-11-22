@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/index';
-import { css, keyframes } from '@emotion/core';
+import { css } from '@emotion/core';
 import { useLocation } from 'wouter';
 import Page from '../../layout/Page';
 import Rightside from './Rightside';
@@ -10,23 +8,8 @@ import { getCookie } from '../../../utils/cookies';
 import AnimatedTitle from '../../layout/AnimatedTitle';
 
 const HomePage = () => {
-  const theme = useSelector((state: RootState) => state.theme);
   const [location] = useLocation();
   const [isTitle, setisTitle] = useState(true);
-
-  const home = keyframes`
-    0% {
-      opacity: 0;
-    }
-
-    80% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  `;
 
   const homeStyles = css`
     display: flex;

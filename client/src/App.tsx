@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'wouter';
 import HomePage from './components/pages/Home/HomePage';
 import Frontend from './components/pages/Frontend/FrontendPage';
