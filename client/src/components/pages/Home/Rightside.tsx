@@ -1,7 +1,7 @@
 import React from 'react';
 import avatar from '../../../assets/images/avatar.jpeg';
 import { css } from '@emotion/core';
-import { Link, useLocation } from 'wouter';
+import { useLocation } from 'wouter';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
 import reactIcon from '../../../assets/icons/react.svg';
@@ -133,7 +133,7 @@ export default function Rightside() {
       css={rightStyles}
     >
       <div className="rightside-info">
-        <img className={'avatar'} src={avatar} alt="My photo"/>
+        <img className={'avatar'} src={avatar} alt="My avatar"/>
         <h1> Gleb Kletskov </h1>
       </div>
 
@@ -200,6 +200,17 @@ export default function Rightside() {
             }}
           >
             Playlist for coding on Soundcloud 
+          </div>
+
+          <div 
+            className="link rightside-interests__item"
+            onClick={() => window.open('https://gfgfddgleb.medium.com/how-to-scale-your-web-platform-with-traefik-and-docker-swarm-688ab0387b94')}
+            style={{
+              margin: 0,
+              marginTop: '15px',
+            }}
+          >
+            How to scale your platform with Docker Swarm and Traefik 
           </div>
         </div>
       </div>

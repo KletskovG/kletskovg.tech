@@ -3,8 +3,6 @@ import mail from '../../../assets/icons/mail.svg';
 import mediumIcon from '../../../assets/icons/medium.svg';
 import githubIcon from '../../../assets/icons/github.svg';
 import ramblerIcon from '../../../assets/images/rambler.png';
-import instaIcon from '../../../assets/icons/instagram.svg';
-import telegramIcon from '../../../assets/icons/telegram.svg';
 import soundIcon from '../../../assets/icons/soundcloud.svg';
 import { css } from '@emotion/core';
 import { useSelector } from 'react-redux';
@@ -44,20 +42,6 @@ export default function Leftside() {
     text: 'Rambler Group',
     description: 'I am working in Rambler group as Frontend engineer',
     iconSrc: ramblerIcon,
-  }
-
-  const instagram: ILeftsideItem = {
-    link: 'https://www.instagram.com/mb_42/',
-    text: 'Instagram',
-    description: 'In my instagram you can see reports from Raves',
-    iconSrc: instaIcon,
-  }
-  
-  const telegram: ILeftsideItem = {
-    link: 'https://t.me/GlebKletskov',
-    text: 'Telegram',
-    description: 'Feel free to text me',
-    iconSrc: telegramIcon,
   }
 
   const soundcloud: ILeftsideItem = {

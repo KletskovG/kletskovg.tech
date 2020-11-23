@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/core';
+import { css } from '@emotion/core';
 import React, { useState, useEffect } from 'react';
 import Page from '../../layout/Page';
 import { useLocation } from 'wouter';
@@ -10,26 +10,6 @@ export default function FrontendPage() {
   const [isTitle, setIsTitle] = useState(true);
   const [location, setLocation] = useLocation();
 
-  const projects = [
-    {
-      name: 'Telegram Coding Contest',
-      
-    }
-  ];
-
-  const front = keyframes`
-    0% {
-      opacity: 0;
-    }
-
-    80% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  `;
   const frontStyles = css`
     padding: 10vh;
 

@@ -13,7 +13,7 @@ const AnimatedTitle: FC<AnimatedTitleProps> = ({ titles })=> {
   useEffect(() => {
     const cookie = getCookie(location);
     console.log(cookie)
-  }, [])
+  }, [location])
   
   const bigTitle = keyframes`
     0% {
