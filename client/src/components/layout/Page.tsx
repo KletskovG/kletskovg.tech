@@ -11,17 +11,23 @@ export default function Page({
 }: any) {
   const theme = useSelector((state: RootState) => state.theme);
   const [location] = useLocation();
-  ANIMATED_PATHS.forEach(route =>  {
+  ANIMATED_PATHS.forEach(route => {
     if (location.includes(route)) {
       setCookie(route, 'true');
     }
   })
-  
+
 
   const pageStyles = css`
     background: ${theme.colors.brand};
     width: 100vw;
   color: ${theme.colors.black};
+
+  .page-menu {
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+  }
 
     .navigation {
         font-size: 1.5rem;
@@ -32,6 +38,7 @@ export default function Page({
         margin-top: 2rem;
         z-index: 2;
         cursor: pointer;
+        width: fit-content;
 
         .link {
           margin-right: 25px;
@@ -85,13 +92,13 @@ export default function Page({
       }
     }
   `;
-  
+
   return (
-    <div 
+    <div
       className={'page'}
       css={pageStyles}
-    >      
-      { children }
+    >
+      { children}
     </div>
   )
 }
