@@ -1,5 +1,5 @@
 import * as types from './types';
-import { ThemeAction } from './ThemeActionTypes';
+import { ThemeAction } from './ThemeActionsTypes';
 export type Theme = {
   colors: {
     brand: string,
@@ -76,13 +76,3 @@ export const ThemeReducer = (
     }
   }
 }
-
-//     margin- top: 20px;
-//   background: black;
-//   color: white;
-//   border: 2px solid;
-//   cursor: pointer;
-//   font- size: 10p;
-// font - size: 20px;
-// padding: 10px 20px;
-// }

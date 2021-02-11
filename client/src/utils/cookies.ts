@@ -11,7 +11,6 @@ export const getCookie = (name: string): string | null => {
 
 
 export const getAuthToken = (): string => {
-  // return 'Bearer' + ' ' + getCookie('token');
   return `Bearer ${getCookie('token')}`;
 }
 

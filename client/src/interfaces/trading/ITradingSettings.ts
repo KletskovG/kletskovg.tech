@@ -7,4 +7,4 @@ export type TradingSettings = {
   thresholdPercent: number;
   accountId: string;
   token: string;
-}
+} | null
