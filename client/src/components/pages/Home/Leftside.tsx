@@ -2,7 +2,7 @@ import React from 'react';
 import mail from '../../../assets/icons/mail.svg';
 import mediumIcon from '../../../assets/icons/medium.svg';
 import githubIcon from '../../../assets/icons/github.svg';
-import ramblerIcon from '../../../assets/images/rambler.png';
+import mailRu from '../../../assets/icons/main-ru.svg';
 import soundIcon from '../../../assets/icons/soundcloud.svg';
 import { css } from '@emotion/core';
 import { useSelector } from 'react-redux';
@@ -37,11 +37,11 @@ export default function Leftside() {
     link: 'https://github.com/kletskovg',
   }
 
-  const rambler: ILeftsideItem = {
-    link: 'https://rambler-co.ru',
-    text: 'Rambler Group',
-    description: 'I am working in Rambler group as Frontend engineer',
-    iconSrc: ramblerIcon,
+  const work: ILeftsideItem = {
+    link: 'https://corp.mail.ru/',
+    text: 'Mail.ru Group',
+    description: 'I am working in Mail.ru group as Frontend engineer',
+    iconSrc: mailRu,
   }
 
   const soundcloud: ILeftsideItem = {
@@ -177,13 +177,13 @@ export default function Leftside() {
       <a
         className={'leftside-item'}
         target={'__blank'}
-        href={rambler.link}>
+        href={work.link}>
         <span className={'leftside-item__link'}>
-          <img src={rambler.iconSrc} alt="rambler icon" />
-          <span className={'leftside-item__text'}> {rambler.text} </span>
+          <img src={work.iconSrc} alt="work icon" />
+          <span className={'leftside-item__text'}> {work.text} </span>
         </span>
         <p className={'leftside-item__description'}>
-          {rambler.description}
+          {work.description}
         </p>
       </a>
 

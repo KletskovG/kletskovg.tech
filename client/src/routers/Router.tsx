@@ -10,11 +10,11 @@ export const Router = () => {
   let TradingRouter;
 
   if (process.env.NODE_ENV === "development") {
-    try {
-      TradingRouter = React.lazy(() => import("./TradingRouter"))?? undefined;
-    } catch(error) {
-      TradingRouter = undefined
-    }
+    // try {
+    //   TradingRouter = React.lazy(() => import("./TradingRouter"))?? undefined;
+    // } catch(error) {
+    //   TradingRouter = undefined
+    // }
   }
   
   return (
@@ -23,13 +23,13 @@ export const Router = () => {
       <Route path="/frontend" component={() => <Frontend />}></Route>
       <Route path="/devops" component={() => <DevOpsPage />}></Route>
       <Route path="/raves" component={() => <RavesPage />}></Route>
-      {
+      {/* {
         TradingRouter ?
           <Suspense fallback={<div> Loading... </div>}>
             <TradingRouter />
           </Suspense>
         : <></>
-      }
+      } */}
       <Route path="/:rest*">
         <Redirect to={'/'} />
       </Route>

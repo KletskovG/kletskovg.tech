@@ -191,26 +191,17 @@ export default function Rightside() {
             Rambler Group IT-school speech
           </div>
 
-          <div 
-            className="link rightside-interests__item"
-            onClick={() => window.open('https://soundcloud.com/rz3vzum40rwr/sets/coding_times')}
-            style={{
-              margin: 0,
-              marginTop: '15px',
-            }}
-          >
-            Playlist for coding on Soundcloud 
-          </div>
-
-          <div 
-            className="link rightside-interests__item"
-            onClick={() => window.open('https://gfgfddgleb.medium.com/how-to-scale-your-web-platform-with-traefik-and-docker-swarm-688ab0387b94')}
-            style={{
-              margin: 0,
-              marginTop: '15px',
-            }}
-          >
-            How to scale your platform with Docker Swarm and Traefik 
+          <div>
+            <div
+              className="link rightside-interests__item"
+              onClick={() => window.open('https://gfgfddgleb.medium.com/introduction-to-constraint-validation-api-14a3f60bd534')}
+              style={{
+                margin: 0,
+              }}
+            >
+              Introduction to Constraint Validation API
+            </div>
+            
           </div>
         </div>
       </div>
