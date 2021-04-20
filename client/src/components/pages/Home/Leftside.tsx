@@ -4,6 +4,7 @@ import mediumIcon from '../../../assets/icons/medium.svg';
 import githubIcon from '../../../assets/icons/github.svg';
 import mailRu from '../../../assets/icons/main-ru.svg';
 import soundIcon from '../../../assets/icons/soundcloud.svg';
+import linkedIcon from '../../../assets/icons/linkedin.svg';
 import { css } from '@emotion/core';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
@@ -49,6 +50,13 @@ export default function Leftside() {
     text: 'Soundcloud',
     description: 'Check out my soundcloud account',
     iconSrc: soundIcon,
+  }
+
+  const linkedIn: ILeftsideItem = {
+    link: 'https://www.linkedin.com/in/gleb-kletskov-798445194/',
+    text: 'LinkedIn',
+    description: 'Find me in Linkedin',
+    iconSrc: linkedIcon,
   }
 
   const leftsideStyles = css`
@@ -187,42 +195,16 @@ export default function Leftside() {
         </p>
       </a>
 
-      {/* <a
-        className={'leftside-item'}
-        target={'__blank'}
-        href={instagram.link}>
-        <span className={'leftside-item__link'}>
-          <img src={instagram.iconSrc} alt="instagram icon" />
-          <span className={'leftside-item__text'}> {instagram.text} </span>
-        </span>
-        <p className={'leftside-item__description'}>
-          {instagram.description}
-        </p>
-      </a>
-
       <a
         className={'leftside-item'}
         target={'__blank'}
-        href={telegram.link}>
+        href={linkedIn.link}>
         <span className={'leftside-item__link'}>
-          <img src={telegram.iconSrc} alt="telegram icon" />
-          <span className={'leftside-item__text'}> {telegram.text} </span>
+          <img src={linkedIn.iconSrc} alt="telegram icon" />
+          <span className={'leftside-item__text'}> {linkedIn.text} </span>
         </span>
         <p className={'leftside-item__description'}>
-          {telegram.description}
-        </p>
-      </a> */}
-
-      <a
-        className={'leftside-item'}
-        target={'__blank'}
-        href={soundcloud.link}>
-        <span className={'leftside-item__link'}>
-          <img src={soundcloud.iconSrc} alt="telegram icon" />
-          <span className={'leftside-item__text'}> {soundcloud.text} </span>
-        </span>
-        <p className={'leftside-item__description'}>
-          {soundcloud.description}
+          {linkedIn.description}
         </p>
       </a>
     </div>
