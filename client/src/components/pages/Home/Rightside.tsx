@@ -5,11 +5,8 @@ import { useLocation } from 'wouter';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
 import reactIcon from '../../../assets/icons/react.svg';
-import angularIcon from '../../../assets/icons/angular.svg';
 import jsIcon from '../../../assets/icons/js-square.svg';
 import dockerIcon from '../../../assets/icons/docker.svg';
-import digitalOceanIcon from '../../../assets/icons/digital-ocean.svg';
-import ubuntuIcon from '../../../assets/icons/ubuntu.svg';
 import gravIcon from '../../../assets/icons/grav.svg';
 import radIcon from '../../../assets/icons/radiation-alt.svg';
 import ninjaIcon from '../../../assets/icons/user-ninja.svg';
@@ -18,17 +15,12 @@ export default function Rightside() {
   const theme = useSelector((state: RootState) => state.theme);
   const [, setLocation] = useLocation();
 
-  const frontEndImages = [
+  const blogImages = [
     reactIcon,
-    angularIcon,
-    jsIcon
+    jsIcon,
+    dockerIcon,
   ];
 
-  const devOpsImages = [
-    dockerIcon,
-    digitalOceanIcon,
-    ubuntuIcon,
-  ];
 
   const ravesImages = [
     gravIcon,
@@ -138,7 +130,7 @@ export default function Rightside() {
       </div>
 
       <div className="rightside-interests">
-        <div className="rightside-interests__item" onClick={() => setLocation('/frontend')}>
+        {/* <div className="rightside-interests__item" onClick={() => setLocation('/frontend')}>
           <div className="link" >
             FrontEnd
           </div>
@@ -161,6 +153,20 @@ export default function Rightside() {
               </div>
             ))
           }
+        </div> */}
+
+        <div className="rightside-interests__item" onClick={() => setLocation('/blog')}>
+          <div className="link">
+            Blog
+          </div>
+
+          {
+            blogImages.map(element => (
+              <div className={'element'}>
+                <img src={element} alt={'frontend skill logo'}></img>
+              </div>
+            ))
+          }
         </div>
         
         <div className="rightside-interests__item" onClick={() => window.open('https://instagram.com/mb_42')}>
@@ -174,35 +180,6 @@ export default function Rightside() {
                 </div>
               ))
             }
-        </div>
-
-        <div>
-          <h2 style={{
-            marginBottom: 0,
-          }}> Recent Activity </h2>
-
-          <div 
-            className="link rightside-interests__item"
-            onClick={() => window.open('https://www.youtube.com/watch?v=u52QUw8ON04')}
-            style={{
-              margin: 0,
-            }}
-          >
-            Rambler Group IT-school speech
-          </div>
-
-          <div>
-            <div
-              className="link rightside-interests__item"
-              onClick={() => window.open('https://gfgfddgleb.medium.com/introduction-to-constraint-validation-api-14a3f60bd534')}
-              style={{
-                margin: 0,
-              }}
-            >
-              Introduction to Constraint Validation API
-            </div>
-            
-          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,8 @@ import Rightside from './Rightside';
 import Leftside from './Leftside';
 import { getCookie } from '../../../utils/cookies';
 import AnimatedTitle from '../../layout/AnimatedTitle';
+import { ProvideBackground } from '../../layout/ProvideBackground';
+import {Title} from "../../layout/Title";
 
 const HomePage = () => {
   const [location] = useLocation();
@@ -37,8 +39,9 @@ const HomePage = () => {
 
   return (
     <Page>
+        {/* <ImprovedTitle title={"Hello world"}/> */}
         {
-          isTitle && !!getCookie(location) === false?
+          isTitle && !!getCookie(location) === false ?
           <AnimatedTitle titles={['WEL', 'COME']} />
           :
           <div className="home-page" css={homeStyles}>

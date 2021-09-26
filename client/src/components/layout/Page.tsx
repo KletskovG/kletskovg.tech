@@ -5,6 +5,7 @@ import { RootState } from '../../store/index';
 import { setCookie } from '../../utils/cookies';
 import { ANIMATED_PATHS } from '../../consts';
 import useLocation from 'wouter/use-location';
+import Header from "./Header";
 
 export default function Page({
   children
@@ -98,6 +99,7 @@ export default function Page({
       className={'page'}
       css={pageStyles}
     >
+      {location !== "/" ? <Header /> : null}
       { children}
     </div>
   )
