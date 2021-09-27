@@ -20,28 +20,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         version: ${{ matrix.node_version }}
-
-    - name: Build Frontend
-      run: |
-        cd client
-        npm i
-        docker build -t kletskovg/sitefrontend:prod .
-        docker run -d -p 80:80 kletskovg/sitefrontend:prod
   ### Second Job
-  deploy:
+  publish_back:
     needs: build
-    name: Deploy
+    name: Publish Backend
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        node_version: [12]
-    
+        node_version: [14]
     env:
       LOGIN: ${{ secrets.DOCKER_LOGIN }}
       DOCKER: ${{ secrets.DOCKER_NAME }}
-
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v1
       with:
@@ -58,12 +49,39 @@ jobs:
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./server
-    - name: Publish frontend to registry
+  publish_front:
+    needs: build
+    name: Publish Frontend
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [14]
+    env:
+      LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER: ${{ secrets.DOCKER_NAME }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
+    - name: Build Frontend
+      run: |
+        cd client
+        npm i
+        docker build -t kletskovg/sitefrontend:prod .
+        docker run -d -p 80:80 kletskovg/sitefrontend:prod
+    - name: Publish Frontend to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: kletskovg/sitefrontend:prod
+        name: kletskovg/sitebackend:latest
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./client
-    - name: Update cluster
-      run: ${{ secrets.UPDATE_CLUSTER }}
+  update_cluster:
+    needs: [build, publish_back, publish_front]
+    name: Update cluster
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Run script
+        run: ${{ secrets.UPDATE_CLUSTER }}
