@@ -78,5 +78,5 @@ jobs:
         cd server
         npm i
         docker build -t kletskovg/sitebackend:latest .
-        docker run -d -p 8080:8080 kletskovg/sitebackend:latest
-        npm run test
+      # docker run -d -p 8080:8080 kletskovg/sitebackend:latest
+      # npm run test
