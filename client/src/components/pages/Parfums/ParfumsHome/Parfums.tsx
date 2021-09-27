@@ -22,6 +22,7 @@ export const Parfums = () => {
     return (
         <Page>
             <h4> List of Parfum useful things </h4>
+            <hr />
             {renderLinks()}
         </Page>
     )

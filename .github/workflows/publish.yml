@@ -1,4 +1,5 @@
 name: Publish project
+
 on:
   workflow_dispatch
 jobs:
@@ -21,54 +22,48 @@ jobs:
         version: ${{ matrix.node_version }}
 
     - name: Build Frontend
-      # run: |
-      #   cd client
-      #   npm i
-      #   docker build -t kletskovg/sitefrontend:prod .
-      #   docker run -d -p 80:80 kletskovg/sitefrontend:prod
       run: |
-        echo 'Hello world test manual run'
-      # npm i
-      # npm run ng build --prod
-      # npm run ng serve --prod=true & npm run test
-      # cd ../
+        cd client
+        npm i
+        docker build -t kletskovg/sitefrontend:prod .
+        docker run -d -p 80:80 kletskovg/sitefrontend:prod
   ### Second Job
-  # deploy:
-  #   needs: build
-  #   name: Deploy
-  #   runs-on: ubuntu-18.04
-  #   strategy:
-  #     matrix:
-  #       node_version: [12]
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [12]
     
-  #   env:
-  #     LOGIN: ${{ secrets.DOCKER_LOGIN }}
-  #     DOCKER: ${{ secrets.DOCKER_NAME }}
+    env:
+      LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER: ${{ secrets.DOCKER_NAME }}
 
-  #   steps:
-  #   - uses: actions/checkout@v1
-  #   - name: Use Node.js ${{ matrix.node_version }}
-  #     uses: actions/setup-node@v1
-  #     with:
-  #       version: ${{ matrix.node_version }}
-  #   - name: Build server
-  #     run: |
-  #       cd server
-  #       yarn install
-  #       yarn build
-    # - name: Publish Server to Registry
-    #   uses: elgohr/Publish-Docker-Github-Action@master
-    #   with:
-    #     name: kletskovg/sitebackend:latest
-    #     username: ${{secrets.DOCKER_LOGIN}}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-    #     context: ./server
-    # - name: Publish frontend to registry
-    #   uses: elgohr/Publish-Docker-Github-Action@master
-    #   with:
-    #     name: kletskovg/sitefrontend:prod
-    #     username: ${{secrets.DOCKER_LOGIN}}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-    #     context: ./client
-    # - name: Update cluster
-    #   run: ${{ secrets.UPDATE_CLUSTER }}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
+    - name: Build server
+      run: |
+        cd server
+        yarn install
+        yarn build
+    - name: Publish Server to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: kletskovg/sitebackend:latest
+        username: ${{secrets.DOCKER_LOGIN}}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        context: ./server
+    - name: Publish frontend to registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: kletskovg/sitefrontend:prod
+        username: ${{secrets.DOCKER_LOGIN}}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        context: ./client
+    - name: Update cluster
+      run: ${{ secrets.UPDATE_CLUSTER }}
