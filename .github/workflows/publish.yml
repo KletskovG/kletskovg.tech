@@ -74,7 +74,7 @@ jobs:
     - name: Publish Frontend to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: kletskovg/sitebackend:latest
+        name: kletskovg/sitefrontend:latest
         username: ${{secrets.DOCKER_LOGIN}}
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./client
