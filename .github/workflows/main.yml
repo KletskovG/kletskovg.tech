@@ -63,19 +63,19 @@ jobs:
         cd server
         yarn install
         yarn build
-    - name: Publish Server to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: kletskovg/sitebackend:latest
-        username: ${{secrets.DOCKER_LOGIN}}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        context: ./server
-    - name: Publish frontend to registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: kletskovg/sitefrontend:prod
-        username: ${{secrets.DOCKER_LOGIN}}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        context: ./client
-    - name: Update cluster
-      run: ${{ secrets.UPDATE_CLUSTER }}
+    # - name: Publish Server to Registry
+    #   uses: elgohr/Publish-Docker-Github-Action@master
+    #   with:
+    #     name: kletskovg/sitebackend:latest
+    #     username: ${{secrets.DOCKER_LOGIN}}
+    #     password: ${{ secrets.DOCKER_PASSWORD }}
+    #     context: ./server
+    # - name: Publish frontend to registry
+    #   uses: elgohr/Publish-Docker-Github-Action@master
+    #   with:
+    #     name: kletskovg/sitefrontend:prod
+    #     username: ${{secrets.DOCKER_LOGIN}}
+    #     password: ${{ secrets.DOCKER_PASSWORD }}
+    #     context: ./client
+    # - name: Update cluster
+    #   run: ${{ secrets.UPDATE_CLUSTER }}
