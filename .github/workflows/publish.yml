@@ -1,12 +1,4 @@
-name: Main CI
-
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'client/**'
-      - 'server/**'
+name: Publish project
 
 jobs:
   build:
@@ -29,40 +21,42 @@ jobs:
 
     - name: Build Frontend
       # uses: docker
+      # run: |
+      #   cd client
+      #   npm i
+      #   docker build -t kletskovg/sitefrontend:prod .
+      #   docker run -d -p 80:80 kletskovg/sitefrontend:prod
+      uses: docker
       run: |
-        cd client
-        npm i
-        docker build -t kletskovg/sitefrontend:prod .
-        docker run -d -p 80:80 kletskovg/sitefrontend:prod
-
+        echo 'Hello world test manual run'
       # npm i
       # npm run ng build --prod
       # npm run ng serve --prod=true & npm run test
       # cd ../
   ### Second Job
-  deploy:
-    needs: build
-    name: Deploy
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node_version: [12]
+  # deploy:
+  #   needs: build
+  #   name: Deploy
+  #   runs-on: ubuntu-18.04
+  #   strategy:
+  #     matrix:
+  #       node_version: [12]
     
-    env:
-      LOGIN: ${{ secrets.DOCKER_LOGIN }}
-      DOCKER: ${{ secrets.DOCKER_NAME }}
+  #   env:
+  #     LOGIN: ${{ secrets.DOCKER_LOGIN }}
+  #     DOCKER: ${{ secrets.DOCKER_NAME }}
 
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        version: ${{ matrix.node_version }}
-    - name: Build server
-      run: |
-        cd server
-        yarn install
-        yarn build
+  #   steps:
+  #   - uses: actions/checkout@v1
+  #   - name: Use Node.js ${{ matrix.node_version }}
+  #     uses: actions/setup-node@v1
+  #     with:
+  #       version: ${{ matrix.node_version }}
+  #   - name: Build server
+  #     run: |
+  #       cd server
+  #       yarn install
+  #       yarn build
     # - name: Publish Server to Registry
     #   uses: elgohr/Publish-Docker-Github-Action@master
     #   with:
