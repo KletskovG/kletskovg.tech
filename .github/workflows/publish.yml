@@ -1,12 +1,13 @@
 name: Publish project
-
+on:
+  workflow_dispatch
 jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        node_version: [12]
+        node_version: [14]
     
     env:
       LOGIN: ${{ secrets.DOCKER_LOGIN }}
@@ -20,13 +21,11 @@ jobs:
         version: ${{ matrix.node_version }}
 
     - name: Build Frontend
-      # uses: docker
       # run: |
       #   cd client
       #   npm i
       #   docker build -t kletskovg/sitefrontend:prod .
       #   docker run -d -p 80:80 kletskovg/sitefrontend:prod
-      uses: docker
       run: |
         echo 'Hello world test manual run'
       # npm i
