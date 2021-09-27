@@ -10,7 +10,6 @@ function subdomainApplications (map: Array<any>) {
 
   return function getComponent () {
     const parts = window.location.hostname.split('.');
-    console.log(parts)
     let last_index = -2;
     const last = parts[parts.length - 1];
     const is_localhost = last === 'localhost';
@@ -34,11 +33,11 @@ function subdomainApplications (map: Array<any>) {
 }
 
 const MainApp = () => {
-  return <Router />
+  return <Router />;
 }
 
 const ParfumsApp = () => {
-  return <ParfumsRouter />
+  return <ParfumsRouter />;
 }
 
 const getApp = subdomainApplications([
