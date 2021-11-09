@@ -2,7 +2,7 @@ import React from 'react';
 import mail from '../../../assets/icons/mail.svg';
 import mediumIcon from '../../../assets/icons/medium.svg';
 import githubIcon from '../../../assets/icons/github.svg';
-import mailRu from '../../../assets/icons/main-ru.svg';
+import yandex from '../../../assets/icons/yandex.svg';
 import soundIcon from '../../../assets/icons/soundcloud.svg';
 import linkedIcon from '../../../assets/icons/linkedin.svg';
 import { css } from '@emotion/core';
@@ -39,10 +39,10 @@ export default function Leftside() {
   }
 
   const work: ILeftsideItem = {
-    link: 'https://corp.mail.ru/',
-    text: 'Mail.ru Group',
-    description: 'I am working in Mail.ru group as Frontend engineer',
-    iconSrc: mailRu,
+    link: 'https://yandex.com/company/',
+    text: 'Yandex',
+    description: 'I am working in Yandex as Frontend software engineer',
+    iconSrc: yandex,
   }
 
   const soundcloud: ILeftsideItem = {
@@ -103,6 +103,14 @@ export default function Leftside() {
 
           &:before {
             transform: none;
+          }
+        }
+
+        &--disabled {
+          &:hover  {
+            img {
+              filter: none;
+            }
           }
         }
 
@@ -186,7 +194,7 @@ export default function Leftside() {
         className={'leftside-item'}
         target={'__blank'}
         href={work.link}>
-        <span className={'leftside-item__link'}>
+        <span className={'leftside-item__link leftside-item__link--disabled'}>
           <img src={work.iconSrc} alt="work icon" />
           <span className={'leftside-item__text'}> {work.text} </span>
         </span>
