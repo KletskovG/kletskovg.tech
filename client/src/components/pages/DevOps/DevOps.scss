@@ -1,0 +1,37 @@
+.front-page {
+  padding: 10vh;
+
+  @media (max-width: 400px) {
+    padding: 5vh;
+
+    .navigation {
+      font-size: 1rem;
+    }
+
+    .projects-list {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .link {
+    margin-left: 25px;
+  }
+
+  .projects {
+
+    &-list {
+
+      .navigation {
+        display: inline-flex !important;
+
+        img {
+          margin: 0;
+        }
+      }
+
+      &__item {
+      }
+    }
+  }
+}

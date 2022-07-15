@@ -1,0 +1,27 @@
+@keyframes bigTitle {
+    0% {
+        transform: translate(-1000vw);
+      }
+
+    100% {
+      transform: translate(0);
+    }
+}
+
+.welcome-title {
+  font-family: 'TTFirsNeue-BlackItalic', sans-serif;
+  font-style: italic;
+  font-size: 20vw;
+  display: block;
+  width: 100vw;
+  word-break: break-all;
+  margin: -3% -5%;
+  letter-spacing: -13px;
+  line-height: 24vw;
+  z-index: 10;
+
+  &-text {
+    margin: 0;
+    animation: bigTitle ease 1 forwards;
+  }
+}

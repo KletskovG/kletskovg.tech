@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'wouter';
-import Page from '../../layout/Page';
+import Page from '../../shared/Page/Page';
 
 export const Blog = () => {
     return (

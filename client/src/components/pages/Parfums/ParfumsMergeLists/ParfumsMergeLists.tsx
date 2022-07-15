@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from "../../../layout/Page";
+import Page from "../../../shared/Page/Page";
 
 export const ParfumsMergeLists = () => {
     return (

@@ -1,35 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { css } from '@emotion/core';
 import { useLocation } from 'wouter';
-import Page from '../../layout/Page';
-import Rightside from './Rightside';
-import Leftside from './Leftside';
+import Page from '../../shared/Page/Page';
+import HomeRightside from './__Rightside/Home__Rightside';
+import HomeLeftside from './__Leftside/Home__Leftside';
 import { getCookie } from '../../../utils/cookies';
-import AnimatedTitle from '../../layout/AnimatedTitle';
-import { ProvideBackground } from '../../layout/ProvideBackground';
-import {Title} from "../../layout/Title";
+import AnimatedTitle from '../../shared/AnimatedTitle/AnimatedTitle';
+
+import './Home.scss';
 
 const HomePage = () => {
   const [location] = useLocation();
   const [isTitle, setisTitle] = useState(true);
-
-  const homeStyles = css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    position: relative;
-    padding-top: 3%;
-
-    @media (max-width: 560px) {
-      flex-direction: column;
-    }
-
-    .job-title {
-      width: 50%;
-      align-self: flex-start;
-    }
-  `;
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,17 +20,16 @@ const HomePage = () => {
 
   return (
     <Page>
-        {/* <ImprovedTitle title={"Hello world"}/> */}
         {
           isTitle && !!getCookie(location) === false ?
           <AnimatedTitle titles={['WEL', 'COME']} />
           :
-          <div className="home-page" css={homeStyles}>
-            <Rightside />
-            <Leftside />
+          <div className="home-page">
+            <HomeRightside />
+            <HomeLeftside />
           </div>
         }
-      
+
     </Page>
   )
 }
