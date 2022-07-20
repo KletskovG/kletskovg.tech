@@ -1,3 +1,1 @@
-import * as cookies from './cookies'
-
-export const cookiesUtils = cookies;
+export * as cookies from './cookies'

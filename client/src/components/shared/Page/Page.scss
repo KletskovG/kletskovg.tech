@@ -1,7 +1,7 @@
 .page {
   background: var(--main-brand);
   width: 100vw;
-  color: var(--black-color);
+  color: var(--text-primary);
 
   &-menu {
     padding-left: 10%;
@@ -32,7 +32,7 @@
 
     a {
       text-decoration: none;
-      color: var(--black-color);
+      color: var(--text-primary);
     }
 
     &::before {
@@ -52,7 +52,7 @@
     }
 
     &:hover {
-      color: var(--white-color);
+      color: var(--text-alternative);
 
       img {
         filter: invert(1);
@@ -63,7 +63,7 @@
       }
 
       a {
-        color: var(--white-color);
+        color: var(--text-alternative);
       }
     }
   }

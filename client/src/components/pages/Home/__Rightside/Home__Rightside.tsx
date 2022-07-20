@@ -7,6 +7,8 @@ import dockerIcon from '../../../../assets/icons/docker.svg';
 import gravIcon from '../../../../assets/icons/grav.svg';
 import radIcon from '../../../../assets/icons/radiation-alt.svg';
 import ninjaIcon from '../../../../assets/icons/user-ninja.svg';
+import mouthpieceIcon from '../../../../assets/images/mouthpiece.png'
+import presentationIcon from '../../../../assets/images/presentation.png';
 
 import './Home__Rightside.scss';
 
@@ -23,8 +25,18 @@ export default function HomeRightside() {
   const ravesImages = [
     gravIcon,
     radIcon,
-    ninjaIcon
+    ninjaIcon,
   ];
+
+  const talksIcons = [
+    mouthpieceIcon,
+  ];
+
+  const renderIcons = (icons: string[]) => icons.map(icon => (
+    <div className={'element'} key={icon}>
+      <img src={icon} alt={'frontend skill logo'}></img>
+    </div>
+  ));
 
   return (
     <div
@@ -36,56 +48,27 @@ export default function HomeRightside() {
       </div>
 
       <div className="rightside-interests">
-        {/* <div className="rightside-interests__item" onClick={() => setLocation('/frontend')}>
-          <div className="link" >
-            FrontEnd
+        <div className="rightside-interests__item" onClick={() => setLocation('/talks')}>
+          <div className="link">
+            Public Talks
           </div>
-          {
-            frontEndImages.map(element => (
-              <div className={'element'}>
-                <img src={element} alt={'frontend skill logo'}></img>
-              </div>
-            ))
-          }
+
+          {renderIcons(talksIcons)}
         </div>
-        <div className="rightside-interests__item" onClick={() => setLocation('/devops')}>
-          <div className="link" >
-             DevOps
-           </div>
-          {
-            devOpsImages.map(element => (
-              <div className={'element'}>
-                <img src={element} alt="DevOps skill logo" />
-              </div>
-            ))
-          }
-        </div> */}
 
         <div className="rightside-interests__item" onClick={() => setLocation('/blog')}>
           <div className="link">
             Blog
           </div>
 
-          {
-            blogImages.map(element => (
-              <div className={'element'}>
-                <img src={element} alt={'frontend skill logo'}></img>
-              </div>
-            ))
-          }
+          {renderIcons(blogImages)}
         </div>
 
         <div className="rightside-interests__item" onClick={() => window.open('https://instagram.com/mb_42')}>
             <div className="link" onClick={() => setLocation('/raves')}>
               Raves
             </div>
-            {
-              ravesImages.map(element => (
-                <div className={'element'}>
-                  <img src={element} alt="Rave logo" />
-                </div>
-              ))
-            }
+            {renderIcons(ravesImages)}
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ const AnimatedTitle: FunctionComponent<AnimatedTitleProps> = ({ titles }) => {
           return (
             <h2
               className={`welcome-title-text`}
+              key={index}
               style={{
                 animationDuration: `${timeOfAnimations}s`,
               }}

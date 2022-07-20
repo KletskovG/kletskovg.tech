@@ -3,7 +3,6 @@ import mail from '../../../../assets/icons/mail.svg';
 import mediumIcon from '../../../../assets/icons/medium.svg';
 import githubIcon from '../../../../assets/icons/github.svg';
 import yandex from '../../../../assets/icons/yandex.svg';
-import soundIcon from '../../../../assets/icons/soundcloud.svg';
 import linkedIcon from '../../../../assets/icons/linkedin.svg';
 import { ILeftsideItem } from './Home__Leftside.types';
 
@@ -37,13 +36,6 @@ export default function HomeLeftside() {
     iconSrc: yandex,
   }
 
-  // const soundcloud: ILeftsideItem = {
-  //   link: 'https://soundcloud.com/rz3vzum40rwr',
-  //   text: 'Soundcloud',
-  //   description: 'Check out my soundcloud account',
-  //   iconSrc: soundIcon,
-  // }
-
   const linkedIn: ILeftsideItem = {
     link: 'https://www.linkedin.com/in/gleb-kletskov-798445194/',
     text: 'LinkedIn',
@@ -66,7 +58,7 @@ export default function HomeLeftside() {
         </span>
         <p className={'leftside-item__description'}>
           { email.description }
-        </p>
+      </p>
       </a>
 
       <a

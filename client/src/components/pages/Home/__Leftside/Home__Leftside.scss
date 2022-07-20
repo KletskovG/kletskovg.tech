@@ -12,12 +12,12 @@
     }
 
     &__text {
-      color: var(--black-color);
+      color: var(--text-primary);
     }
 
     &__link {
       font-size: 1.5rem;
-      color: var(--black-color);
+      color: var(--text-primary);
       transition: var(--common-transition);
       display: inline-flex;
       align-items: center;
@@ -30,14 +30,14 @@
       }
 
       &:hover {
-        color: var(--white-color);
+        color: var(--text-alternative);
 
         img {
           filter: invert(1);
         }
 
         .leftside-item__text {
-          color: var(--white-color);
+          color: var(--text-alternative);
         }
 
         &:before {

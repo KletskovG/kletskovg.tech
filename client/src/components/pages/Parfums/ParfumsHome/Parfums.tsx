@@ -21,10 +21,11 @@ export const Parfums = () => {
 
     return (
         <Page>
-            <h4> List of Parfum useful things </h4>
+          <></>
+            {/* <h4> List of Parfum useful things </h4>
             <hr />
             <h4> One more test -  </h4>
-            {renderLinks()}
+            {renderLinks()} */}
         </Page>
     )
 }

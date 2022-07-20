@@ -3,33 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.7",
-    "@types/redux": "^3.6.0",
-    "@types/wouter": "^2.2.0",
-    "customize-cra": "^0.9.1",
-    "emotion-theming": "^10.0.27",
-    "formik": "^2.1.4",
-    "node-sass": "^4.14.0",
-    "react": "^16.13.1",
-    "react-app-rewired": "^2.1.6",
-    "react-dom": "^16.13.1",
-    "react-gist": "^1.2.2",
-    "react-redux": "^7.2.0",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.3.2",
+    "@testing-library/user-event": "7.1.2",
+    "customize-cra": "0.9.1",
+    "node-sass": "4.14.0",
+    "react": "16.13.1",
+    "react-app-rewired": "2.1.6",
+    "react-dom": "16.13.1",
+    "react-gist": "1.2.2",
     "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "typescript": "~3.7.2",
-    "wouter": "^2.4.0",
-    "yup": "^0.28.4"
+    "typescript": "4.7.4",
+    "wouter": "2.4.0",
+    "yup": "0.28.4"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -53,7 +39,11 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^12.12.37",
-    "@types/yup": "^0.28.0"
+    "@types/node": "12.12.37",
+    "@types/yup": "0.28.0",
+    "@types/jest": "24.0.0",
+    "@types/react": "16.9.0",
+    "@types/react-dom": "16.9.0",
+    "@types/wouter": "2.2.0"
   }
 }

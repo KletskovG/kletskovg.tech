@@ -5,11 +5,12 @@ import Page from '../../shared/Page/Page';
 export const Blog = () => {
     return (
         <Page>
-            <h1> Blog </h1>
+          <></>
+            {/* <h1> Blog </h1>
 
             <Link to="/blog/deploy-react-with-docker">
                 <p> Deploy React with docker </p>
-            </Link>
+            </Link> */}
         </Page>
     )
 }

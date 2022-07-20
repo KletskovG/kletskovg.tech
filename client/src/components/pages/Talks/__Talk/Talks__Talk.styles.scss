@@ -1,0 +1,60 @@
+.talks__talk {
+
+  a {
+    // text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: var(--text-primary);
+    margin-left: 5px;
+
+    img {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: -.25rem;
+      bottom: 0;
+      left: -.25rem;
+      z-index: 1;
+      content: "";
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: .3em;
+      opacity: .2;
+      transition: all .2s;
+      transform: scaleY(.06);
+      transform-origin: 0 100% 0;
+    }
+
+    &:hover {
+      color: var(--text-alternative);
+
+      img {
+        filter: invert(1);
+      }
+
+      &:before {
+        transform: none;
+      }
+    }
+  }
+
+  &-links {
+    display: flex;
+    align-items: center;
+    // margin-left: 10%;
+
+    a:not(a:nth-child(1)) {
+      margin-left: 20px;
+    }
+  }
+
+
+  &-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

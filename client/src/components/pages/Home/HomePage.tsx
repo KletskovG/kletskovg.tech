@@ -1,35 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'wouter';
+import React from 'react';
+// import { useLocation } from 'wouter';
 import Page from '../../shared/Page/Page';
 import HomeRightside from './__Rightside/Home__Rightside';
 import HomeLeftside from './__Leftside/Home__Leftside';
-import { getCookie } from '../../../utils/cookies';
-import AnimatedTitle from '../../shared/AnimatedTitle/AnimatedTitle';
+// import { getCookie } from '../../../utils/cookies';
+// import AnimatedTitle from '../../shared/AnimatedTitle/AnimatedTitle';
 
 import './Home.scss';
 
 const HomePage = () => {
-  const [location] = useLocation();
-  const [isTitle, setisTitle] = useState(true);
+  // const [location] = useLocation();
+  // const [isTitle, setisTitle] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setisTitle(false);
-    }, 1700);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setisTitle(false);
+  //   }, 1700);
+  // }, []);
 
   return (
-    <Page>
-        {
-          isTitle && !!getCookie(location) === false ?
-          <AnimatedTitle titles={['WEL', 'COME']} />
-          :
-          <div className="home-page">
-            <HomeRightside />
-            <HomeLeftside />
-          </div>
-        }
-
+    <Page titles={['WEL', 'COME']}>
+      <div className="home-page">
+        <HomeRightside />
+        <HomeLeftside />
+      </div>
     </Page>
   )
 }
