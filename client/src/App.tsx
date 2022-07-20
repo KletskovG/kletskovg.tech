@@ -1,6 +1,6 @@
 import React from 'react';
-import { Router } from './routers/Router';
-import {ParfumsRouter} from './routers/ParfumsRouter';
+import { Router } from './components/routers/Router';
+import {ParfumsRouter} from './components/routers/ParfumsRouter';
 
 function subdomainApplications (map: Array<any>) {
   let main = map.find((item)=> item.main);

@@ -1,55 +1,15 @@
-import { css } from '@emotion/core';
 import React, { useState, useEffect } from 'react';
-import Page from '../../layout/Page';
+import Page from '../../shared/Page/Page';
 import { useLocation } from 'wouter';
 import arrowLeft from '../../../assets/icons/arrow-left.svg';
-import AnimatedTitle from '../../layout/AnimatedTitle';
+import AnimatedTitle from '../../shared/AnimatedTitle/AnimatedTitle';
 import { getCookie } from '../../../utils/cookies';
+
+import './Frontend.scss';
 
 export default function FrontendPage() {
   const [isTitle, setIsTitle] = useState(true);
   const [location, setLocation] = useLocation();
-
-  const frontStyles = css`
-    padding: 10vh;
-
-    @media (max-width: 400px) {
-      padding: 5vh;
-      
-      .navigation {
-        font-size: 1rem;
-      }
-
-      .projects-list {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .link {
-      margin-left: 25px;
-    }
-
-    .projects {
-
-      &-list {
-        display: flex;
-        flex-direction: column;
-
-        .navigation {
-          display: inline-flex !important;
-
-          img {
-            margin: 0;
-          }
-        }
-
-        &__item {
-          width: fit-content;
-        }
-      }
-    }
-  `;
 
   useEffect(() => {
     setTimeout(() => {
@@ -63,8 +23,8 @@ export default function FrontendPage() {
           <AnimatedTitle titles={['FRONT', 'END']} />
           :
           <div
-            css={frontStyles}
             className="front-page">
+            {/* TODO: Fix this markup problem */}
             <div
               onClick={() => setLocation('/')}
               className={'navigation'}

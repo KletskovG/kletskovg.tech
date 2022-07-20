@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from "../../../layout/Page";
+import Page from "../../../shared/Page/Page";
 import {useLocation} from "wouter";
 
 export const Parfums = () => {
@@ -18,13 +18,14 @@ export const Parfums = () => {
             </div>
         ))
     }
-    
+
     return (
         <Page>
-            <h4> List of Parfum useful things </h4>
+          <></>
+            {/* <h4> List of Parfum useful things </h4>
             <hr />
             <h4> One more test -  </h4>
-            {renderLinks()}
+            {renderLinks()} */}
         </Page>
     )
 }

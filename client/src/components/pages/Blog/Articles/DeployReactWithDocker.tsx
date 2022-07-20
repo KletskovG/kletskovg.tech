@@ -1,16 +1,15 @@
 import React from 'react'
-import { ArticleImage } from '../ArticleImage';
-import { ArticleTitle } from '../ArticleTitle';
-import { ArticleHeader } from '../ArticleHeader';
-import { useArticle } from "../useArticle";
-import Page from '../../../layout/Page';
+import { ArticleImage } from '../ArticleImage/ArticleImage';
+import { ArticleTitle } from '../ArticleTitle/ArticleTitle';
+import { ArticleHeader } from '../ArticleHeader/ArticleHeader';
+import Page from '../../../shared/Page/Page';
 import Gist from "react-gist";
 
+import './Article.scss';
+
 export const DeployReactWithDocker = () => {
-    const styles = useArticle();
     return (
         <Page >
-            <div css={styles.articleStyles}>
             <div className="article">
                 <ArticleTitle  title={"Deploy React application with Docker to DigitalOcean"} />
                 <ArticleImage  src={'react-docker.png'} />
@@ -96,10 +95,7 @@ export const DeployReactWithDocker = () => {
                 <p className="article__text-code">
                     docker pull yournickname/yournameofcontainer:latest
                 </p>
-
-                
             </div>
-        </div>
         </Page>
     )
 }

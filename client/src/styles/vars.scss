@@ -1,11 +1,5 @@
+@import './colors.scss';
+
 html {
-    --main-brand: #0069FF;
-    --main-branddark:  #1633ff;
-    --green-brand: #14CD73;
-    --green-brand-dark: #0CB863;
-    --red-brand: #F55466;
-    --shadow-brand: #F1F1F1;
-    --white-color: #ffffff;
-    --black-color: #000000;
-    --basic-bg: #F3F4F5;
+    --common-transition: .2s all ease;
 }
