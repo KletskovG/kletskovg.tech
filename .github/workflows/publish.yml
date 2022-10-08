@@ -50,7 +50,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./client
   update_cluster:
-    needs: [build, publish_back, publish_front]
+    needs: [build, publish_front]
     name: Update cluster
     runs-on: ubuntu-18.04
     steps:
