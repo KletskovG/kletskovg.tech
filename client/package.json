@@ -12,7 +12,7 @@
     "react-app-rewired": "2.1.6",
     "react-dom": "16.13.1",
     "react-gist": "1.2.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "typescript": "4.7.4",
     "wouter": "2.4.0",
     "yup": "0.28.4"
