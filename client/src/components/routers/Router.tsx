@@ -5,6 +5,7 @@ import Frontend from '../pages/Frontend/FrontendPage';
 import Talks from '../pages/Talks/Talks';
 import DevOpsPage from '../pages/DevOps/DevOpsPage';
 import { BlogRouter } from './BlogRouter';
+import { KrakenPage } from '../pages/Kraken/KrakenPage';
 
 
 export const Router = () => {
@@ -14,6 +15,7 @@ export const Router = () => {
         <Route path="/frontend" component={() => <Frontend />}></Route>
         <Route path="/devops" component={() => <DevOpsPage />}></Route>
         <Route path="/talks" component={() => <Talks />}></Route>
+        <Route path="/kraken" component={() => <KrakenPage />}></Route>
       <BlogRouter />
       <Route path="/:rest*">
         <Redirect to={'/'} />
