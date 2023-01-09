@@ -20,35 +20,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         version: ${{ matrix.node_version }}
-  ### Second Job
-  publish_back:
-    needs: build
-    name: Publish Backend
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node_version: [14]
-    env:
-      LOGIN: ${{ secrets.DOCKER_LOGIN }}
-      DOCKER: ${{ secrets.DOCKER_NAME }}
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        version: ${{ matrix.node_version }}
-    - name: Build server
-      run: |
-        cd server
-        yarn install
-        yarn build
-    - name: Publish Server to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: kletskovg/sitebackend:latest
-        username: ${{secrets.DOCKER_LOGIN}}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        context: ./server
   publish_front:
     needs: build
     name: Publish Frontend
@@ -79,7 +50,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         context: ./client
   update_cluster:
-    needs: [build, publish_back, publish_front]
+    needs: [build, publish_front]
     name: Update cluster
     runs-on: ubuntu-18.04
     steps:
