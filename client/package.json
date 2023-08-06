@@ -1,30 +1,32 @@
 {
-  "name": "student_helper_client",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "4.2.4",
-    "@testing-library/react": "9.3.2",
-    "@testing-library/user-event": "7.1.2",
-    "customize-cra": "0.9.1",
-    "node-sass": "4.14.0",
-    "react": "16.13.1",
-    "react-app-rewired": "2.1.6",
-    "react-dom": "16.13.1",
-    "react-gist": "1.2.2",
-    "react-scripts": "3.4.1",
-    "typescript": "4.7.4",
-    "wouter": "2.4.0",
-    "yup": "0.28.4"
+    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/user-event": "13.5.0",
+    "@types/jest": "27.5.2",
+    "@types/node": "16.18.39",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "4.9.5",
+    "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -37,13 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/node": "12.12.37",
-    "@types/yup": "0.28.0",
-    "@types/jest": "24.0.0",
-    "@types/react": "16.9.0",
-    "@types/react-dom": "16.9.0",
-    "@types/wouter": "2.2.0"
   }
 }

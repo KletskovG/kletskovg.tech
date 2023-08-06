@@ -21,8 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-./src/routers/TradingRouter.tsx
-./src/components/pages/Trading
-./src/store/trading
-./workspace.code-workspace
