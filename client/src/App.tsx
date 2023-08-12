@@ -1,16 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { MainPage } from 'pages/Main/MainPage';
 
-function App() {
+import './App.scss';
+
+export function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Gleb Kletskov personal website UPD v5</h1>
-      </header>
+      <MainPage />
     </div>
   );
 }
-
-export default App;

@@ -1,3 +1,17 @@
+@font-face {
+  font-family: Firs;
+  src: url('https://storage.yandexcloud.net/site-frontend/site-assets/TTFirsNeue-BlackItalic.woff2');
+}
+
+:root {
+  --color-g-bg: #011627;
+  --color-g-stroke: #E7E7E8;
+  --color-g-text: #ffffff;
+
+  --theme-border-radius-l: 12px;
+  --theme-border-radius-xl: 16px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +19,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--color-g-bg);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

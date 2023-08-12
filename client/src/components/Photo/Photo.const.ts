@@ -1,0 +1,1 @@
+export const PHOTO_SRC = 'https://storage.yandexcloud.net/site-frontend/site-assets/images/photo.jpg';

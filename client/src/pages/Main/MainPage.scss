@@ -1,0 +1,17 @@
+.Page__Main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-Social {
+        .Link {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .Page__Main {
+        flex-direction: column;
+    }
+}
