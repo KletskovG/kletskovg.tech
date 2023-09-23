@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'client/**'
+    # paths:
+    #   - 'client/**'
 jobs:
   publish:
     name: Push Sitefrontend to Docker Hub
