@@ -12,6 +12,7 @@ export function academyHandler(req: AcademyHandlerRequest, res: Response) {
   try {
     scrapeProjectInfo(Boolean(query.checkOptional))
       .then(result => {
+        sendNotification('Finished with optional courses', academyChatId);
         if (result) {
           sendNotification(result, academyChatId);
           res.status(200).send(result);
