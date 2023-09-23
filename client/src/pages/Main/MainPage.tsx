@@ -9,6 +9,7 @@ export function MainPage() {
         <div className="Page Page__Main">
             <div className="Page__Main-About">
                 <Photo />
+                <p className="Typo">Kletskov Gleb</p>
                 <p className="Typo">Software engineer, Yandex</p>
                 <p className="Typo">Belgrade, Serbia</p>
             </div>
