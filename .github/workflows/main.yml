@@ -22,12 +22,6 @@ jobs:
           file: ./client/Dockerfile
           tags: kletskovg/sitefrontend:latest
           push: true
-  Frontend_Notification:
-    needs: Frontend
-    name: Send notification Frontend
-    runs-on: ubuntu-latest
-    steps:
-      - run: curl https://telegram.kletskovg.tech/done/frontend_published
   Backend:
     name: Push InfraServer to Docker Hub
     runs-on: ubuntu-latest
@@ -46,9 +40,9 @@ jobs:
           file: ./server/Dockerfile
           tags: kletskovg/contest:latest
           push: true
-  Backend_Notification:
-    needs: Backend
-    name: Send notification Backend
+  notification:
+    needs: [Backend, Frontend]
+    name: Send notification
     runs-on: ubuntu-latest
     steps:
-      - run: curl https://telegram.kletskovg.tech/done/Backend_published
+      - run: curl https://telegram.kletskovg.tech/done/released
