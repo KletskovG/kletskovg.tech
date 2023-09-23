@@ -24,3 +24,9 @@ jobs:
           file: ./client/Dockerfile
           tags: kletskovg/sitefrontend:latest
           push: true
+  notify:
+    needs: publish
+    name: Send notification
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl https://telegram.kletskovg.tech/done
