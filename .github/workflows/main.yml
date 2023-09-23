@@ -46,3 +46,9 @@ jobs:
           file: ./server/Dockerfile
           tags: kletskovg/content:latest
           push: true
+  Backend_Notification:
+    needs: Backend
+    name: Send notification Backend
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl https://telegram.kletskovg.tech/done/Backend_published
