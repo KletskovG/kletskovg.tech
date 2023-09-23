@@ -1,59 +1,26 @@
 name: Main CI
-
 on:
   push:
     branches:
       - master
     paths:
       - 'client/**'
-      - 'server/**'
-
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node_version: [12]
-    
-    env:
-      LOGIN: ${{ secrets.DOCKER_LOGIN }}
-      DOCKER: ${{ secrets.DOCKER_NAME }}
-    
+  publish:
+    name: Push Sitefrontend to Docker Hub
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        version: ${{ matrix.node_version }}
-
-    - name: Build Frontend
-      # uses: docker
-      run: |
-        cd client
-        npm i
-        npm run build
-    #  docker build -t kletskovg/sitefrontend:prod .
-    # docker run -d -p 80:80 kletskovg/sitefrontend:prod
-
-      # npm i
-      # npm run ng build --prod
-      # npm run ng serve --prod=true & npm run test
-      # cd ../
-  ### Second Job
-  deploy:
-    needs: build
-    name: Deploy
-    runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node_version: [18]
-    steps:
-    - uses: actions/checkout@master
-    - uses: 3dwardCh3nG/s3-to-upload-action@v1.6.1
-      with:
-        aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket_name: ${{ secrets.AWS_BUCKET }}
-        source: 'public'
-        destination: 'public'
+      - name: Check out the repo
+        uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.DOCKER_LOGIN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./Dockerfile
+          tags: kletskovg/sitefrontend:latest
+          push: true
