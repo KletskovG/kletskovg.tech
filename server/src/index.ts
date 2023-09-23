@@ -29,7 +29,7 @@ app.listen(PORT, () => {
 
 connectDB()
   .then(() => {
-    log("Notify", "Infra server DB Connected from monorepo");
+    log("Notify", "Infra server DB Connected");
   })
   .catch((error: Error) => {
     log("Error", `DB ERROR: ${JSON.stringify(error.message)}`);
