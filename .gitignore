@@ -70,6 +70,7 @@ client/cypress/screenshots
 client_old/
 deploy
 server/dist
+server/scripts
 .DS_Store
 
 client/src/routers/TradingRouter.tsx
