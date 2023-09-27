@@ -2,7 +2,8 @@ import { HOSTNAME } from "const";
 import { IScrapeResult } from "types";
 import { createPuppeteerInstance } from "scrapper/createPuppeteerInstance";
 import { getEnvVariable } from "utils/getEnvVariable";
-import { AcademyConfigModel  } from "db/models/academyScrape";
+import { AcademyConfigModel } from "db/models/academyScrape";
+import { log } from 'logger/logger';
 
 const ACADEMY_EMAIL = getEnvVariable("ACADEMY_EMAIL");
 const ACADEMY_PWD = getEnvVariable("ACADEMY_PWD");
@@ -58,6 +59,7 @@ export async function scrapeProjectInfo(checkOptionalCourses = false): Promise<s
   let isAnyProjectsPresent = false;
 
   const courses = await AcademyConfigModel.find({});
+  log('Info', '========= \n Start scraping proect info');
 
   if (!courses.length && !courses.some(course => course.protectActive)) {
     return null;
@@ -73,9 +75,13 @@ export async function scrapeProjectInfo(checkOptionalCourses = false): Promise<s
     }
 
     const course = courses[i];
+    log('Info', `Processing ${course}`);
+
     const courseInfo = await scrapeCourse(course.additional.projects);
     result += `\n ${course.name}`;
     const { amountOfProjects } = courseInfo;
+
+    log('Info', `End processing ${courseInfo}`);
 
     if (amountOfProjects > 0) {
       result += `\nAmount of available projects - ${amountOfProjects}`;

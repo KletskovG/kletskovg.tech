@@ -1,10 +1,11 @@
 import { scrapeProjectInfo } from "scrapper/academy";
 import { Response, Request } from "express";
 import { sendNotification } from "telegram/bot";
-import {getImgSrc} from "utils/getImgSrc";
+import { getImgSrc } from "utils/getImgSrc";
 import { getEnvVariable } from "utils/getEnvVariable";
+import { log } from 'logger/logger';
 
-type AcademyHandlerRequest = Request<unknown, unknown, unknown, {checkOptional?: string}>;
+type AcademyHandlerRequest = Request<unknown, unknown, unknown, { checkOptional?: string }>;
 
 export function academyHandler(req: AcademyHandlerRequest, res: Response) {
   const academyChatId = getEnvVariable("ACADEMY_CHAT");
@@ -23,12 +24,11 @@ export function academyHandler(req: AcademyHandlerRequest, res: Response) {
           res.status(200).send("No Projects");
         }
       })
-      .catch(() => {
+      .catch((err = '') => {
         const src = getImgSrc("auth-error.png");
         res.status(500).send(src);
-        sendNotification("ERROR WHILE SCRAPE", academyChatId);
-        console.error("ERROR WHILE SCRAPE");
-        console.error(src);
+        const errorMessage = `ERROR WHILE SCRAPE ${JSON.stringify(err)}`;
+        log('Error', errorMessage);
       });
   } catch (error) {
     sendNotification(error, academyChatId);

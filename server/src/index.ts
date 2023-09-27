@@ -23,9 +23,7 @@ console.log(PORT);
 app.listen(PORT, () => {
   log(
     "Notify",
-    `Infra server is up and running http://localhost:${PORT}
-    Bundled with esbuild
-    `
+    `Infra server is up and running http://localhost:${PORT}`
   );
 });
 
