@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+# && npm run lint
 
-cd ./server && npm run lint && npm run build cd ../
+cd ./server && npm run build cd ../

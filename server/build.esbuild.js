@@ -11,8 +11,8 @@ require('esbuild').build({
   format: 'cjs',
   platform: 'node',
 })
-  .then(() => console.log("✅ Build finished"))
+  .then(() => console.log('✅ Build finished'))
   .catch((err) => {
-    console.log(`Build failed: ${err}`);
+    console.log(`❌ Build failed: ${err}`);
     process.exit(1);
   })
