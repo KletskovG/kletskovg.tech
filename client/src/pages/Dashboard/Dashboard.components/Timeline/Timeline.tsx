@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 import { Loader } from '@components/Loader/Loader';
-import { ITimelineProps } from './Timeline.typings';
 import { useTimeline } from './Timeline.hooks/useTimeline';
 
-export function Timeline(props: ITimelineProps) {
+export function Timeline() {
   const {
-    logs,
     isLoading,
     loadLogs,
   } = useTimeline();
