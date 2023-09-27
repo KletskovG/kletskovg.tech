@@ -17,7 +17,7 @@ export async function createPuppeteerInstance() {
       return browser;
     })
     .catch((err = '') => {
-      log('Error', `While creating puppeteer  ${JSON.stringify(err)}`);
+      log('Error', `While creating puppeteer  ${err}`);
       return;
     })
 }
