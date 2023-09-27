@@ -69,6 +69,7 @@ client/cypress/videos
 client/cypress/screenshots
 client_old/
 deploy
+client/dist
 server/dist
 server/scripts
 .DS_Store
