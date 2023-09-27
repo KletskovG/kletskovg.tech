@@ -10,6 +10,11 @@ const ACADEMY_PWD = getEnvVariable("ACADEMY_PWD");
 
 async function scrapeCourse(link: string): Promise<IScrapeResult> {
   const browser = await createPuppeteerInstance();
+
+  if (!browser) {
+    return;
+  }
+
   const page = await browser.newPage();
 
   await page.goto(link);
