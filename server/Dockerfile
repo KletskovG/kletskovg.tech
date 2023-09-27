@@ -16,7 +16,7 @@ RUN  apt-get update \
      && chmod +x /usr/sbin/wait-for-it.sh
 
 
-# # RUN chmod -R o+rwx node_modules/puppeteer/.local-chromium
+RUN chmod -R o+rwx node_modules/puppeteer/.local-chromium
 
 # Create app dir
 WORKDIR /
