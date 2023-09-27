@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:18-alpine
 
 RUN apt-get update && apt-get install gnupg wget -y && \
   wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg && \
@@ -7,8 +7,6 @@ RUN apt-get update && apt-get install gnupg wget -y && \
   apt-get install google-chrome-stable -y --no-install-recommends && \
   rm -rf /var/lib/apt/lists/*
 
-
-# RUN chmod -R o+rwx node_modules/puppeteer/.local-chromium
 
 # Create app dir
 WORKDIR /
