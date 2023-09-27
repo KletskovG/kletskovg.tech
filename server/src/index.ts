@@ -23,7 +23,7 @@ console.log(PORT);
 app.listen(PORT, () => {
   log(
     "Notify",
-    `Infra server is up and running http://localhost:${PORT}`
+    `Infra server is up and running on PORT ${PORT}`
   );
 });
 
