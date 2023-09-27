@@ -10,6 +10,7 @@ export async function createPuppeteerInstance() {
   // return browser;
   return puppeteer.launch({
     headless: true,
+    executablePath: '/usr/bin/google-chrome',
     args: isCurrentUserRoot() ? ["--no-sandbox"] : undefined
   })
     .then(browser => {
