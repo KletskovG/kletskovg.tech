@@ -1,4 +1,4 @@
-import { MainPage } from 'pages/Main/MainPage';
+import { MainPage } from '@pages/Main/MainPage';
 
 import './App.scss';
 

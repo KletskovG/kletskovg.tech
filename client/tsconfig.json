@@ -19,7 +19,26 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src"
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "*",
+        "src/*"
+      ],
+      "@typings/*": [
+        "./src/typings/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/typings"
+    ],
   },
   "include": [
     "src"

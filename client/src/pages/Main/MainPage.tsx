@@ -1,5 +1,5 @@
-import { Photo } from 'components/Photo/Photo';
-import { Link } from 'components/Link/Link';
+import { Photo } from '@components/Photo/Photo';
+import { Link } from '@components/Link/Link';
 import { Links } from './MainPage.const';
 
 import './MainPage.scss';
