@@ -2,6 +2,7 @@ require('esbuild').build({
   entryPoints: ['./src/index.ts'],
   outfile: './dist/index.js',
   bundle: true,
+  keepNames: true,
   resolveExtensions: ['.js', '.ts'],
   tsconfig: './tsconfig.json',
   loader: {
