@@ -1,10 +1,10 @@
-import { KrakenClient } from "./Kraken";
-import {KrakenError} from "kraken/KrakenError";
+import { KrakenClient } from "./Kraken.ts";
+import { KrakenError } from "kraken/KrakenError";
 import { inferErrorType } from "utils/inferErrorType";
-import {log} from "logger/logger";
+import { log } from "logger/logger";
 
 // REFACTOR: Think that i can sell manually
-export async function  getClosedOrders(ofs?: number) {
+export async function getClosedOrders(ofs?: number) {
   const kraken = new KrakenClient();
 
   try {

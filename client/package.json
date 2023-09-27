@@ -28,7 +28,10 @@
       "react-app/jest"
     ],
     "rules": {
-      "quotes": ["error", "single"]
+      "quotes": [
+        "error",
+        "single"
+      ]
     }
   },
   "browserslist": {
