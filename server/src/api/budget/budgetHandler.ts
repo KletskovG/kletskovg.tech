@@ -1,14 +1,22 @@
+import escape from "escape-html";
 import { Request, Response } from "express";
 
 export function budgetHandler(req: Request, res: Response) {
   const {
-    category,
-    column,
-    start,
-    end,
-    course,
-    ruble
+    category: _category,
+    column: _column,
+    start: _start,
+    end: _end,
+    course: _course,
+    ruble: _ruble,
   } = req.params;
+
+  const category = escape(_category);
+  const column = escape(_column);
+  const start = escape(_start);
+  const end = escape(_end);
+  const course = escape(_course);
+  const ruble = escape(_ruble);
 
   let sum = "SUM(\n";
 
