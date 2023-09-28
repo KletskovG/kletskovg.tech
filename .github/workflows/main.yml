@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+    types: [opened, reopened]
 jobs:
   Frontend:
     name: Push Sitefrontend to Docker Hub
