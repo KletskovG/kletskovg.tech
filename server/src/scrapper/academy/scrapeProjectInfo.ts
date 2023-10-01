@@ -17,7 +17,7 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
 
   const page = await browser.newPage();
 
-  await page.goto(link);
+  await page.goto(link, { waitUntil: 'load', timeout: 0 });
   await page.waitForTimeout(5000);
   console.log("CHECK FOR AUTH");
   await page.type("#login-email", ACADEMY_EMAIL);
