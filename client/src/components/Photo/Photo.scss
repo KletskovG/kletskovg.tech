@@ -1,5 +1,6 @@
 .Photo {
-    transform: scale(0.5);
-    border-radius: var(--theme-border-radius-xl);
     border: 1px solid var(--color-g-stroke);
+    border-radius: var(--theme-border-radius-xl);
+
+    transform: scale(.5);
 }

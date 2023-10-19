@@ -1,17 +1,20 @@
 .Link {
     display: flex;
     align-items: center;
-    color: var(--color-g-text);
+
     text-decoration: none;
+
+    color: var(--color-g-text);
 
     &__Text {
         margin-left: 5px;
+
         font-size: 16px;
         line-height: 18px;
     }
 
     &:hover {
-        text-decoration: underline;
         cursor: pointer;
+        text-decoration: underline;
     }
 }
