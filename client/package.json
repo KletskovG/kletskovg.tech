@@ -29,6 +29,7 @@
     "eslint-config-react-app": "7.0.1",
     "eslint-webpack-plugin": "3.1.1",
     "file-loader": "6.2.0",
+    "file-saver": "2.0.5",
     "formik": "2.4.5",
     "fs-extra": "10.0.0",
     "identity-obj-proxy": "3.0.0",
@@ -56,7 +57,7 @@
     "web-vitals": "2.1.4",
     "webpack-manifest-plugin": "4.0.2",
     "wouter": "2.11.0",
-    "yup": "^1.3.2"
+    "yup": "1.3.2"
   },
   "scripts": {
     "start": "vite",
@@ -92,6 +93,7 @@
     ]
   },
   "devDependencies": {
+    "@types/file-saver": "2.0.6",
     "@vitejs/plugin-react": "4.1.0",
     "husky": "8.0.0",
     "sass": "1.65.1",
