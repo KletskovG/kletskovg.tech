@@ -14,7 +14,6 @@ export function PercentagePage() {
     const minDateRef = useRef<HTMLInputElement | null>(null);
     const maxDateRef = useRef<HTMLInputElement | null>(null);
     const interestRef = useRef<HTMLSelectElement | null>(null);
-    const formRef = useRef<HTMLFormElement | null>(null);
 
     const validateForm = useCallback((values: Record<PercentageFormField, string | number>) => {
         return validateYupSchema(values, ValidationSchema)
@@ -53,12 +52,11 @@ export function PercentagePage() {
             downloadFile(formValues);
         }
     }, [formValues]);
-    
+
     return (
         <div className="Page Page__Percentage">
             <Formik
                 onSubmit={onFormSubmit}
-                validateOnChange
                 initialValues={{
                     [PercentageFormField.MIN_DATE]: '',
                     [PercentageFormField.MAX_DATE]: '',
@@ -68,26 +66,9 @@ export function PercentagePage() {
                 }}
                 validationSchema={ValidationSchema}
                 validate={validateForm}
+                validateOnChange
             >
-                <Form className="Percentage-Form" ref={formRef}>
-                    <details className="Percentage-Form-Howto">
-                        <summary><strong>How it works</strong></summary>
-                        <p><strong>For monthly range</strong>: Calculate how many months between end date and start date, then multiply initial number by percentage that much times</p>
-                        <p><strong>Example</strong> - 1000$, 5% monthly for 1 year and 3 months (15 months in total):</p>
-                        <p><code>1000 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 = 2079$</code></p>
-                        <hr />
-                        <p><strong>For yearly range</strong>: </p>
-                        <ol>
-                            <li>Count 1/12 from yearly interest (for example 12% yearly means 1% monthly)</li>
-                            <li>Calculate how many months between end date and start date</li>
-                            <li>Multiply initial amount by 1/12 from interest that much times</li>
-                        </ol>
-                        <p><strong>Example:</strong> - 1000$, 10% yearly, for 1 year and 3 months (15 months in total):</p>
-                        <ol>
-                            <li>Monthly interest - <code>10 / 12 / 100 (~0,083%)</code></li>
-                            <li><code>1000 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 = 1132$</code></li>
-                        </ol>
-                    </details>
+                <Form className="Percentage-Form">
                     <div className="Percentage-Form-Dates">
                         <div>
                             <div className='Percentage-Form-Field'>
@@ -114,11 +95,10 @@ export function PercentagePage() {
                                 <ErrorMessage name={PercentageFormField.PERCENT}>
                                     {msg => <div className='Percentage-Form-Error'>{msg}</div>}
                                 </ErrorMessage>
-
-                                <select name="interest" ref={interestRef}>
+                                <Field as="select" name="interest" innerRef={interestRef}>
                                     <option value="month">Monthly</option>
                                     <option value="year">Yearly</option>
-                                </select>
+                                </Field>
                             </div>
                         </div>
                         <div>
@@ -160,6 +140,25 @@ export function PercentagePage() {
                     >
                         Save report
                     </button>
+
+                    <details className="Percentage-Form-Howto">
+                        <summary><strong>How it works</strong></summary>
+                        <p><strong>For monthly range</strong>: Calculate how many months between end date and start date, then multiply initial number by percentage that much times</p>
+                        <p><strong>Example</strong> - 1000$, 5% monthly for 1 year and 3 months (15 months in total):</p>
+                        <p><code>1000 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 * 1,05 = 2079$</code></p>
+                        <hr />
+                        <p><strong>For yearly range</strong>: </p>
+                        <ol>
+                            <li>Count 1/12 from yearly interest (for example 12% yearly means 1% monthly)</li>
+                            <li>Calculate how many months between end date and start date</li>
+                            <li>Multiply initial amount by 1/12 from interest that much times</li>
+                        </ol>
+                        <p><strong>Example:</strong> - 1000$, 10% yearly, for 1 year and 3 months (15 months in total):</p>
+                        <ol>
+                            <li>Monthly interest - <code>10 / 12 / 100 (~0,083%)</code></li>
+                            <li><code>1000 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 * 1,0083 = 1132$</code></li>
+                        </ol>
+                    </details>
                 </Form>
             </Formik>
         </div>
