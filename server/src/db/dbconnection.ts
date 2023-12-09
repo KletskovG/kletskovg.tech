@@ -14,6 +14,7 @@ export const connectDB = () => {
       .on("close", () => console.log("Database connection closed"))
       .once("open", () => res(mongoose.connections[0]));
 
-    mongoose.connect(DB_CONNECTION);
+    mongoose.connect(DB_CONNECTION)
+    .catch(reject)
   });
 };

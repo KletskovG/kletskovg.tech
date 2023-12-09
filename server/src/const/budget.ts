@@ -1,1 +1,1 @@
-export const CBR_COURSE_URL = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=";
+export const BUDGET_SERVICE_API_URL = "https://api.kletskovg.tech";

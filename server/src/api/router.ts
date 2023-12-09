@@ -8,13 +8,11 @@ import {
   readLogsHandler,
 } from "api";
 
-import budgetRouter from "src/api/accounting/budgetRouter";
 import academyRouter from "api/academy/academyRouter";
 
 export function buildRouter(): Router {
   const router = Router();
 
-  router.use(budgetRouter);
   router.use(academyRouter);
 
   registerHandler(

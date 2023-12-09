@@ -9,12 +9,14 @@ import {
   academy,
   accounting,
 } from "telegram/commands";
+import { log } from "src/logger/logger";
 
 const BOT_TOKEN = getEnvVariable("BOT_TOKEN") || "";
 const CHAT_NUMBER = getEnvVariable("CHAT_NUMBER") || 1;
 
 const bot = new Telegraf(BOT_TOKEN);
-bot.launch();
+bot.launch()
+  .catch((err) => log("Error", `Cant launch bot: ${err}`))
 
 export function registerCommandHanlder(
   command: EBotCommands,
@@ -33,8 +35,8 @@ export function registerCommandHanlder(
 }
 
 registerCommandHanlder("chatid", chatid);
-registerCommandHanlder("academy", academy());
-registerCommandHanlder("acc", accounting)
+registerCommandHanlder("academy", academy(), true);
+registerCommandHanlder("acc", accounting, true)
 
 export function sendNotification(message: string, chaitId = CHAT_NUMBER) {
   bot.telegram.sendMessage(chaitId, message);

@@ -10,8 +10,6 @@
     "build:dev": "npm run clean && mkdir dist && cp .env dist/.env && node ./build.esbuild.js",
     "start": "npm run build:dev && node dist/index.js",
     "lint": "eslint -c .eslintrc.json --ext .ts src",
-    "view": "open https://github.com/kletskovg/infraserver",
-    "workflow:status": "gh workflow  view 23865701",
     "prepare": "cd .. && husky install server/.husky"
   },
   "repository": {
@@ -48,18 +46,14 @@
     "typescript": "4.6.3"
   },
   "dependencies": {
-    "@binance/connector": "2.0.0",
     "cors": "2.8.5",
     "escape-html": "^1.0.3",
     "express": "4.17.3",
-    "got": "11.0.0",
     "kraken-api": "1.0.1",
     "mongoose": "6.8.3",
     "puppeteer": "21.3.5",
     "puppeteer-core": "21.3.5",
     "qs": "6.11.0",
-    "telegraf": "4.8.5",
-    "tinkoff-invest-api": "5.0.0",
-    "xml2js": "0.4.23"
+    "telegraf": "4.8.5"
   }
 }
