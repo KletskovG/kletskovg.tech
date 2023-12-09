@@ -2,15 +2,13 @@ import { Router } from "express";
 import { registerHandler } from "./registerHandler";
 import {
   homeHandler,
-  cdHandler,
   doneHandler,
   doneMessageHandler,
-  failHandler,
   flushLogsHandler,
   readLogsHandler,
 } from "api";
 
-import budgetRouter from "api/budget/budgetRouter";
+import budgetRouter from "src/api/accounting/budgetRouter";
 import academyRouter from "api/academy/academyRouter";
 
 export function buildRouter(): Router {
@@ -27,12 +25,6 @@ export function buildRouter(): Router {
   );
   registerHandler(
     router,
-    "/cd",
-    "get",
-    cdHandler
-  );
-  registerHandler(
-    router,
     "/done",
     "get",
     doneHandler
@@ -42,12 +34,6 @@ export function buildRouter(): Router {
     "/done/:text",
     "get",
     doneMessageHandler
-  );
-  registerHandler(
-    router,
-    "/fail",
-    "get",
-    failHandler
   );
   registerHandler(
     router,

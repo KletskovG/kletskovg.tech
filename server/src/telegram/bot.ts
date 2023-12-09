@@ -7,10 +7,7 @@ import TelegrafContext from "telegraf/typings/context";
 import {
   chatid,
   academy,
-  homeworks,
-  status,
-  start,
-  stop,
+  accounting,
 } from "telegram/commands";
 
 const BOT_TOKEN = getEnvVariable("BOT_TOKEN") || "";
@@ -37,11 +34,7 @@ export function registerCommandHanlder(
 
 registerCommandHanlder("chatid", chatid);
 registerCommandHanlder("academy", academy());
-registerCommandHanlder("homeworks", homeworks);
-
-registerCommandHanlder("kraken_stop", stop, true);
-registerCommandHanlder("kraken_start", start, true);
-registerCommandHanlder("kraken_start", status, true);
+registerCommandHanlder("acc", accounting)
 
 export function sendNotification(message: string, chaitId = CHAT_NUMBER) {
   bot.telegram.sendMessage(chaitId, message);
