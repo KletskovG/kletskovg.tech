@@ -1,23 +1,30 @@
 import TelegrafContext from "telegraf/typings/context";
-import { BUDGET_SERVICE_API_URL } from "const";
 import { accountingCommands } from "types/accounting/Accounting";
 import { log } from "logger/logger";
-import { chunkSubstr } from "lib";
-import { TELEGRAM_MESSAGE_SIZE_LIMIT } from "const";
-// import { pipeline } from "node:stream/promises"
-import { getMessageWithText } from "../lib/getMessageWithText";
-import { sendNotification } from "..";
+import { commandUrlBuilders, validationSchema } from "./commandProcessor";
+import { getMessageWithText } from "../../lib/getMessageWithText";
+
 export async function accounting(ctx: TelegrafContext) {
     const { message } = getMessageWithText(ctx)
-    const args = message.text.split(" ").slice(1);
+    const messageWords = message.text.split(" ")
+    const accountingCommand = messageWords[1];
+    const args = messageWords.slice(2);
     
-    const command = accountingCommands.find(cm => cm === args[0])
+    const command = accountingCommands.find(cm => cm === accountingCommand)
 
     if (!command) {
         ctx.reply(`Unknown Command, available commands - ${accountingCommands.join(" ")}`);
+        return;
     }
 
-    fetch(`${BUDGET_SERVICE_API_URL}/${command}`)
+    const validationResult = validationSchema[command](args)
+
+    if (!validationResult.isValid) {
+        ctx.reply(validationResult.message);
+        return;
+    }
+
+    fetch(commandUrlBuilders[command](args))
         .then(response => {
             const fallbackResponse = response.clone();
             return response.json()
@@ -52,19 +59,7 @@ export async function accounting(ctx: TelegrafContext) {
                 case 'text':
                     serverData = response.data;
             }
-
-            let result = '';
-
-            for (let i = 0; i < 100; i++) {
-                // serverData += serverData
-                result += serverData;
-            }
-
-            const chunks = chunkSubstr(result, TELEGRAM_MESSAGE_SIZE_LIMIT)
-
-            chunks.forEach((chunk) => {
-                sendNotification(chunk)
-            })
+            ctx.reply(serverData)
         })
         .catch(err => log("Error", err))
 }

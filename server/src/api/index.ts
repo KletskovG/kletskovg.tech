@@ -1,6 +1,5 @@
 export { homeHandler } from "./home/homeHandler";
 export { doneHandler, doneMessageHandler } from "./done/doneHandler";
-export {failHandler} from "./fail/failHandler";
 
 export { academyHandler } from "./academy/academyHandler";
 export { getAcademyConfigHandler, setAcademyConfigHandler } from "./academy/academyConfigHandler";
