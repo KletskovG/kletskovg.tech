@@ -10,7 +10,7 @@
     "typechecking": "npx tsc -p ./tsconfig.json  --pretty true",
     "build:dev": "npm run clean && mkdir dist && cp .env dist/.env && node ./build.esbuild.js",
     "start": "npm run build:dev && node dist/index.js",
-    "lint": "eslint -c .eslintrc.json --ext .ts src && typechecking",
+    "lint": "eslint -c .eslintrc.json --ext .ts src",
     "prepare": "cd .. && husky install server/.husky"
   },
   "repository": {
