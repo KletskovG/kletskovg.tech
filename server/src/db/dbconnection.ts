@@ -15,6 +15,6 @@ export const connectDB = () => {
       .once("open", () => res(mongoose.connections[0]));
 
     mongoose.connect(DB_CONNECTION)
-    .catch(reject)
+    .catch(reject);
   });
 };

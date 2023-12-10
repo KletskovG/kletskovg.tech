@@ -3,7 +3,7 @@ import { IScrapeResult } from "types";
 import { createPuppeteerInstance } from "scrapper/createPuppeteerInstance";
 import { getEnvVariable } from "utils/getEnvVariable";
 import { AcademyConfigModel } from "db/models/academyScrape";
-import { log } from 'logger/logger';
+import { log } from "logger/logger";
 
 const ACADEMY_EMAIL = getEnvVariable("ACADEMY_EMAIL");
 const ACADEMY_PWD = getEnvVariable("ACADEMY_PWD");
@@ -17,7 +17,7 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
 
   const page = await browser.newPage();
 
-  await page.goto(link, { waitUntil: 'load', timeout: 0 });
+  await page.goto(link, { waitUntil: "load", timeout: 0 });
   await page.waitForTimeout(5000);
   console.log("CHECK FOR AUTH");
   await page.type("#login-email", ACADEMY_EMAIL);
@@ -38,7 +38,7 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
       const amountElement = document.querySelector(".up-info__columns p");
       const isActiveProtect = document.querySelector(".badge--yellow");
       let protectText = "";
-      if (Boolean(isActiveProtect)) {
+      if (isActiveProtect) {
         const protectActiveElement = document.querySelector(".up-protect .project__status");
 
         if (protectActiveElement) {
@@ -64,7 +64,7 @@ export async function scrapeProjectInfo(checkOptionalCourses = false): Promise<s
   let isAnyProjectsPresent = false;
 
   const courses = await AcademyConfigModel.find({});
-  log('Info', '========= \n Start scraping proect info');
+  log("Info", "========= \n Start scraping proect info");
 
   if (!courses.length && !courses.some(course => course.protectActive)) {
     return null;
@@ -80,13 +80,13 @@ export async function scrapeProjectInfo(checkOptionalCourses = false): Promise<s
     }
 
     const course = courses[i];
-    log('Info', `Processing ${course}`);
+    log("Info", `Processing ${course}`);
 
     const courseInfo = await scrapeCourse(course.additional.projects);
     result += `\n ${course.name}`;
     const { amountOfProjects } = courseInfo;
 
-    log('Info', `End processing ${courseInfo}`);
+    log("Info", `End processing ${courseInfo}`);
 
     if (amountOfProjects > 0) {
       result += `\nAmount of available projects - ${amountOfProjects}`;

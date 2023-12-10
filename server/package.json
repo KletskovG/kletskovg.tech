@@ -7,9 +7,10 @@
     "clean": "rm -rf ./dist",
     "build": "npm run clean && mkdir dist && cp .env dist/.env && node ./build.esbuild.js",
     "build:ci": "touch .env && npm run build && rm dist/.env",
+    "typechecking": "npx tsc -p ./tsconfig.json  --pretty true",
     "build:dev": "npm run clean && mkdir dist && cp .env dist/.env && node ./build.esbuild.js",
     "start": "npm run build:dev && node dist/index.js",
-    "lint": "eslint -c .eslintrc.json --ext .ts src",
+    "lint": "eslint -c .eslintrc.json --ext .ts src && typechecking",
     "prepare": "cd .. && husky install server/.husky"
   },
   "repository": {

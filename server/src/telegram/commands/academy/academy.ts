@@ -15,9 +15,9 @@ export function academy() {
           const notification = result ? `Scrape result \n ${result}` : "Empty Result";
           ctx.reply(notification);
         })
-        .catch((err = '') => {
+        .catch((err = "") => {
           const errorMessage = `WHILE SCRAPE ${JSON.stringify(err)}`;
-          log('Error', errorMessage);
+          log("Error", errorMessage);
         });
     } catch (error) {
       ctx.reply(error);
