@@ -1,4 +1,3 @@
-import got from "got";
 import { createHash, createHmac } from "crypto";
 import qs from "qs";
 import { getEnvVariable } from "utils/getEnvVariable";

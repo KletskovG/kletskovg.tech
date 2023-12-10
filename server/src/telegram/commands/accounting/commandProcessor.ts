@@ -64,6 +64,21 @@ export const validationSchema: Record<TAccountingCommand, ISchemaValidator> = {
                 (typeof end === "number" && !Number.isNaN(start)),
             message: "Start and end dates have to be valid. Format - report <start> <end>",
         };
+    },
+    "update": (args) => {
+        if (args.length < 2) {
+            return {
+                isValid: false,
+                message: "Min 2 arguments required. Format - <transaction_id> <expense> <date?> <category?> <note?>"
+            };
+        }
+
+        const amount = Number(args[1]);
+
+        return {
+            isValid: typeof amount === "number" && !Number.isNaN(amount),
+            message: "Amount have to be number",
+        };
     }
 };
 
@@ -106,6 +121,17 @@ export const commandUrlBuilders: Record<TAccountingCommand, (args: string[]) => 
 
         requestURL.searchParams.append("start", args[0]);
         requestURL.searchParams.append("end", args[1]);
+        return requestURL.toString();
+    },
+    "update": (args) => {
+        const requestURL = new URL(`${BUDGET_SERVICE_API_URL}/update`);
+
+        requestURL.searchParams.append("transaction", args[0]);
+        requestURL.searchParams.append("amount", args[1]);
+        requestURL.searchParams.append("date", args[2] ?? "");
+        requestURL.searchParams.append("category", args[3] ?? "");
+        requestURL.searchParams.append("note", args[4] ?? "");
+
         return requestURL.toString();
     }
 };

@@ -56,8 +56,10 @@ export async function accounting(ctx: TelegrafContext) {
             switch (response.type) {
                 case "json":
                     serverData = JSON.stringify(response.data);
+                    break;
                 case "text":
                     serverData = response.data;
+                    break;
             }
             ctx.reply(serverData);
         })
