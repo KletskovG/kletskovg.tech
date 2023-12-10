@@ -101,7 +101,7 @@
     "stylelint-order": "6.0.3",
     "stylelint-scss": "5.2.1",
     "stylelint-stylistic": "0.4.3",
-    "vite": "4.4.9"
+    "vite": "4.4.12"
   },
   "babel": {
     "presets": [
