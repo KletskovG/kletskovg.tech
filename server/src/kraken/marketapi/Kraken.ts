@@ -1,4 +1,3 @@
-import got from "got";
 import { createHash, createHmac } from "crypto";
 import qs from "qs";
 import { getEnvVariable } from "utils/getEnvVariable";
@@ -79,7 +78,7 @@ const rawRequest = async <TResult extends IKrakenResponse>(
     body: qs.stringify(params),
   });
 
-  const { body } = await got(url, options);
+  const body = await fetch(url, options).then(response => response.json());
   const response: TResult = JSON.parse(body);
   if(response.error?.length) {
     const error = response.error

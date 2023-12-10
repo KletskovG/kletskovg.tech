@@ -1,4 +1,4 @@
-FROM node:18-slim as build-stage
+FROM node:21-slim as build-stage
 
 RUN apt-get update && apt-get install gnupg wget -y && \
   wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg && \
@@ -16,7 +16,7 @@ RUN npm install
 COPY ./ /
 RUN npm run build:ci
 
-FROM node:18-slim
+FROM node:21-slim
 COPY --from=build-stage / /
 EXPOSE 3000
 CMD ["node", "/dist/index.js"];

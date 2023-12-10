@@ -19,7 +19,6 @@ app.use(cors());
 app.use(buildRouter());
 
 const PORT = getEnvVariable("PORT") || 3000;
-console.log(PORT);
 app.listen(PORT, () => {
   log(
     "Notify",

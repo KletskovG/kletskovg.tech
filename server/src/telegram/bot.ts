@@ -7,17 +7,16 @@ import TelegrafContext from "telegraf/typings/context";
 import {
   chatid,
   academy,
-  homeworks,
-  status,
-  start,
-  stop,
+  accounting,
 } from "telegram/commands";
+import { log } from "src/logger/logger";
 
 const BOT_TOKEN = getEnvVariable("BOT_TOKEN") || "";
 const CHAT_NUMBER = getEnvVariable("CHAT_NUMBER") || 1;
 
 const bot = new Telegraf(BOT_TOKEN);
-bot.launch();
+bot.launch()
+  .catch((err) => log("Error", `Cant launch bot: ${err}`));
 
 export function registerCommandHanlder(
   command: EBotCommands,
@@ -36,12 +35,8 @@ export function registerCommandHanlder(
 }
 
 registerCommandHanlder("chatid", chatid);
-registerCommandHanlder("academy", academy());
-registerCommandHanlder("homeworks", homeworks);
-
-registerCommandHanlder("kraken_stop", stop, true);
-registerCommandHanlder("kraken_start", start, true);
-registerCommandHanlder("kraken_start", status, true);
+registerCommandHanlder("academy", academy(), true);
+registerCommandHanlder("acc", accounting, true);
 
 export function sendNotification(message: string, chaitId = CHAT_NUMBER) {
   bot.telegram.sendMessage(chaitId, message);

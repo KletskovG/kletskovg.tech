@@ -51,7 +51,7 @@ export function readLogs(sinceMinutes?: number): Promise<string[]> {
         const startTime = currentTime - sinceMinutes * 60 * 1000;
         const logTime = getLogTime(line);
 
-        if (logTime >= startTime) {
+        if (Number(logTime) >= startTime) {
           logs.push(line);
         }
 

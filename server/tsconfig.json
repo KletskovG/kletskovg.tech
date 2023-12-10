@@ -10,7 +10,6 @@
     "noUnusedParameters": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
       "*": [

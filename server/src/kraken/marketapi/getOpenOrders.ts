@@ -1,4 +1,4 @@
-import { KrakenClient } from "./Kraken.ts";
+import { KrakenClient } from "./Kraken";
 import { KrakenError } from "kraken/KrakenError";
 import { inferErrorType } from "utils/inferErrorType";
 import { log } from "logger/logger";

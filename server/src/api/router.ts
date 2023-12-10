@@ -2,21 +2,17 @@ import { Router } from "express";
 import { registerHandler } from "./registerHandler";
 import {
   homeHandler,
-  cdHandler,
   doneHandler,
   doneMessageHandler,
-  failHandler,
   flushLogsHandler,
   readLogsHandler,
 } from "api";
 
-import budgetRouter from "api/budget/budgetRouter";
 import academyRouter from "api/academy/academyRouter";
 
 export function buildRouter(): Router {
   const router = Router();
 
-  router.use(budgetRouter);
   router.use(academyRouter);
 
   registerHandler(
@@ -24,12 +20,6 @@ export function buildRouter(): Router {
     "/",
     "get",
     homeHandler
-  );
-  registerHandler(
-    router,
-    "/cd",
-    "get",
-    cdHandler
   );
   registerHandler(
     router,
@@ -42,12 +32,6 @@ export function buildRouter(): Router {
     "/done/:text",
     "get",
     doneMessageHandler
-  );
-  registerHandler(
-    router,
-    "/fail",
-    "get",
-    failHandler
   );
   registerHandler(
     router,
