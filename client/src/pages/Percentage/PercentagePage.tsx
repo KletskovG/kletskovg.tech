@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { Formik, Field, Form, ErrorMessage, validateYupSchema } from 'formik';
 import { ValidationSchema } from './PercentagePage.const';
-import { calcReturn } from './Percentage.utils/calcReturn';
+import { calcReturn, IIncomeResult } from './Percentage.utils/calcReturn';
 import { downloadFile } from './Percentage.utils/downloadFile';
 import { PercentageFormField } from './PercentagePage.typings';
 
@@ -9,7 +9,7 @@ import './PercentagePage.scss';
 
 export function PercentagePage() {
     const onFormSubmit = useCallback(() => {}, []);
-    const [result, setResult] = useState('0');
+    const [result, setResult] = useState<IIncomeResult>({income: '0', details: []});
     const [formValues, setFormValues] = useState<(string | number)[]>([]);
     const minDateRef = useRef<HTMLInputElement | null>(null);
     const maxDateRef = useRef<HTMLInputElement | null>(null);
@@ -23,25 +23,25 @@ export function PercentagePage() {
                     return;
                 }
 
-                const income = calcReturn(
+                const interest = calcReturn(
                     Number(money),
                     interestRef.current.value,
                     [`${minDate}`, `${maxDate}`],
                     Number(percent),
                 );
 
-                setResult(`${income.result}`);
+                setResult(interest);
                 setFormValues([
                     money,
                     percent,
                     interestRef.current.value,
                     minDate,
                     maxDate,
-                    income.result
+                    interest.income
                 ]);
             })
             .catch((err) => {
-                setResult('Invalid Form');
+                setResult(prev => ({...prev, income: 'Invalid Form'}));
                 setFormValues([]);
                 return err;
             })
@@ -49,9 +49,15 @@ export function PercentagePage() {
 
     const onReportSave = useCallback(() => {
         if (formValues.length) {
-            downloadFile(formValues);
+            downloadFile(result.details.map(([incomeTick, tickDate]) => {
+                return [
+                    ...formValues.slice(0, formValues.length - 2),
+                    tickDate,
+                    incomeTick
+                ].join(',');
+            }));
         }
-    }, [formValues]);
+    }, [formValues, result.details]);
 
     return (
         <div className="Page Page__Percentage">
@@ -132,7 +138,7 @@ export function PercentagePage() {
                             </ErrorMessage>
                         </div>
                     </div>
-                    <p><strong>Result: {result}</strong></p>
+                    <p><strong>Result: {result.income}</strong></p>
                     <button
                         type="submit"
                         onClick={onReportSave}
