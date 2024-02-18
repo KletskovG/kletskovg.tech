@@ -20,12 +20,22 @@ export function calcReturn(
         : Number((interest / 12 / 100 + 1).toFixed(4));
     const rangeDiff = getDateDiff(dates[0], dates[1]);
     
-    for (let i = 0; i < rangeDiff; i++) {
+    for (let i = 1; i <= rangeDiff; i++) {
         income *= incomePercentMultiplier;
-        const incomeTick = Number(income.toFixed(0));
-        const startTimestamp = new Date(dates[0]).getTime();
-        const incomeTickDate = getDateStr(startTimestamp + TimePeriods.MONTH * (i + 1));
-        details.push([incomeTick, incomeTickDate]);
+        
+        if (interestRange === 'year') {
+            if (i % 12 === 0) {
+                const incomeTick = Number(income.toFixed(0));
+                const startTimestamp = new Date(dates[0]).getTime();
+                const incomeTickDate = getDateStr(startTimestamp + TimePeriods.YEAR * (i / 12));
+                details.push([incomeTick, incomeTickDate]);        
+            }
+        } else {
+            const incomeTick = Number(income.toFixed(0));
+            const startTimestamp = new Date(dates[0]).getTime();
+            const incomeTickDate = getDateStr(startTimestamp + TimePeriods.MONTH * (i));
+            details.push([incomeTick, incomeTickDate]);
+        }
     }
 
     income = Number(income.toFixed(0));

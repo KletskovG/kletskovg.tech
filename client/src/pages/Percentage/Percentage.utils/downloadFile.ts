@@ -9,7 +9,7 @@ export function downloadFile(values: (number|string)[]) {
 
     let fileName = 'PayoutReport';
     fileName += `${currentDate.getUTCFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-    fileName += `_-${currentDate.getHours()}-${currentDate.getMinutes()}`;
+    fileName += `_${currentDate.getHours()}-${currentDate.getMinutes()}`;
     fileName += '.csv';
 
     saveAs(fileData, fileName);
