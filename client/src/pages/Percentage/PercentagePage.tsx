@@ -102,6 +102,7 @@ export function PercentagePage() {
                                     {msg => <div className='Percentage-Form-Error'>{msg}</div>}
                                 </ErrorMessage>
                                 <Field as="select" name="interest" innerRef={interestRef}>
+                                    <option value="day">Daily</option>
                                     <option value="month">Monthly</option>
                                     <option value="year">Yearly</option>
                                 </Field>
