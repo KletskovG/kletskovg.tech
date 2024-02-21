@@ -5,5 +5,9 @@ export function getDateDiff(start: string, end: string) {
     const endDate = new Date(end);
     const diff = endDate.getTime() - startDate.getTime();
     const months = Math.floor(diff / TimePeriods.DAY / 30);
-    return months;
+    const days = Math.floor(diff / TimePeriods.DAY);
+    return {
+        months,
+        days,
+    };
 }

@@ -15,17 +15,36 @@ export function calcReturn(
 ): IIncomeResult {
     let details: [number ,string][] = [];
     let income = initialMoney;
-    let incomePercentMultiplier = interestRange === 'month'
-        ? Number((interest / 100 + 1).toFixed(2))
-        : Number((interest / 12 / 100 + 1).toFixed(4));
-    const rangeDiff = getDateDiff(dates[0], dates[1]);
+    let incomePercentMultiplier = getIncomePercentMultiplier(interest, interestRange);
+    const { months, days } = getDateDiff(dates[0], dates[1]);
+
+    // TODO: Refactor with loop below
+    if (interestRange === 'day') {
+        for (let i = 1; i <= days; i++) {
+            income *= incomePercentMultiplier;
+            const incomeTick = Number(income.toFixed(0));
+            const startTimestamp = new Date(dates[0]).getTime();
+            const incomeTickDate = getDateStr(startTimestamp + TimePeriods.DAY * i);
+            details.push([incomeTick, incomeTickDate]);
+        }
+    }
     
-    for (let i = 0; i < rangeDiff; i++) {
+    for (let i = 1; i <= months; i++) {
         income *= incomePercentMultiplier;
-        const incomeTick = Number(income.toFixed(0));
-        const startTimestamp = new Date(dates[0]).getTime();
-        const incomeTickDate = getDateStr(startTimestamp + TimePeriods.MONTH * (i + 1));
-        details.push([incomeTick, incomeTickDate]);
+        
+        if (interestRange === 'year') {
+            if (i % 12 === 0) {
+                const incomeTick = Number(income.toFixed(0));
+                const startTimestamp = new Date(dates[0]).getTime();
+                const incomeTickDate = getDateStr(startTimestamp + TimePeriods.YEAR * (i / 12));
+                details.push([incomeTick, incomeTickDate]);        
+            }
+        } else {
+            const incomeTick = Number(income.toFixed(0));
+            const startTimestamp = new Date(dates[0]).getTime();
+            const incomeTickDate = getDateStr(startTimestamp + TimePeriods.MONTH * (i));
+            details.push([incomeTick, incomeTickDate]);
+        }
     }
 
     income = Number(income.toFixed(0));
@@ -33,5 +52,18 @@ export function calcReturn(
     return {
         details,
         income: String(income),
+    }
+}
+
+function getIncomePercentMultiplier(interest:number, interestRange: string): number {
+    switch (interestRange) {
+        case 'day':
+            return Number((interest / 100 + 1).toFixed(4));
+        case 'month':
+            return Number((interest / 100 + 1).toFixed(2));
+        case 'year':
+            return Number((interest / 12 / 100 + 1).toFixed(4))
+        default:
+            return Number((interest / 12 / 100 + 1).toFixed(4));
     }
 }
