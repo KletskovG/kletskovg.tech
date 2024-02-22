@@ -7,9 +7,11 @@ import { PercentageFormField } from './PercentagePage.typings';
 
 import './PercentagePage.scss';
 
+const defaultResult: IIncomeResult = {income: '0', details: [], incomePercentMultiplier: 0};
+
 export function PercentagePage() {
     const onFormSubmit = useCallback(() => {}, []);
-    const [result, setResult] = useState<IIncomeResult>({income: '0', details: []});
+    const [result, setResult] = useState<IIncomeResult>(defaultResult);
     const [formValues, setFormValues] = useState<(string | number)[]>([]);
     const minDateRef = useRef<HTMLInputElement | null>(null);
     const maxDateRef = useRef<HTMLInputElement | null>(null);
@@ -140,6 +142,11 @@ export function PercentagePage() {
                         </div>
                     </div>
                     <p><strong>Result: {result.income}</strong></p>
+                    <details>
+                        <summary><strong>Income percent multiplier {result.incomePercentMultiplier}</strong></summary>
+                        <p>1/30 from <strong>percent</strong> for monthly income</p>
+                        <p>1/12 from <strong>percent</strong> for yearly</p>
+                    </details>
                     <button
                         type="submit"
                         onClick={onReportSave}
