@@ -18,12 +18,16 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
   const page = await browser.newPage();
 
   await page.goto(link, { waitUntil: "load", timeout: 0 });
+  log("Notify", "GOTO FINISHED");
   await page.waitForTimeout(5000);
   console.log("CHECK FOR AUTH");
   await page.type("#login-email", ACADEMY_EMAIL);
+  log("Notify", "EMAIL");
   await page.type("#login-password", ACADEMY_PWD);
+  log("Notify", "PASSWORRD");
   await page.click("input.button");
   await page.waitForNavigation();
+  log("Notify", "Button clicked");
 
   const isAuthFail = await page.evaluate(() => {
     return Boolean(document.querySelector("#login-email"));
@@ -34,6 +38,7 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
     await browser.close();
     throw new Error("Academy scrape: AUTH ERROR");
   } else {
+    log("Notify", "Check started");
     const scrapeResult = await page.evaluate(() => {
       const amountElement = document.querySelector(".up-info__columns p");
       const isActiveProtect = document.querySelector(".badge--yellow");
@@ -47,6 +52,7 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
       }
 
 
+      log("Notify", "GOTO FINISHED");
       return {
         isCheckAvailable: Boolean(document.querySelector(".up-info--check .button--green")),
         protectActiveText: protectText,
