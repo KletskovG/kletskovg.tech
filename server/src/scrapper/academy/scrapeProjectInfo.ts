@@ -19,7 +19,7 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
 
   await page.goto(link, { waitUntil: "load", timeout: 0 });
   log("Info", "GOTO FINISHED");
-  await page.waitForTimeout(5000);
+  await page.waitForSelector("#login-email");
   console.log("CHECK FOR AUTH");
   await page.type("#login-email", ACADEMY_EMAIL);
   log("Info", "EMAIL");
@@ -41,22 +41,16 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
     log("Info", "Check started");
     const scrapeResult = await page.evaluate(() => {
       const amountElement = document.querySelector(".up-info__columns p");
-      log("Notify", "Amount");
       const isActiveProtect = document.querySelector(".badge--yellow");
-      log("Notify", "isActive");
       let protectText = "";
       if (isActiveProtect) {
         const protectActiveElement = document.querySelector(".up-protect .project__status");
-        log("Notify", "activeElement");
 
         if (protectActiveElement) {
           protectText = protectActiveElement.textContent;
         }
       }
 
-
-      log("Info", "GOTO FINISHED");
-      log("Notify", "Return");
       return {
         isCheckAvailable: Boolean(document.querySelector(".up-info--check .button--green")),
         protectActiveText: protectText,

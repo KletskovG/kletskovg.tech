@@ -3,11 +3,6 @@ import puppeteer from "puppeteer";
 import { log } from "logger/logger";
 
 export async function createPuppeteerInstance() {
-  // console.info("LAUNCHING PUPETEER");
-  // const browser = await ;
-  // console.info("LAUNCHED PUPETEER");
-
-  // return browser;
   return puppeteer.launch({
     headless: true,
     executablePath: "/usr/bin/google-chrome",

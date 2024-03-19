@@ -78,3 +78,4 @@ client/src/routers/TradingRouter.tsx
 client/src/components/pages/Trading
 client/src/store/trading
 client/workspace.code-workspace
+docker-compose.yml
