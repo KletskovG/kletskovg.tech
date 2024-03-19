@@ -18,16 +18,16 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
   const page = await browser.newPage();
 
   await page.goto(link, { waitUntil: "load", timeout: 0 });
-  log("Notify", "GOTO FINISHED");
+  log("Info", "GOTO FINISHED");
   await page.waitForTimeout(5000);
   console.log("CHECK FOR AUTH");
   await page.type("#login-email", ACADEMY_EMAIL);
-  log("Notify", "EMAIL");
+  log("Info", "EMAIL");
   await page.type("#login-password", ACADEMY_PWD);
-  log("Notify", "PASSWORRD");
+  log("Info", "PASSWORRD");
   await page.click("input.button");
   await page.waitForNavigation();
-  log("Notify", "Button clicked");
+  log("Info", "Button clicked");
 
   const isAuthFail = await page.evaluate(() => {
     return Boolean(document.querySelector("#login-email"));
@@ -38,13 +38,16 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
     await browser.close();
     throw new Error("Academy scrape: AUTH ERROR");
   } else {
-    log("Notify", "Check started");
+    log("Info", "Check started");
     const scrapeResult = await page.evaluate(() => {
       const amountElement = document.querySelector(".up-info__columns p");
+      log("Notify", "Amount");
       const isActiveProtect = document.querySelector(".badge--yellow");
+      log("Notify", "isActive");
       let protectText = "";
       if (isActiveProtect) {
         const protectActiveElement = document.querySelector(".up-protect .project__status");
+        log("Notify", "activeElement");
 
         if (protectActiveElement) {
           protectText = protectActiveElement.textContent;
@@ -52,7 +55,8 @@ async function scrapeCourse(link: string): Promise<IScrapeResult> {
       }
 
 
-      log("Notify", "GOTO FINISHED");
+      log("Info", "GOTO FINISHED");
+      log("Notify", "Return");
       return {
         isCheckAvailable: Boolean(document.querySelector(".up-info--check .button--green")),
         protectActiveText: protectText,
