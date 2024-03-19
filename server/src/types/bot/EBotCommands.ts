@@ -4,4 +4,5 @@ export type EBotCommands =
   | "acc"
   | "chatid" 
   | "academy"
+  | "ui"
   | `${orderBotCommand}_${openedCoursesNames}`

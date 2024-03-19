@@ -15,6 +15,7 @@ export type EEnvVariable =
   | "BINANCE_API_KEY"
   | "BINANCE_SECRET"
   | "TINKOFF_API_KEY"
+  | "ACCOUNTING_UI_URL"
 
 
 export const enum EArgvVariable {
@@ -36,7 +37,9 @@ export const enum EArgvVariable {
   BINANCE_API_KEY,
   BINANCE_SECRET,
 
-  TINKOFF_API_KEY
+  TINKOFF_API_KEY,
+
+  ACCOUNTING_UI_URL
 }
 
 export const ArgvMap: Record<EEnvVariable, EArgvVariable> = {
@@ -60,4 +63,6 @@ export const ArgvMap: Record<EEnvVariable, EArgvVariable> = {
   BINANCE_SECRET: 16,
 
   TINKOFF_API_KEY: 17,
+
+  ACCOUNTING_UI_URL: 18,
 };

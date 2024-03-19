@@ -8,6 +8,7 @@ import {
   chatid,
   academy,
   accounting,
+  uiCommand,
 } from "telegram/commands";
 import { log } from "src/logger/logger";
 
@@ -37,6 +38,7 @@ export function registerCommandHanlder(
 registerCommandHanlder("chatid", chatid);
 registerCommandHanlder("academy", academy(), true);
 registerCommandHanlder("acc", accounting, true);
+registerCommandHanlder("ui", uiCommand);
 
 export function sendNotification(message: string, chaitId = CHAT_NUMBER) {
   bot.telegram.sendMessage(chaitId, message);
