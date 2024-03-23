@@ -4,7 +4,6 @@ export function withRetries<Cb extends CallableFunction>(cb: Cb, numberOfRetries
     let retriesRemaining = numberOfRetries;
 
     const executor = async (...args: unknown[]) => {
-        console.log("RUN WRAPPED FUNC", retriesRemaining);
         try {
             return await cb(...args);
         } catch (err) {

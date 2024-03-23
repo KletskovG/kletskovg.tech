@@ -68,11 +68,11 @@ export async function scrapeProjectInfo(checkOptionalCourses = false): Promise<s
   let isAnyProjectsPresent = false;
 
   // TODO: Delete after test
-  const random = Math.random();
+  // const random = Math.random();
 
-  if (random >= 0.5) {
-    throw new Error("Bad luck today");
-  }
+  // if (random >= 0.5) {
+  //   throw new Error("Bad luck today");
+  // }
 
   const courses = await AcademyConfigModel.find({});
   log("Info", "========= \n Start scraping proect info");
