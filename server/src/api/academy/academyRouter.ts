@@ -12,7 +12,7 @@ registerHandler(
   academyRouter,
   "/academy",
   "get",
-  academyHandler
+  academyHandler,
 );
 registerHandler(
   academyRouter,
