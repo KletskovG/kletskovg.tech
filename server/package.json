@@ -48,7 +48,7 @@
   "dependencies": {
     "cors": "2.8.5",
     "escape-html": "^1.0.3",
-    "express": "4.17.3",
+    "express": "4.19.2",
     "kraken-api": "1.0.1",
     "mongoose": "6.8.3",
     "puppeteer": "22.5.0",
